@@ -11,7 +11,7 @@ typedef enum Type {
 
 typedef union Item {
 	Task task;
-	Folder Folder;
+	Folder folder;
 } Item;
 
 typedef struct ListItem {
