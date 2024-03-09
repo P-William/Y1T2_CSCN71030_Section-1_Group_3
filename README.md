@@ -23,3 +23,8 @@
 - File Names - Lower Case (underscore separated)
     - `my_file.c`
     - `user_input_handler.h`
+	
+	
+
+### Requirments
+Check out [GitHub Requirements](https://github.com/P-William/Y1T2_CSCN71030_Section-1_Group_3/blob/main/GitHub%20Requirements.pdf)
