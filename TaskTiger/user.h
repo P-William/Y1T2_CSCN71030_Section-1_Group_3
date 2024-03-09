@@ -27,7 +27,7 @@ bool equalUser(User, User);
 
 User copyUser(User);
 
-bool CopyUserInPlace(User* dest, User src);
+bool copyUserInPlace(User* dest, User src);
 
 
 

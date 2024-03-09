@@ -22,10 +22,24 @@ typedef enum Priority {
 } Priority;
 
 typedef struct Task {
-	char taskTitle[TASK_TITLE_LENGTH];
-	char taskDescription[TASK_DESCRIPTION_LENGTH];
+	char title[TASK_TITLE_LENGTH];
+	char description[TASK_DESCRIPTION_LENGTH];
 	Status status;
 	Priority priority;
 	// TODO: Tags
 	// TODO: Date
 } Task;
+
+Task createTask(const char* title);
+
+bool equalTask(Task, Task);
+
+Task copyTask(Task src);
+bool copyTaskInPlace(Task* dest, Task src);
+
+void printStatus(Status);
+void printStatusT(Task);
+void printPriority(Priority);
+void printPriorityT(Task);
+
+void debugPrintTask(Task);
