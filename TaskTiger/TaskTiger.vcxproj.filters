@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\ADTs">
+      <UniqueIdentifier>{c8f21f3b-04cd-44d6-93bb-d6c6b0407050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ADTs">
+      <UniqueIdentifier>{dd95174c-4746-4a2a-85c7-1bedd932f71f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -21,10 +27,40 @@
     <ClCompile Include="input_handler.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="task.c">
+      <Filter>Source Files\ADTs</Filter>
+    </ClCompile>
+    <ClCompile Include="folder.c">
+      <Filter>Source Files\ADTs</Filter>
+    </ClCompile>
+    <ClCompile Include="list.c">
+      <Filter>Source Files\ADTs</Filter>
+    </ClCompile>
+    <ClCompile Include="list_item.c">
+      <Filter>Source Files\ADTs</Filter>
+    </ClCompile>
+    <ClCompile Include="user.c">
+      <Filter>Source Files\ADTs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="input_handler.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="task.h">
+      <Filter>Header Files\ADTs</Filter>
+    </ClInclude>
+    <ClInclude Include="folder.h">
+      <Filter>Header Files\ADTs</Filter>
+    </ClInclude>
+    <ClInclude Include="list.h">
+      <Filter>Header Files\ADTs</Filter>
+    </ClInclude>
+    <ClInclude Include="list_item.h">
+      <Filter>Header Files\ADTs</Filter>
+    </ClInclude>
+    <ClInclude Include="user.h">
+      <Filter>Header Files\ADTs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -127,11 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="folder.c" />
     <ClCompile Include="input_handler.c" />
+    <ClCompile Include="list.c" />
+    <ClCompile Include="list_item.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="task.c" />
+    <ClCompile Include="user.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="folder.h" />
     <ClInclude Include="input_handler.h" />
+    <ClInclude Include="list.h" />
+    <ClInclude Include="list_item.h" />
+    <ClInclude Include="task.h" />
+    <ClInclude Include="user.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
