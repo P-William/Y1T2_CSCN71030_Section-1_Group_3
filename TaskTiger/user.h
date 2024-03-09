@@ -32,8 +32,8 @@ bool copyUserInPlace(User* dest, User src);
 
 
 
-void printTigerStatus(TigerStatus);
-void printTigerStatusU(User);
+void printTigerStatus(TigerStatus, bool newLine);
+void printTigerStatusU(User, bool newLine);
 
 
 void debugPrintUser(User);

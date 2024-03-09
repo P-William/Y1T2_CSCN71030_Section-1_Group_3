@@ -5,8 +5,10 @@
 #define TASK_TITLE_LENGTH 128
 #define TASK_DESCRIPTION_LENGTH 512
 
+#define EMPTY_DESCRIPTION_PLACEHOLDER "EMPTY_TASK_DESCRIPTION"
+
 typedef enum Status {
-	NONE,
+	UNSET,
 	IN_PROGRESS,
 	ON_HOLD,
 	BLOCKED,
@@ -14,7 +16,7 @@ typedef enum Status {
 } Status;
 
 typedef enum Priority {
-	NONE,
+	UNSET,
 	LOW,
 	MEDIUM,
 	HIGH,
@@ -37,9 +39,9 @@ bool equalTask(Task, Task);
 Task copyTask(Task src);
 bool copyTaskInPlace(Task* dest, Task src);
 
-void printStatus(Status);
-void printStatusT(Task);
-void printPriority(Priority);
-void printPriorityT(Task);
+void printStatus(Status, bool newLine);
+void printStatusT(Task, bool newLine);
+void printPriority(Priority, bool newLine);
+void printPriorityT(Task, bool newLine);
 
 void debugPrintTask(Task);

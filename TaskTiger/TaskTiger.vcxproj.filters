@@ -19,12 +19,15 @@
     <Filter Include="Header Files\ADTs">
       <UniqueIdentifier>{dd95174c-4746-4a2a-85c7-1bedd932f71f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{9824dc19-60b6-4f4d-a7ef-2d1e08c90b57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{4302e583-0a94-4542-8a2d-9dcd88af4089}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="input_handler.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="task.c">
@@ -42,11 +45,14 @@
     <ClCompile Include="user.c">
       <Filter>Source Files\ADTs</Filter>
     </ClCompile>
+    <ClCompile Include="input_handler.c">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="string_utils.c">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="input_handler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="task.h">
       <Filter>Header Files\ADTs</Filter>
     </ClInclude>
@@ -61,6 +67,12 @@
     </ClInclude>
     <ClInclude Include="user.h">
       <Filter>Header Files\ADTs</Filter>
+    </ClInclude>
+    <ClInclude Include="input_handler.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="string_utils.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

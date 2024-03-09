@@ -132,6 +132,7 @@
     <ClCompile Include="list.c" />
     <ClCompile Include="list_item.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="string_utils.c" />
     <ClCompile Include="task.c" />
     <ClCompile Include="user.c" />
   </ItemGroup>
@@ -140,6 +141,7 @@
     <ClInclude Include="input_handler.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="list_item.h" />
+    <ClInclude Include="string_utils.h" />
     <ClInclude Include="task.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>
