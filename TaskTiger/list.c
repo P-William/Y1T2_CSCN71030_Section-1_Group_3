@@ -86,15 +86,39 @@ bool insert(List* list, size_t index, ListItem item) {
 	return true;
 }
 
-bool removeItem(List*, ListItem);
-bool pop(List*, size_t index);
-bool clear(List*);
+bool removeItem(List* list, ListItem item) {
 
-bool set(List*, size_t index, ListItem);
+}
+bool pop(List* list, size_t index) {
 
-size_t size(List);
-bool isEmpty(List);
+}
+bool clear(List* list) {
 
-bool contains(List, ListItem);
+}
 
-void debugPrintList(List);
+bool set(List* list, size_t index, ListItem item) {
+
+}
+
+size_t size(List list) {
+	return list.size;
+}
+bool isEmpty(List list) {
+	return (list.size == 0);
+}
+
+bool contains(List list, ListItem item) {
+	for (int i = 0; i < (list.size - 1); i++) {
+		bool match = equalListItem(list.arr[i], item);
+		if (match) {
+			return true;
+		}
+	}
+	return false;
+}
+
+void debugPrintList(List list) {
+	for (int i = 0; i < (list.size - 1); i++) {
+		debugPrintListItem(list.arr[i]);
+	}
+}
