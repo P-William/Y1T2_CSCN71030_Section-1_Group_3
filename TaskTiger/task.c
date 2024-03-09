@@ -1,4 +1,5 @@
 
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <string.h>
@@ -10,9 +11,9 @@
 Task createTask(const char* title) {
 	Task newTask;
 	strncpy(newTask.title, title, TASK_TITLE_LENGTH);
-	strncpy(newTask.description, EMPTY_DESCRIPTION_PLACEHOLDER, TASK_DESCRIPTION_LENGTH);
-	newTask.status = UNSET;
-	newTask.priority = UNSET;
+	strncpy(newTask.description, TASK_EMPTY_DESCRIPTION_PLACEHOLDER, TASK_DESCRIPTION_LENGTH);
+	newTask.status = UNSET_STATUS;
+	newTask.priority = UNSET_PRIORITY;
 	return newTask;
 }
 
@@ -47,7 +48,7 @@ bool copyTaskInPlace(Task* dest, Task src) {
 
 void printStatus(Status s, bool newLine) {
 	switch (s) {
-	case UNSET:
+	case UNSET_STATUS:
 		printf("Unset");
 		break;
 	case IN_PROGRESS:
@@ -74,7 +75,7 @@ void printStatusT(Task t, bool newLine) {
 }
 void printPriority(Priority p, bool newLine) {
 	switch (p) {
-	case UNSET:
+	case UNSET_PRIORITY:
 		printf("Unset");
 		break;
 	case LOW:

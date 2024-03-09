@@ -2,14 +2,14 @@
 
 #include "task.h"
 
-#define FOLDER_TITLE_LENGTH 128
+#define FOLDER_NAME_LENGTH 128
 
 typedef struct Folder {
-	char name[FOLDER_TITLE_LENGTH];
+	char name[FOLDER_NAME_LENGTH];
 	// TODO: add list
 } Folder;
 
-Folder createFolder(const char* title);
+Folder createFolder(const char* name);
 
 bool equalFolder(Folder, Folder);
 
