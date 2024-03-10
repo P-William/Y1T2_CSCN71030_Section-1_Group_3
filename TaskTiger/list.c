@@ -77,7 +77,7 @@ bool insert(List* list, size_t index, ListItem item) {
 		}
 	}
 
-	for (int i = list->size; i > index; i--) {
+	for (size_t i = list->size; i > index; i--) {
 		list->arr[i] = list->arr[i - 1];
 	}
 
@@ -92,10 +92,10 @@ bool removeItem(List* list, ListItem item) {
 		return false;
 	}
 
-	for (int i = 0; i < (list->size - 1); i++) {
+	for (size_t i = 0; i < (list->size - 1); i++) {
 		bool match = equalListItem(list->arr[i], item);
 		if (match) {
-			for (int j = i; j < (list->size - 1); j++) {
+			for (size_t j = i; j < (list->size - 1); j++) {
 				list->arr[j] = list->arr[j + 1];
 			}
 
@@ -115,7 +115,7 @@ bool pop(List* list, size_t index) {
 		return false;
 	}
 
-	for (int i = index; i < (list->size - 1); i++) {
+	for (size_t i = index; i < (list->size - 1); i++) {
 		list->arr[i] = list->arr[i + 1];
 	}
 	list->size--;
@@ -154,7 +154,7 @@ bool isEmpty(List list) {
 }
 
 bool contains(List list, ListItem item) {
-	for (int i = 0; i < (list.size - 1); i++) {
+	for (size_t i = 0; i < (list.size - 1); i++) {
 		bool match = equalListItem(list.arr[i], item);
 		if (match) {
 			return true;
