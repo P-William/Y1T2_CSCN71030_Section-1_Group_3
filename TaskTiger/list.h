@@ -4,6 +4,26 @@
 
 #include "list_item.h"
 
+/**
+ * Function pointer type for defining filter functions.
+ *
+ * The filter function should take a pointer to a ListItem and return a boolean value.
+ * If the function returns true, the item is considered a match; otherwise, it's not included.
+ */
+typedef bool (*FilterFunction)(const ListItem*);
+
+typedef enum SortOrder {
+	FOLDER_FIRST,
+	TASK_FIRST
+} SortOrder;
+
+typedef enum SortKey {
+	TITLE,
+	STATUS,
+	PRIORITY,
+	DATE
+} SortKey;
+
 typedef struct List {
 	size_t size;
 	size_t capacity;
@@ -16,6 +36,23 @@ typedef struct List {
  * @return A newly created list.
  */
 List createList();
+
+/**
+ * Creates a new list and copies the content of an existing list into it.
+ *
+ * @param list The source list to be copied.
+ * @return A new list containing the same elements as the source list.
+ */
+List copyList(const List);
+
+/**
+ * Checks if two lists are equal in size, capacity, and element values.
+ *
+ * @param listOne The first list for comparison.
+ * @param listTwo The second list for comparison.
+ * @return true if the lists are equal, false otherwise.
+ */
+bool equalList(const List, const List);
 
 /**
  * Appends an element to the end of the list.
@@ -93,5 +130,16 @@ bool isEmpty(List);
  */
 bool contains(List, ListItem);
 
+
+bool sortList(List*, SortOrder, SortKey);
+
+/**
+ * Filters a list based on a given filter function.
+ *
+ * @param list Pointer to the original list to be filtered.
+ * @param filter A filter function determining whether an item should be included.
+ * @return A new list containing only the items that match the filter function.
+ */
+List filterList(const List*, FilterFunction filter);
 
 void debugPrintList(List);

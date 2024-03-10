@@ -10,12 +10,13 @@
 /**
 * Realloc wrapper that returns a pointer to the original list of reallocation fails.
 * @param arr pointer to the array to be resized
-* @param newSize size of the new array
+* @param newCapacity capacity of the new array
 * 
-* @return returns a pointer to the new array if successful, otherwise returns the original array
+* @return bool value of if the reallocation was successful or not
+* @return returns a pointer to the new array if successful, otherwise returns the original array to prevent data loss
 */
-bool realloc_s(ListItem** arr, size_t newSize) {
-	ListItem* newArr = (ListItem*)realloc(arr, newSize);
+bool realloc_s(ListItem** arr, size_t newCapacity) {
+	ListItem* newArr = (ListItem*)realloc(arr, newCapacity);
 	if (newArr == NULL) {
 		fprintf(stderr, "Failed to realloc\n");
 		return false;
@@ -24,15 +25,27 @@ bool realloc_s(ListItem** arr, size_t newSize) {
 	return true;
 }
 
-bool resizeArray(List* list) {
-	size_t newSize = (list->capacity + CAPACITY_STEP) * sizeof(ListItem);
-	bool updatedArr = realloc_s(list->arr, newSize);
+bool stepArraySize(List* list) {
+	size_t newCapacity = (list->capacity + CAPACITY_STEP) * sizeof(ListItem);
+	bool updatedArr = realloc_s(list->arr, newCapacity);
 	if (!updatedArr) {
 		fprintf(stderr, "Failed to append item due to reallocation failure\n");
 		return false;
 	}
-	list->capacity = newSize;
+	list->capacity = newCapacity;
 	
+	return true;
+}
+
+bool resizeArray(List* list, size_t newCapacity) {
+	size_t newCap = newCapacity * sizeof(ListItem);
+	bool updatedArr = realloc_s(list->arr, newCap);
+	if (!updatedArr) {
+		fprintf(stderr, "Failed to append item due to reallocation failure\n");
+		return false;
+	}
+	list->capacity = newCap;
+
 	return true;
 }
 
@@ -48,6 +61,38 @@ List createList() {
 	return list;
 }
 
+List copyList(const List list) {
+	List newList = createList();
+	bool resized = resizeArray(&newList, list.capacity);
+	if (!resized) {
+		fprintf(stderr, "Failed to resize list\n");
+		exit(-1);
+	}
+	newList.size = list.size;
+	for (size_t i = 0; i < (list.size - 1); i++) {
+		newList.arr[i] = copyListItem(list.arr[i]);
+	}
+
+	return newList;
+}
+
+bool equalList(const List listOne, const List listTwo) {
+	if (listOne.size != listTwo.size) {
+		return false;
+	}
+	if (listOne.capacity != listTwo.capacity) {
+		return false;
+	}
+
+	for (size_t i = 0; i < (listOne.size - 1); i++) {
+		bool isEqual = equalListItem(listOne.arr[i], listTwo.arr[i]);
+		if (!isEqual) {
+			return false;
+		}
+	}
+	return true;
+}
+
 bool append(List* list, ListItem item) {
 	if (list == NULL) {
 		fprintf(stderr, "Cannot append to NULL list\n");
@@ -55,7 +100,7 @@ bool append(List* list, ListItem item) {
 	}
 
 	if (list->size == list->capacity) {
-		bool resized = resizeArray(list);
+		bool resized = stepArraySize(list);
 		if (!resized) {
 			return false;
 		}
@@ -71,7 +116,7 @@ bool insert(List* list, size_t index, ListItem item) {
 	}
 
 	if (list->size == list->capacity) {
-		bool resized = resizeArray(list);
+		bool resized = stepArraySize(list);
 		if (!resized) {
 			return false;
 		}
@@ -92,7 +137,7 @@ bool removeItem(List* list, ListItem item) {
 		return false;
 	}
 
-	for (size_t i = 0; i < (list->size - 1); i++) {
+	for (size_t i = 0; i < list->size; i++) {
 		bool match = equalListItem(list->arr[i], item);
 		if (match) {
 			for (size_t j = i; j < (list->size - 1); j++) {
@@ -154,7 +199,7 @@ bool isEmpty(List list) {
 }
 
 bool contains(List list, ListItem item) {
-	for (size_t i = 0; i < (list.size - 1); i++) {
+	for (size_t i = 0; i < list.size; i++) {
 		bool match = equalListItem(list.arr[i], item);
 		if (match) {
 			return true;
@@ -163,8 +208,25 @@ bool contains(List list, ListItem item) {
 	return false;
 }
 
+bool sortList(List* list, SortOrder order, SortKey key) {
+
+}
+
+List filterList(const List* list, FilterFunction filter) {
+	List filteredList = createList();
+
+	for (size_t i = 0; i < list->size; i++) {
+		bool match = filter(&filteredList, list->arr[i]);
+		if (match) {
+			append(&filteredList, list->arr[i]);
+		}
+	}
+
+	return filteredList;
+}
+
 void debugPrintList(List list) {
-	for (int i = 0; i < (list.size - 1); i++) {
+	for (int i = 0; i < list.size; i++) {
 		debugPrintListItem(list.arr[i]);
 	}
 }
