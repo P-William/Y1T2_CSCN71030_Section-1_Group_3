@@ -2,6 +2,7 @@
 
 #include <stdbool.h>
 
+#define USERNAME_LENGTH 128
 #define MAX_PASSWORD_LENGTH 64
 
 typedef enum TigerStatus {
@@ -15,13 +16,14 @@ typedef enum TigerStatus {
 
 
 typedef struct User {
+	char username[USERNAME_LENGTH];
 	char passward[MAX_PASSWORD_LENGTH];
 	int points;
 	TigerStatus tigerStatus;
 } User;
 
 
-User createUser(const char* password, int points, TigerStatus tigerStatus);
+User createUser(const char* username, const char* password);
 
 bool equalUser(User, User);
 
