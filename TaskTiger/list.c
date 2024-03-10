@@ -87,17 +87,63 @@ bool insert(List* list, size_t index, ListItem item) {
 }
 
 bool removeItem(List* list, ListItem item) {
+	if (list == NULL) {
+		fprintf(stderr, "Cannot set null list. Create a list using createList\n");
+		return false;
+	}
 
+	for (int i = 0; i < (list->size - 1); i++) {
+		bool match = equalListItem(list->arr[i], item);
+		if (match) {
+			for (int j = i; j < (list->size - 1); j++) {
+				list->arr[j] = list->arr[j + 1];
+			}
+
+			list->size--;
+			return true;
+		}
+	}
+	return false;
 }
 bool pop(List* list, size_t index) {
+	if (list == NULL) {
+		fprintf(stderr, "Cannot set null list. Create a list using createList\n");
+		return false;
+	}
+	if (index > list->size) {
+		fprintf(stderr, "Cannot set beyond current size\n");
+		return false;
+	}
 
+	for (int i = index; i < (list->size - 1); i++) {
+		list->arr[i] = list->arr[i + 1];
+	}
+	list->size--;
+
+	return true;
 }
 bool clear(List* list) {
-
+	if (list == NULL) {
+		fprintf(stderr, "Cannot set null list. Create a list using createList\n");
+		return false;
+	}
+	free(list->arr);
+	*list = createList();
+	return true;
 }
 
 bool set(List* list, size_t index, ListItem item) {
+	if (list == NULL) {
+		fprintf(stderr, "Cannot set null list. Create a list using createList\n");
+		return false;
+	}
+	if (index > list->size) {
+		fprintf(stderr, "Cannot set beyond current size\n");
+		return false;
+	}
 
+	list->arr[index] = item;
+	return true;
 }
 
 size_t size(List list) {
