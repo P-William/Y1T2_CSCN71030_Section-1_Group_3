@@ -33,26 +33,33 @@ typedef struct List {
 /**
  * Creates and initializes a new list.
  *
- * @return A newly created list.
- */
-List createList();
-
-/**
- * Creates a new list and copies the content of an existing list into it.
+ * Allocates memory for a new List structure and its array of ListItems.
  *
- * @param list The source list to be copied.
- * @return A new list containing the same elements as the source list.
+ * @return A pointer to the newly created list, or NULL if memory allocation fails.
  */
-List copyList(const List);
+List* createList();
 
-/**
- * Checks if two lists are equal in size, capacity, and element values.
- *
- * @param listOne The first list for comparison.
- * @param listTwo The second list for comparison.
- * @return true if the lists are equal, false otherwise.
- */
-bool equalList(const List, const List);
+ /**
+  * Creates a copy of the provided list.
+  *
+  * Allocates memory for a new List structure and copies the content from the source list to the new list.
+  *
+  * @param list The source list to be copied.
+  * @return A pointer to the new list containing the same elements as the source list,
+  *         or NULL if memory allocation fails.
+  */
+List* copyList(const List*);
+
+ /**
+  * Checks if two lists are equal in size, capacity, and element values.
+  *
+  * Compares two lists by checking their size, capacity, and the equality of each element.
+  *
+  * @param listOne The first list for comparison.
+  * @param listTwo The second list for comparison.
+  * @return true if the lists are equal, false otherwise. 
+  */
+bool equalList(const List*, const List*);
 
 /**
  * Appends an element to the end of the list.
@@ -110,16 +117,18 @@ bool set(List*, size_t index, ListItem);
  * Returns the number of elements in the list.
  *
  * @param list The list.
- * @return The number of elements in the list.
+ * @return The number of elements in the list. 
+ * @return Returns 0 if the list is NULL.
  */
-size_t size(List);
+size_t size(const List*);
 /**
  * Checks if the list is empty.
  *
  * @param list The list.
- * @return true if the list is empty, false otherwise.
+ * @return true if the list is empty, false otherwise. 
+ * @return Also returns false if the list is NULL.
  */
-bool isEmpty(List);
+bool isEmpty(const List*);
 
 /**
  * Checks if the list contains the specified item.
@@ -127,19 +136,25 @@ bool isEmpty(List);
  * @param list The list.
  * @param item The item to be checked.
  * @return true if the item is found, false otherwise.
+ * @return Also returns false if the list is NULL.
  */
-bool contains(List, ListItem);
+bool contains(const List*, ListItem);
 
 
 bool sortList(List*, SortOrder, SortKey);
+List* sortListCopy(const List*, SortOrder, SortKey);
 
-/**
- * Filters a list based on a given filter function.
- *
- * @param list Pointer to the original list to be filtered.
- * @param filter A filter function determining whether an item should be included.
- * @return A new list containing only the items that match the filter function.
- */
-List filterList(const List*, FilterFunction filter);
+ /**
+  * Filters a list based on a given filter function.
+  *
+  * Creates a new list containing only the items from the original list that match the
+  * provided filter function.
+  *
+  * @param list Pointer to the original list to be filtered.
+  * @param filter A filter function determining whether an item should be included.
+  * @return A pointer to a new list containing only the items that match the filter function,
+  *         or NULL if memory allocation fails or the input list is NULL.
+  */
+List* filterList(const List*, FilterFunction filter);
 
-void debugPrintList(List);
+void debugPrintList(const List*);

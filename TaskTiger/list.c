@@ -49,47 +49,66 @@ bool resizeArray(List* list, size_t newCapacity) {
 	return true;
 }
 
-List createList() {
-	List list;
-	list.arr = (ListItem*)malloc(sizeof(ListItem) * INITAL_CAPACITY);
-	if (list.arr == NULL) {
+List* createList() {
+	List* list = (List*)malloc(sizeof(List));
+	if (list == NULL) {
 		fprintf(stderr, "Failed to allocate memory\n");
-		exit(-1);
+		return NULL;
 	}
-	list.size = 0;
-	list.capacity = INITAL_CAPACITY;
+
+	list->arr = (ListItem*)malloc(sizeof(ListItem) * INITAL_CAPACITY);
+	if (list->arr == NULL) {
+		fprintf(stderr, "Failed to allocate memory for array\n");
+		return NULL;
+	}
+
+	list->size = 0;
+	list->capacity = INITAL_CAPACITY;
+
 	return list;
 }
 
-List copyList(const List list) {
-	List newList = createList();
-	bool resized = resizeArray(&newList, list.capacity);
+List* copyList(const List* list) {
+	List* newList = createList();
+	if (newList == NULL) {
+		return NULL;
+	}
+
+	bool resized = resizeArray(&newList, list->capacity);
 	if (!resized) {
 		fprintf(stderr, "Failed to resize list\n");
-		exit(-1);
+		return NULL;
 	}
-	newList.size = list.size;
-	for (size_t i = 0; i < (list.size - 1); i++) {
-		newList.arr[i] = copyListItem(list.arr[i]);
+
+	newList->size = list->size;
+
+	for (size_t i = 0; i < list->size; i++) {
+		newList->arr[i] = copyListItem(list->arr[i]);
 	}
 
 	return newList;
 }
 
-bool equalList(const List listOne, const List listTwo) {
-	if (listOne.size != listTwo.size) {
-		return false;
-	}
-	if (listOne.capacity != listTwo.capacity) {
+bool equalList(const List* listOne, const List* listTwo) {
+	if (listOne == NULL || listTwo == NULL) {
+		fprintf(stderr, "Cannot check null list for equality\n");
 		return false;
 	}
 
-	for (size_t i = 0; i < (listOne.size - 1); i++) {
-		bool isEqual = equalListItem(listOne.arr[i], listTwo.arr[i]);
+	if (listOne->size != listTwo->size) {
+		return false;
+	}
+	if (listOne->capacity != listTwo->capacity) {
+		return false;
+	}
+
+	for (size_t i = 0; i < listOne->size; i++) {
+		bool isEqual = equalListItem(listOne->arr[i], listTwo->arr[i]);
 		if (!isEqual) {
 			return false;
 		}
 	}
+
 	return true;
 }
 
@@ -110,6 +129,10 @@ bool append(List* list, ListItem item) {
 	return true;
 }
 bool insert(List* list, size_t index, ListItem item) {
+	if (list == NULL) {
+		fprintf(stderr, "Cannot insert to NULL list\n");
+		return false;
+	}
 	if (index > list->size) {
 		fprintf(stderr, "Cannot insert beyond current size\n");
 		return false;
@@ -173,7 +196,11 @@ bool clear(List* list) {
 		return false;
 	}
 	free(list->arr);
-	*list = createList();
+	free(list);
+	list = createList();
+	if (list == NULL) {
+		return false;
+	}
 	return true;
 }
 
@@ -191,16 +218,28 @@ bool set(List* list, size_t index, ListItem item) {
 	return true;
 }
 
-size_t size(List list) {
-	return list.size;
+size_t size(const List* list) {
+	if (list == NULL) {
+		fprintf(stderr, "Cannot get size of null list\n");
+		return 0;
+	}
+	return list->size;
 }
-bool isEmpty(List list) {
-	return (list.size == 0);
+bool isEmpty(const List* list) {
+	if (list == NULL) {
+		fprintf(stderr, "Cannot get size of null list\n");
+		return false;
+	}
+	return (list->size == 0);
 }
 
-bool contains(List list, ListItem item) {
-	for (size_t i = 0; i < list.size; i++) {
-		bool match = equalListItem(list.arr[i], item);
+bool contains(const List* list, ListItem item) {
+	if (list == NULL) {
+		fprintf(stderr, "Cannot check null list\n");
+		return false;
+	}
+	for (size_t i = 0; i < list->size; i++) {
+		bool match = equalListItem(list->arr[i], item);
 		if (match) {
 			return true;
 		}
@@ -212,8 +251,24 @@ bool sortList(List* list, SortOrder order, SortKey key) {
 
 }
 
-List filterList(const List* list, FilterFunction filter) {
-	List filteredList = createList();
+List* sortListCopy(const List* list, SortOrder order, SortKey key) {
+	if (list == NULL) {
+		return NULL;
+	}
+	List* listCopy = copyList(list);
+	sortList(&list, order, key);
+	return listCopy;
+}
+
+List* filterList(const List* list, FilterFunction filter) {
+	if (list == NULL) {
+		return NULL;
+	}
+
+	List* filteredList = createList();
+	if (filteredList == NULL) {
+		return NULL;
+	}
 
 	for (size_t i = 0; i < list->size; i++) {
 		bool match = filter(&filteredList, list->arr[i]);
