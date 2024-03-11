@@ -140,7 +140,9 @@
     <ClInclude Include="folder.h" />
     <ClInclude Include="input_handler.h" />
     <ClInclude Include="list.h" />
+    <ClInclude Include="list_api.h" />
     <ClInclude Include="list_item.h" />
+    <ClInclude Include="main_menu.h" />
     <ClInclude Include="string_utils.h" />
     <ClInclude Include="task.h" />
     <ClInclude Include="user.h" />

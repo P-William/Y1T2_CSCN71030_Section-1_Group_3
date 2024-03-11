@@ -25,6 +25,18 @@
     <Filter Include="Source Files\Utils">
       <UniqueIdentifier>{4302e583-0a94-4542-8a2d-9dcd88af4089}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\API">
+      <UniqueIdentifier>{90ad8827-5056-443f-a282-290991478fa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\API">
+      <UniqueIdentifier>{2f305b9e-0fb6-40d6-a0be-bbee66649fca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{099d0454-9ce4-4aaa-bedb-39a3b19e5dd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{d65a0542-ce40-4666-b28f-bb7adf1e0515}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -73,6 +85,12 @@
     </ClInclude>
     <ClInclude Include="string_utils.h">
       <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="list_api.h">
+      <Filter>Header Files\API</Filter>
+    </ClInclude>
+    <ClInclude Include="main_menu.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
