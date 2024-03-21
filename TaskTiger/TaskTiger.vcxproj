@@ -130,7 +130,6 @@
     <ClCompile Include="folder.c" />
     <ClCompile Include="input_handler.c" />
     <ClCompile Include="list.c" />
-    <ClCompile Include="list_item.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="string_utils.c" />
     <ClCompile Include="task.c" />
@@ -141,7 +140,6 @@
     <ClInclude Include="input_handler.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="list_api.h" />
-    <ClInclude Include="list_item.h" />
     <ClInclude Include="main_menu.h" />
     <ClInclude Include="string_utils.h" />
     <ClInclude Include="task.h" />

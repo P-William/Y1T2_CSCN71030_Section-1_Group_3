@@ -15,18 +15,18 @@
 * @return bool value of if the reallocation was successful or not
 * @return returns a pointer to the new array if successful, otherwise returns the original array to prevent data loss
 */
-bool realloc_s(ListItem** arr, size_t newCapacity) {
-	ListItem* newArr = (ListItem*)realloc(arr, newCapacity);
+bool realloc_s(Task* arr, size_t newCapacity) {
+	Task* newArr = (Task*)realloc(arr, newCapacity);
 	if (newArr == NULL) {
 		fprintf(stderr, "Failed to realloc\n");
 		return false;
 	}
-	*arr = newArr;
+	arr = newArr;
 	return true;
 }
 
 bool stepArraySize(List* list) {
-	size_t newCapacity = (list->capacity + CAPACITY_STEP) * sizeof(ListItem);
+	size_t newCapacity = (list->capacity + CAPACITY_STEP) * sizeof(Task);
 	bool updatedArr = realloc_s(list->arr, newCapacity);
 	if (!updatedArr) {
 		fprintf(stderr, "Failed to append item due to reallocation failure\n");
@@ -38,7 +38,7 @@ bool stepArraySize(List* list) {
 }
 
 bool resizeArray(List* list, size_t newCapacity) {
-	size_t newCap = newCapacity * sizeof(ListItem);
+	size_t newCap = newCapacity * sizeof(Task);
 	bool updatedArr = realloc_s(list->arr, newCap);
 	if (!updatedArr) {
 		fprintf(stderr, "Failed to append item due to reallocation failure\n");
@@ -56,7 +56,7 @@ List* createList() {
 		return NULL;
 	}
 
-	list->arr = (ListItem*)malloc(sizeof(ListItem) * INITAL_CAPACITY);
+	list->arr = (Task*)malloc(sizeof(Task) * INITAL_CAPACITY);
 	if (list->arr == NULL) {
 		fprintf(stderr, "Failed to allocate memory for array\n");
 		return NULL;
@@ -74,7 +74,7 @@ List* copyList(const List* list) {
 		return NULL;
 	}
 
-	bool resized = resizeArray(&newList, list->capacity);
+	bool resized = resizeArray(newList, list->capacity);
 	if (!resized) {
 		fprintf(stderr, "Failed to resize list\n");
 		return NULL;
@@ -83,7 +83,7 @@ List* copyList(const List* list) {
 	newList->size = list->size;
 
 	for (size_t i = 0; i < list->size; i++) {
-		newList->arr[i] = copyListItem(list->arr[i]);
+		newList->arr[i] = copyTask(list->arr[i]);
 	}
 
 	return newList;
@@ -103,7 +103,7 @@ bool equalList(const List* listOne, const List* listTwo) {
 	}
 
 	for (size_t i = 0; i < listOne->size; i++) {
-		bool isEqual = equalListItem(listOne->arr[i], listTwo->arr[i]);
+		bool isEqual = equalTask(listOne->arr[i], listTwo->arr[i]);
 		if (!isEqual) {
 			return false;
 		}
@@ -112,7 +112,7 @@ bool equalList(const List* listOne, const List* listTwo) {
 	return true;
 }
 
-bool append(List* list, ListItem item) {
+bool append(List* list, Task task) {
 	if (list == NULL) {
 		fprintf(stderr, "Cannot append to NULL list\n");
 		return false;
@@ -125,10 +125,10 @@ bool append(List* list, ListItem item) {
 		}
 	}
 
-	list->arr[list->size++] = copyListItem(item);
+	list->arr[list->size++] = copyTask(task);
 	return true;
 }
-bool insert(List* list, size_t index, ListItem item) {
+bool insert(List* list, size_t index, Task task) {
 	if (list == NULL) {
 		fprintf(stderr, "Cannot insert to NULL list\n");
 		return false;
@@ -149,19 +149,19 @@ bool insert(List* list, size_t index, ListItem item) {
 		list->arr[i] = list->arr[i - 1];
 	}
 
-	list->arr[index] = item;
+	list->arr[index] = task;
 	list->size++;
 	return true;
 }
 
-bool removeItem(List* list, ListItem item) {
+bool removeTask(List* list, Task task) {
 	if (list == NULL) {
 		fprintf(stderr, "Cannot set null list. Create a list using createList\n");
 		return false;
 	}
 
 	for (size_t i = 0; i < list->size; i++) {
-		bool match = equalListItem(list->arr[i], item);
+		bool match = equalTask(list->arr[i], task);
 		if (match) {
 			for (size_t j = i; j < (list->size - 1); j++) {
 				list->arr[j] = list->arr[j + 1];
@@ -204,7 +204,7 @@ bool clear(List* list) {
 	return true;
 }
 
-bool set(List* list, size_t index, ListItem item) {
+bool set(List* list, size_t index, Task task) {
 	if (list == NULL) {
 		fprintf(stderr, "Cannot set null list. Create a list using createList\n");
 		return false;
@@ -214,7 +214,7 @@ bool set(List* list, size_t index, ListItem item) {
 		return false;
 	}
 
-	list->arr[index] = item;
+	list->arr[index] = task;
 	return true;
 }
 
@@ -233,13 +233,13 @@ bool isEmpty(const List* list) {
 	return (list->size == 0);
 }
 
-bool contains(const List* list, ListItem item) {
+bool contains(const List* list, Task task) {
 	if (list == NULL) {
 		fprintf(stderr, "Cannot check null list\n");
 		return false;
 	}
 	for (size_t i = 0; i < list->size; i++) {
-		bool match = equalListItem(list->arr[i], item);
+		bool match = equalTask(list->arr[i], task);
 		if (match) {
 			return true;
 		}
@@ -247,41 +247,10 @@ bool contains(const List* list, ListItem item) {
 	return false;
 }
 
-bool sortList(List* list, SortOrder order, SortKey key) {
 
-}
 
-List* sortListCopy(const List* list, SortOrder order, SortKey key) {
-	if (list == NULL) {
-		return NULL;
-	}
-	List* listCopy = copyList(list);
-	sortList(&list, order, key);
-	return listCopy;
-}
-
-List* filterList(const List* list, FilterFunction filter) {
-	if (list == NULL) {
-		return NULL;
-	}
-
-	List* filteredList = createList();
-	if (filteredList == NULL) {
-		return NULL;
-	}
-
-	for (size_t i = 0; i < list->size; i++) {
-		bool match = filter(&filteredList, list->arr[i]);
-		if (match) {
-			append(&filteredList, list->arr[i]);
-		}
-	}
-
-	return filteredList;
-}
-
-void debugPrintList(List list) {
-	for (int i = 0; i < list.size; i++) {
-		debugPrintListItem(list.arr[i]);
+void debugPrintList(const List* list) {
+	for (int i = 0; i < list->size; i++) {
+		debugPrintTask(list->arr[i]);
 	}
 }

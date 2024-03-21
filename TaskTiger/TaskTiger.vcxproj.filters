@@ -51,9 +51,6 @@
     <ClCompile Include="list.c">
       <Filter>Source Files\ADTs</Filter>
     </ClCompile>
-    <ClCompile Include="list_item.c">
-      <Filter>Source Files\ADTs</Filter>
-    </ClCompile>
     <ClCompile Include="user.c">
       <Filter>Source Files\ADTs</Filter>
     </ClCompile>
@@ -72,9 +69,6 @@
       <Filter>Header Files\ADTs</Filter>
     </ClInclude>
     <ClInclude Include="list.h">
-      <Filter>Header Files\ADTs</Filter>
-    </ClInclude>
-    <ClInclude Include="list_item.h">
       <Filter>Header Files\ADTs</Filter>
     </ClInclude>
     <ClInclude Include="user.h">

@@ -1,12 +1,15 @@
 #pragma once
 
+
+#include "list.h"
 #include "task.h"
 
 #define FOLDER_NAME_LENGTH 128
 
+
 typedef struct Folder {
 	char name[FOLDER_NAME_LENGTH];
-	// TODO: add list
+	List list;
 } Folder;
 
 Folder createFolder(const char* name);
