@@ -249,8 +249,6 @@ bool contains(const List* list, Task task) {
 }
 
 
-
-
 List* filterByTitle(const List* list, const char* title) {
 	if (list == NULL) {
 		fprintf(stderr, "Cannot filter null list\n");
@@ -310,7 +308,6 @@ List* filterByPriority(const List* list, Priority priority) {
 
 	return filteredList;
 }
-
 
 
 void destroyList(List* list) {

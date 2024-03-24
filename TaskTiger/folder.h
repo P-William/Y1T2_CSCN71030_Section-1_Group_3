@@ -9,7 +9,7 @@
 
 typedef struct Folder {
 	char name[FOLDER_NAME_LENGTH];
-	List list;
+	List* list;
 } Folder;
 
 Folder createFolder(const char* name);
@@ -17,6 +17,7 @@ Folder createFolder(const char* name);
 bool equalFolder(Folder, Folder);
 
 Folder copyFolder(Folder src);
-bool copyFolderInPlace(Folder* dest, Folder src);
+
+void destroyFolder(Folder);
 
 void debugPrintFolder(Folder);
