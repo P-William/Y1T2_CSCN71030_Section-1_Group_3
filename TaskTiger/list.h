@@ -4,13 +4,17 @@
 
 #include "task.h"
 
+typedef enum SortOrder {
+	ASCENDING,
+	DESCENDING
+} SortOrder;
 
-typedef enum Key {
+typedef enum SortKey {
 	TITLE,
 	STATUS,
 	PRIORITY,
 	DATE
-} Key;
+} SortKey;
 
 typedef struct List {
 	size_t size;
@@ -149,6 +153,16 @@ List* filterByStatus(const List*, Status);
  */
 List* filterByPriority(const List*, Priority);
 //List* filterByDate(const List*, date);
+
+/**
+ * @brief Sorts a list of tasks by a specified key in the specified order.
+ *
+ * @param list Pointer to the list of tasks to sort.
+ * @param key The key by which to sort the tasks (TITLE, STATUS, PRIORITY, DATE).
+ * @param order The order in which to sort the tasks (ASCENDING or DESCENDING).
+ * @return true if sorting is successful, false if the input list is NULL.
+ */
+bool sortList(List*, SortKey, SortOrder);
 
 /**
  * Destroys a list, freeing the memory and rendering it unusable

@@ -309,6 +309,79 @@ List* filterByPriority(const List* list, Priority priority) {
 	return filteredList;
 }
 
+int compareTasksByTitle(const void* a, const void* b) {
+	const Task* taskA = (const Task*)a;
+	const Task* taskB = (const Task*)b;
+	return strcmp(taskA->title, taskB->title);
+}
+
+int compareTasksByStatus(const void* a, const void* b) {
+	const Task* taskA = (const Task*)a;
+	const Task* taskB = (const Task*)b;
+	return (taskA->status - taskB->status);
+}
+
+int compareTasksByPriority(const void* a, const void* b) {
+	const Task* taskA = (const Task*)a;
+	const Task* taskB = (const Task*)b;
+	return (taskA->priority - taskB->priority);
+}
+
+int compareTasksByTitleDescending(const void* a, const void* b) {
+	const Task* taskA = (const Task*)a;
+	const Task* taskB = (const Task*)b;
+	return strcmp(taskB->title, taskA->title);
+}
+
+int compareTasksByStatusDescending(const void* a, const void* b) {
+	const Task* taskA = (const Task*)a;
+	const Task* taskB = (const Task*)b;
+	return (taskB->status - taskA->status);
+}
+
+int compareTasksByPriorityDescending(const void* a, const void* b) {
+	const Task* taskA = (const Task*)a;
+	const Task* taskB = (const Task*)b;
+	return (taskB->priority - taskA->priority);
+}
+
+bool sortList(List* list, SortKey key, SortOrder order) {
+	if (list == NULL) {
+		fprintf(stderr, "Cannot sort null list\n");
+		return false;
+	}
+
+	switch (key) {
+	case TITLE:
+		if (order == ASCENDING) {
+			qsort(list->arr, list->size, sizeof(Task), compareTasksByTitle);
+			break;
+		}
+
+		qsort(list->arr, list->size, sizeof(Task), compareTasksByTitleDescending);
+		break;
+	case STATUS:
+		if (order == ASCENDING) {
+			qsort(list->arr, list->size, sizeof(Task), compareTasksByStatus);
+			break;
+		}
+
+		qsort(list->arr, list->size, sizeof(Task), compareTasksByStatusDescending);
+		break;
+	case PRIORITY:
+		if (order == ASCENDING) {
+			qsort(list->arr, list->size, sizeof(Task), compareTasksByPriority);
+			break;
+		}
+
+		qsort(list->arr, list->size, sizeof(Task), compareTasksByPriorityDescending);
+		break;
+	default:
+		break;
+	}
+
+	return true;
+}
 
 void destroyList(List* list) {
 	free(list->arr);
