@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "list.h"
+#include "string_utils.h"
 
 #define INITAL_CAPACITY 10
 #define CAPACITY_STEP 5
@@ -248,6 +249,73 @@ bool contains(const List* list, Task task) {
 }
 
 
+
+
+List* filterByTitle(const List* list, const char* title) {
+	if (list == NULL) {
+		fprintf(stderr, "Cannot filter null list\n");
+		return NULL;
+	}
+
+	List* filteredList = createList();
+	if (filteredList == NULL) {
+		return NULL;
+	}
+
+	for (size_t i = 0; i < list->size; i++) {
+		if (stringCompare(list->arr[i].title, title)) {
+			append(filteredList, list->arr[i]);
+		}
+	}
+
+	return filteredList;
+}
+
+List* filterByStatus(const List* list, Status status) {
+	if (list == NULL) {
+		fprintf(stderr, "Cannot filter null list\n");
+		return NULL;
+	}
+
+	List* filteredList = createList();
+	if (filteredList == NULL) {
+		return NULL;
+	}
+
+	for (size_t i = 0; i < list->size; i++) {
+		if (list->arr[i].status == status) {
+			append(filteredList, list->arr[i]);
+		}
+	}
+
+	return filteredList;
+}
+List* filterByPriority(const List* list, Priority priority) {
+	printPriority(priority, true);
+	if (list == NULL) {
+		fprintf(stderr, "Cannot filter null list\n");
+		return NULL;
+	}
+
+	List* filteredList = createList();
+	if (filteredList == NULL) {
+		return NULL;
+	}
+
+	for (size_t i = 0; i < list->size; i++) {
+		if (list->arr[i].priority == priority) {
+			append(filteredList, list->arr[i]);
+		}
+	}
+
+	return filteredList;
+}
+
+
+
+void destroyList(List* list) {
+	free(list->arr);
+}
 
 void debugPrintList(const List* list) {
 	for (int i = 0; i < list->size; i++) {

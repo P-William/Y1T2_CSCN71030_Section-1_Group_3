@@ -5,13 +5,12 @@
 #include "task.h"
 
 
-
-typedef enum SortKey {
+typedef enum Key {
 	TITLE,
 	STATUS,
 	PRIORITY,
 	DATE
-} SortKey;
+} Key;
 
 typedef struct List {
 	size_t size;
@@ -124,5 +123,38 @@ bool isEmpty(const List*);
  * @return Also returns false if the list is NULL.
  */
 bool contains(const List*, Task);
+
+/**
+ * Filter a list of tasks by title.
+ *
+ * @param list Pointer to the list of tasks to filter.
+ * @param title The title to filter by.
+ * @return A new list containing tasks with titles matching the provided title. NULL if the input list is NULL or memory allocation fails.
+ */
+List* filterByTitle(const List*, const char* title);
+/**
+ * Filter a list of tasks by status.
+ *
+ * @param list Pointer to the list of tasks to filter.
+ * @param status The status to filter by.
+ * @return A new list containing tasks with status matching the provided status. NULL if the input list is NULL or memory allocation fails.
+ */
+List* filterByStatus(const List*, Status);
+/**
+ * Filter a list of tasks by priority.
+ *
+ * @param list Pointer to the list of tasks to filter.
+ * @param priority The priority to filter by.
+ * @return A new list containing tasks with priority matching the provided priority. NULL if the input list is NULL or memory allocation fails.
+ */
+List* filterByPriority(const List*, Priority);
+//List* filterByDate(const List*, date);
+
+/**
+ * Destroys a list, freeing the memory and rendering it unusable
+ * @param list to destroy 
+*/
+void destroyList(List*);
+
 
 void debugPrintList(const List*);
