@@ -2,6 +2,8 @@
 
 #include <stdbool.h>
 
+#include "date.h"
+
 #define TASK_TITLE_LENGTH 128
 #define TASK_DESCRIPTION_LENGTH 512
 
@@ -28,8 +30,7 @@ typedef struct Task {
 	char description[TASK_DESCRIPTION_LENGTH];
 	Status status;
 	Priority priority;
-	// TODO: Tags
-	// TODO: Date
+	Date date;
 } Task;
 
 Task createTask(const char* title);

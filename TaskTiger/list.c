@@ -289,7 +289,6 @@ List* filterByStatus(const List* list, Status status) {
 	return filteredList;
 }
 List* filterByPriority(const List* list, Priority priority) {
-	printPriority(priority, true);
 	if (list == NULL) {
 		fprintf(stderr, "Cannot filter null list\n");
 		return NULL;
@@ -302,6 +301,45 @@ List* filterByPriority(const List* list, Priority priority) {
 
 	for (size_t i = 0; i < list->size; i++) {
 		if (list->arr[i].priority == priority) {
+			append(filteredList, list->arr[i]);
+		}
+	}
+
+	return filteredList;
+}
+List* filterByDate(const List* list, Date date) {
+	if (list == NULL) {
+		fprintf(stderr, "Cannot filter null list\n");
+		return NULL;
+	}
+
+	List* filteredList = createList();
+	if (filteredList == NULL) {
+		return NULL;
+	}
+
+	for (size_t i = 0; i < list->size; i++) {
+		if (equalDate(list->arr[i].date, date)) {
+			append(filteredList, list->arr[i]);
+		}
+	}
+
+	return filteredList;
+}
+List* filterByDateTimeRemaining(const List* list, int daysRemaining) {
+	if (list == NULL) {
+		fprintf(stderr, "Cannot filter null list\n");
+		return NULL;
+	}
+
+	List* filteredList = createList();
+	if (filteredList == NULL) {
+		return NULL;
+	}
+
+	for (size_t i = 0; i < list->size; i++) {
+		int diff = dateDifference(list->arr[i].date, getCurrentDate());
+		if (diff <= daysRemaining && diff >= 0) {
 			append(filteredList, list->arr[i]);
 		}
 	}
@@ -327,6 +365,17 @@ int compareTasksByPriority(const void* a, const void* b) {
 	return (taskA->priority - taskB->priority);
 }
 
+int compareTasksByDate(const void* a, const void* b) {
+	const Task* taskA = (const Task*)a;
+	const Task* taskB = (const Task*)b;
+
+	if (taskA->date.year != taskB->date.year)
+		return taskA->date.year - taskB->date.year;
+	if (taskA->date.month != taskB->date.month)
+		return taskA->date.month - taskB->date.month;
+	return taskA->date.day - taskB->date.day;
+}
+
 int compareTasksByTitleDescending(const void* a, const void* b) {
 	const Task* taskA = (const Task*)a;
 	const Task* taskB = (const Task*)b;
@@ -343,6 +392,10 @@ int compareTasksByPriorityDescending(const void* a, const void* b) {
 	const Task* taskA = (const Task*)a;
 	const Task* taskB = (const Task*)b;
 	return (taskB->priority - taskA->priority);
+}
+
+int compareTasksByDateDescending(const void* a, const void* b) {
+	return -compareTasksByDate(a, b);
 }
 
 bool sortList(List* list, SortKey key, SortOrder order) {
@@ -375,6 +428,13 @@ bool sortList(List* list, SortKey key, SortOrder order) {
 		}
 
 		qsort(list->arr, list->size, sizeof(Task), compareTasksByPriorityDescending);
+		break;
+	case DATE:
+		if (order == ASCENDING) {
+			qsort(list->arr, list->size, sizeof(Task), compareTasksByDate);
+			break;
+		}
+		qsort(list->arr, list->size, sizeof(Task), compareTasksByDateDescending);
 		break;
 	default:
 		break;

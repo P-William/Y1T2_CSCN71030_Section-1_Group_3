@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="date.c" />
     <ClCompile Include="folder.c" />
     <ClCompile Include="input_handler.c" />
     <ClCompile Include="list.c" />
@@ -136,6 +137,7 @@
     <ClCompile Include="user.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="date.h" />
     <ClInclude Include="folder.h" />
     <ClInclude Include="input_handler.h" />
     <ClInclude Include="list.h" />

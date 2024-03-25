@@ -152,15 +152,34 @@ List* filterByStatus(const List*, Status);
  * @return A new list containing tasks with priority matching the provided priority. NULL if the input list is NULL or memory allocation fails.
  */
 List* filterByPriority(const List*, Priority);
-//List* filterByDate(const List*, date);
 
 /**
- * @brief Sorts a list of tasks by a specified key in the specified order.
+ * Filters a list of items by a specific date.
+ * @param list Pointer to the list to be filtered.
+ * @param date The date to filter by.
+ * @return A new list containing only the items from the original list
+ *         that have the specified date. Returns NULL if the input list is NULL
+ *         or if memory allocation fails.
+ */
+List* filterByDate(const List*, Date);
+
+/**
+ * Filters a list of items by the number of days remaining until their date.
+ * @param list Pointer to the list to be filtered.
+ * @param daysRemaining The maximum number of days remaining.
+ * @return A new list containing only the items from the original list
+ *         that have a date within the specified number of days remaining.
+ *         Returns NULL if the input list is NULL or if memory allocation fails.
+ */
+List* filterByDateTimeRemaining(const List*, int daysRemaining);
+
+/**
+ * Sorts a list of tasks by a specified key in the specified order.
  *
  * @param list Pointer to the list of tasks to sort.
  * @param key The key by which to sort the tasks (TITLE, STATUS, PRIORITY, DATE).
  * @param order The order in which to sort the tasks (ASCENDING or DESCENDING).
- * @return true if sorting is successful, false if the input list is NULL.
+ * @return true if sorting is successful, false if an error occured
  */
 bool sortList(List*, SortKey, SortOrder);
 

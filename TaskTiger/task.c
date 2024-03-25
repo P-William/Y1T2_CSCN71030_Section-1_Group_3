@@ -14,6 +14,7 @@ Task createTask(const char* title) {
 	strncpy(newTask.description, TASK_EMPTY_DESCRIPTION_PLACEHOLDER, TASK_DESCRIPTION_LENGTH);
 	newTask.status = UNSET_STATUS;
 	newTask.priority = UNSET_PRIORITY;
+	newTask.date = createDateBlank();
 	return newTask;
 }
 
@@ -31,6 +32,7 @@ Task copyTask(Task src) {
 	strncpy(newTask.description, src.description, TASK_DESCRIPTION_LENGTH);
 	newTask.status = src.status;
 	newTask.priority = src.priority;
+	newTask.date = copyDate(src.date);
 	return newTask;
 }
 bool copyTaskInPlace(Task* dest, Task src) {
@@ -42,6 +44,7 @@ bool copyTaskInPlace(Task* dest, Task src) {
 	strncpy(dest->description, src.description, TASK_DESCRIPTION_LENGTH);
 	dest->status = src.status;
 	dest->priority = src.priority;
+	dest->date = copyDate(src.date);
 	return true;
 }
 
@@ -109,4 +112,6 @@ void debugPrintTask(Task t) {
 	printStatus(t.status, true);
 	printf("Priority: ");
 	printPriority(t.priority, true);
+	printf("Date: ");
+	printDate(t.date, true);
 }
