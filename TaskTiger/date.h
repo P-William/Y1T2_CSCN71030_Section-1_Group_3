@@ -83,7 +83,7 @@ bool stringToDate(Date* output, const char* dateString);
 bool getDateFromUser(Date* output, const char* prompt, ...);
 
 /**
- * @brief Calculates the difference in days between two dates.
+ * Calculates the difference in days between two dates.
  * @param dateOne The first date.
  * @param dateTwo The second date.
  * @return The difference in days between dateOne and dateTwo.
@@ -93,7 +93,7 @@ bool getDateFromUser(Date* output, const char* prompt, ...);
 int dateDifference(Date, Date);
 
 /**
- * @brief Calculates the absolute difference in days between two dates.
+ * Calculates the absolute difference in days between two dates.
  * @param dateOne The first date.
  * @param dateTwo The second date.
  * @return The absolute difference in days between dateOne and dateTwo.

@@ -12,12 +12,33 @@ typedef struct Folder {
 	List* list;
 } Folder;
 
+
+/**
+ * Creates a new folder with the given name.
+ * @param name The name of the folder to create.
+ * @return The newly created folder.
+ */
 Folder createFolder(const char* name);
 
+/**
+ * Checks if two folders are equal.
+ * @param f1 The first folder.
+ * @param f2 The second folder.
+ * @return true if the folders are equal, false otherwise.
+ */
 bool equalFolder(Folder, Folder);
 
+/**
+ * Creates a copy of a folder.
+ * @param src The folder to copy.
+ * @return The copy of the folder.
+ */
 Folder copyFolder(Folder src);
 
+/**
+ * Destroys a folder and frees its resources.
+ * @param folder The folder to destroy.
+ */
 void destroyFolder(Folder);
 
 void debugPrintFolder(Folder);

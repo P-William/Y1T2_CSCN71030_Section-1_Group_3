@@ -33,16 +33,58 @@ typedef struct Task {
 	Date date;
 } Task;
 
+/**
+ * Creates a new task with the given title.
+ * @param title The title of the task to create.
+ * @return The newly created task.
+ */
 Task createTask(const char* title);
 
+/**
+ * Checks if two tasks are equal.
+ * @param t1 The first task.
+ * @param t2 The second task.
+ * @return true if the tasks are equal, false otherwise.
+ */
 bool equalTask(Task, Task);
 
+/**
+ * Creates a copy of a task.
+ * @param src The task to copy.
+ * @return The copy of the task.
+ */
 Task copyTask(Task src);
+/**
+ * Copies a task into a destination task pointer.
+ * @param dest Pointer to the destination task.
+ * @param src The source task to copy.
+ * @return true if the copy was successful, false if dest is NULL.
+ */
 bool copyTaskInPlace(Task* dest, Task src);
 
+/**
+ * Prints the status to the standard output.
+ * @param s The status to print.
+ * @param newLine Flag indicating whether to print a newline character.
+ */
 void printStatus(Status, bool newLine);
+/**
+ * Prints the status of a task to the standard output.
+ * @param t The task whose status to print.
+ * @param newLine Flag indicating whether to print a newline character.
+ */
 void printStatusT(Task, bool newLine);
+/**
+ * Prints the priority to the standard output.
+ * @param p The priority to print.
+ * @param newLine Flag indicating whether to print a newline character.
+ */
 void printPriority(Priority, bool newLine);
+/**
+ * Prints the priority of a task to the standard output.
+ * @param t The task whose priority to print.
+ * @param newLine Flag indicating whether to print a newline character.
+ */
 void printPriorityT(Task, bool newLine);
 
 void debugPrintTask(Task);
