@@ -50,6 +50,7 @@ bool copyTaskInPlace(Task* dest, Task src) {
 
 bool setTitle(Task* task, const char* newName) {
 	if (task == NULL || newName == NULL) {
+		fprintf(stderr, "Setter failed, NULL task or name\n");
 		return false;
 	}
 	strncpy(task->title, newName, TASK_TITLE_LENGTH);
@@ -57,6 +58,7 @@ bool setTitle(Task* task, const char* newName) {
 }
 bool setDescription(Task* task, const char* newDesc) {
 	if (task == NULL || newDesc == NULL) {
+		fprintf(stderr, "Setter failed, NULL task or desc\n");
 		return false;
 	}
 	strncpy(task->description, newDesc, TASK_DESCRIPTION_LENGTH);
@@ -64,6 +66,7 @@ bool setDescription(Task* task, const char* newDesc) {
 }
 bool setPriority(Task* task, Priority newPriority) {
 	if (task == NULL) {
+		fprintf(stderr, "Setter failed, NULL Task\n");
 		return false;
 	}
 	task->priority = newPriority;
@@ -71,6 +74,7 @@ bool setPriority(Task* task, Priority newPriority) {
 }
 bool setStatus(Task* task, Status newStatus) {
 	if (task == NULL) {
+		fprintf(stderr, "Setter failed, NULL Task\n");
 		return false;
 	}
 	task->status = newStatus;
@@ -78,6 +82,7 @@ bool setStatus(Task* task, Status newStatus) {
 }
 bool setDate(Task* task, Date newDate) {
 	if (task == NULL) {
+		fprintf(stderr, "Setter failed, NULL Task\n");
 		return false;
 	}
 	task->date = newDate;

@@ -44,6 +44,60 @@ bool copyUserInPlace(User* dest, User src) {
 	return true;
 }
 
+bool setUsername(User* user, const char* newUsername) {
+	if (user == NULL || newUsername == NULL) {
+		fprintf(stderr, "Setter failed, NULL user or name\n");
+		return false;
+	}
+	strncpy(user->username, newUsername, USERNAME_LENGTH);
+	return true;
+}
+bool setPassword(User* user, const char* newPassword) {
+	if (user == NULL || newPassword == NULL) {
+		fprintf(stderr, "Setter failed, NULL user or name\n");
+		return false;
+	}
+	strncpy(user->passward, newPassword, MAX_PASSWORD_LENGTH);
+	return true;
+}
+
+bool increasePoints(User* user, int amount) {
+	if (user == NULL) {
+		fprintf(stderr, "Setter failed, NULL User\n");
+		return false;
+	}
+	user->points += amount;
+	return true;
+}
+bool decreasePoints(User* user, int amount) {
+	if (user == NULL) {
+		fprintf(stderr, "Setter failed, NULL User\n");
+		return false;
+	}
+	user->points -= amount;
+	return true;
+}
+bool taskCompleted(User* user, Task task) {
+	user->lastTaskCompletedDate = getCurrentDate();
+	user->totalTasksCompleted += 1;
+	if (dateDifference(task.date, getCurrentDate()) >= 0) {
+		user->tasksCompletedOnTime += 1;
+	}
+}
+
+bool wipeProfile(User* user, bool youSure) {
+	if (!youSure) {
+		return false;
+	}
+
+	user->points = 0;
+	user->totalTasksCompleted = 0;
+	user->tasksCompletedOnTime = 0;
+	user->lastTaskCompletedDate = getCurrentDate();
+	user->tigerStatus = HAPPY;
+	return true;
+}
+
 
 
 void printTigerStatus(TigerStatus status, bool newLine) {
