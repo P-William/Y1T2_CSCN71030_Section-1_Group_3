@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdbool.h>
 
 #include "list.h"
 #include "task.h"
@@ -34,6 +35,14 @@ bool equalFolder(Folder, Folder);
  * @return The copy of the folder.
  */
 Folder copyFolder(Folder src);
+
+/**
+ * @Sets the name of a folder.
+ * @param folder Pointer to the folder whose name to set.
+ * @param newName The new name for the folder.
+ * @return true if the name was successfully set, false if folder or newName is NULL.
+ */
+bool setName(Folder*, const char* newName);
 
 /**
  * Destroys a folder and frees its resources.

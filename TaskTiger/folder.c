@@ -32,6 +32,14 @@ Folder copyFolder(Folder src) {
 	return newFolder;
 }
 
+bool setName(Folder* folder, const char* newName) {
+	if (folder == NULL || newName == NULL) {
+		return false;
+	}
+	strncpy(folder->name, newName, FOLDER_NAME_LENGTH);
+	return true;
+}
+
 void destroyFolder(Folder folder) {
 	destroyList(folder.list);
 }

@@ -48,6 +48,42 @@ bool copyTaskInPlace(Task* dest, Task src) {
 	return true;
 }
 
+bool setTitle(Task* task, const char* newName) {
+	if (task == NULL || newName == NULL) {
+		return false;
+	}
+	strncpy(task->title, newName, TASK_TITLE_LENGTH);
+	return true;
+}
+bool setDescription(Task* task, const char* newDesc) {
+	if (task == NULL || newDesc == NULL) {
+		return false;
+	}
+	strncpy(task->description, newDesc, TASK_DESCRIPTION_LENGTH);
+	return true;
+}
+bool setPriority(Task* task, Priority newPriority) {
+	if (task == NULL) {
+		return false;
+	}
+	task->priority = newPriority;
+	return true;
+}
+bool setStatus(Task* task, Status newStatus) {
+	if (task == NULL) {
+		return false;
+	}
+	task->status = newStatus;
+	return true;
+}
+bool setDate(Task* task, Date newDate) {
+	if (task == NULL) {
+		return false;
+	}
+	task->date = newDate;
+	return true;
+}
+
 
 void printStatus(Status s, bool newLine) {
 	switch (s) {
