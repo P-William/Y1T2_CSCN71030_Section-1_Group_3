@@ -63,6 +63,9 @@
     <ClCompile Include="date.c">
       <Filter>Source Files\ADTs</Filter>
     </ClCompile>
+    <ClCompile Include="folder_list.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="task.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="date.h">
+      <Filter>Header Files\ADTs</Filter>
+    </ClInclude>
+    <ClInclude Include="folder_list.h">
       <Filter>Header Files\ADTs</Filter>
     </ClInclude>
   </ItemGroup>
