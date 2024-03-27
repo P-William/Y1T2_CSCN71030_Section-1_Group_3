@@ -35,4 +35,4 @@ char* base64Encode(const unsigned char* data);
  * @return A dynamically allocated buffer containing the decoded data.
  * @note The caller is responsible for freeing the memory allocated for the returned buffer.
  */
-unsigned char* base64Decode(const char* data)
+unsigned char* base64Decode(const char* data);
