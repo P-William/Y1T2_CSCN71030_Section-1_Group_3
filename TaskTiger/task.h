@@ -63,35 +63,35 @@ Task copyTask(Task src);
 bool copyTaskInPlace(Task* dest, Task src);
 
 /**
- * @brief Sets the title of a task.
+ * Sets the title of a task.
  * @param task Pointer to the task whose title to set.
  * @param newName The new title for the task.
  * @return true if the title was successfully set, false if task or newName is NULL.
  */
 bool setTitle(Task* task, const char* newName);
 /**
- * @brief Sets the description of a task.
+ * Sets the description of a task.
  * @param task Pointer to the task whose description to set.
  * @param newDesc The new description for the task.
  * @return true if the description was successfully set, false if task or newDesc is NULL.
  */
 bool setDescription(Task* task, const char* newDesc);
 /**
- * @brief Sets the priority of a task.
+ * Sets the priority of a task.
  * @param task Pointer to the task whose priority to set.
  * @param newPriority The new priority for the task.
  * @return true if the priority was successfully set, false if task is NULL.
  */
 bool setPriority(Task* task, Priority newPriority);
 /**
- * @brief Sets the status of a task.
+ * Sets the status of a task.
  * @param task Pointer to the task whose status to set.
  * @param newStatus The new status for the task.
  * @return true if the status was successfully set, false if task is NULL.
  */
 bool setStatus(Task* task, Status newStatus);
 /**
- * @brief Sets the date of a task.
+ * Sets the date of a task.
  * @param task Pointer to the task whose date to set.
  * @param newDate The new date for the task.
  * @return true if the date was successfully set, false if task is NULL.

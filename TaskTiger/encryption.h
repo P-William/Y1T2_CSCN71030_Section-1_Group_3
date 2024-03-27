@@ -1,7 +1,7 @@
 #pragma once
 
 /**
- * @brief Encrypts a message using XOR encryption with a given key.
+ * Encrypts a message using XOR encryption with a given key.
  *
  * @param message The message to be encrypted.
  * @param key The encryption key.
@@ -11,7 +11,7 @@
  */
 char* encrypt(const char* message, const char* key);
 /**
- * @brief Decrypts an encrypted message using the same key.
+ * Decrypts an encrypted message using the same key.
  *
  * @param encryptedMessage The encrypted message.
  * @param key The encryption key.
@@ -21,7 +21,7 @@ char* encrypt(const char* message, const char* key);
 char* decrypt(const char* encryptedMessage, const char* key);
 
 /**
- * @brief Encodes data into Base64 format.
+ * Encodes data into Base64 format.
  *
  * @param data The data to be encoded.
  * @return A dynamically allocated string containing the Base64 encoded data.
@@ -29,10 +29,10 @@ char* decrypt(const char* encryptedMessage, const char* key);
  */
 char* base64Encode(const unsigned char* data);
 /**
- * @brief Decodes Base64 encoded data.
+ * Decodes Base64 encoded data.
  *
  * @param data The Base64 encoded data.
  * @return A dynamically allocated buffer containing the decoded data.
  * @note The caller is responsible for freeing the memory allocated for the returned buffer.
  */
-unsigned char* base64Decode(const char* data);
+unsigned char* base64Decode(const char* data)
