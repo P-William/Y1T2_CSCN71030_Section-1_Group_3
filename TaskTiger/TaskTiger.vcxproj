@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="date.c" />
     <ClCompile Include="encryption.c" />
+    <ClCompile Include="file_io.c" />
     <ClCompile Include="folder.c" />
     <ClCompile Include="folder_list.c" />
     <ClCompile Include="input_handler.c" />
@@ -142,6 +143,7 @@
   <ItemGroup>
     <ClInclude Include="date.h" />
     <ClInclude Include="encryption.h" />
+    <ClInclude Include="file_io.h" />
     <ClInclude Include="folder.h" />
     <ClInclude Include="folder_list.h" />
     <ClInclude Include="input_handler.h" />

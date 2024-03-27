@@ -37,6 +37,12 @@
     <Filter Include="Source Files\UI">
       <UniqueIdentifier>{d65a0542-ce40-4666-b28f-bb7adf1e0515}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\IO">
+      <UniqueIdentifier>{cfaa77cd-caa3-4792-a5e7-29d705a9eb7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IO">
+      <UniqueIdentifier>{66c2d471-727e-47fa-978f-e211a4857526}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -54,9 +60,6 @@
     <ClCompile Include="user.c">
       <Filter>Source Files\ADTs</Filter>
     </ClCompile>
-    <ClCompile Include="input_handler.c">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
     <ClCompile Include="string_utils.c">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
@@ -72,6 +75,12 @@
     <ClCompile Include="taskAPI.c">
       <Filter>Source Files\API</Filter>
     </ClCompile>
+    <ClCompile Include="input_handler.c">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="file_io.c">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="task.h">
@@ -85,12 +94,6 @@
     </ClInclude>
     <ClInclude Include="user.h">
       <Filter>Header Files\ADTs</Filter>
-    </ClInclude>
-    <ClInclude Include="input_handler.h">
-      <Filter>Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="string_utils.h">
-      <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="list_api.h">
       <Filter>Header Files\API</Filter>
@@ -109,6 +112,15 @@
     </ClInclude>
     <ClInclude Include="taskAPI.h">
       <Filter>Header Files\API</Filter>
+    </ClInclude>
+    <ClInclude Include="string_utils.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="input_handler.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="file_io.h">
+      <Filter>Header Files\IO</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
