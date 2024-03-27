@@ -60,7 +60,6 @@
     <ClCompile Include="string_utils.c">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-<<<<<<< Updated upstream
     <ClCompile Include="date.c">
       <Filter>Source Files\ADTs</Filter>
     </ClCompile>
@@ -69,10 +68,9 @@
     </ClCompile>
     <ClCompile Include="folder_list.c">
       <Filter>Source Files\ADTs</Filter>
-=======
+    </ClCompile>
     <ClCompile Include="taskAPI.c">
       <Filter>Source Files\API</Filter>
->>>>>>> Stashed changes
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,7 +98,6 @@
     <ClInclude Include="main_menu.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-<<<<<<< Updated upstream
     <ClInclude Include="date.h">
       <Filter>Header Files\ADTs</Filter>
     </ClInclude>
@@ -109,10 +106,9 @@
     </ClInclude>
     <ClInclude Include="encryption.h">
       <Filter>Header Files\Utils</Filter>
-=======
+    </ClInclude>
     <ClInclude Include="taskAPI.h">
       <Filter>Header Files\API</Filter>
->>>>>>> Stashed changes
     </ClInclude>
   </ItemGroup>
 </Project>
