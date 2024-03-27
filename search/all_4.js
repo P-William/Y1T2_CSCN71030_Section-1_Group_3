@@ -1,4 +1,25 @@
 var searchData=
 [
-  ['user_0',['User',['../struct_user.html',1,'']]]
+  ['date_0',['Date',['../struct_date.html',1,'']]],
+  ['date_1',['date',['../struct_task.html#a1dc6df4f5eac6300e1bb1f8dce3a10fd',1,'Task']]],
+  ['date_2',['Date',['../date_8h.html#a8b9ee38bb5e4c1674ffc937bb1b783fd',1,'date.h']]],
+  ['date_3',['DATE',['../list_8h.html#acda6dec4c360224fb8f7faa1b10bd320a0ace72efd9e987dfd807365d0ca50141',1,'list.h']]],
+  ['date_2ec_4',['date.c',['../date_8c.html',1,'']]],
+  ['date_2eh_5',['date.h',['../date_8h.html',1,'']]],
+  ['date_5fstring_5flength_6',['DATE_STRING_LENGTH',['../date_8c.html#a99bb3c895a574d1023edc8debc9337ed',1,'date.c']]],
+  ['datedifference_7',['dateDifference',['../date_8c.html#a864b9210b3d8b67c1d5f1c12cbfe449e',1,'dateDifference(Date dateOne, Date dateTwo):&#160;date.c'],['../date_8h.html#aba57dd1a294f8c86e5332b6e03ea0d8e',1,'dateDifference(Date, Date):&#160;date.c']]],
+  ['datedifferenceabsolute_8',['dateDifferenceAbsolute',['../date_8c.html#af52e40e3b544884fe9b383d93aad46b4',1,'dateDifferenceAbsolute(Date dateOne, Date dateTwo):&#160;date.c'],['../date_8h.html#a35214b3f8e34e3161db8860737892bc9',1,'dateDifferenceAbsolute(Date, Date):&#160;date.c']]],
+  ['day_9',['day',['../struct_date.html#a4c11afc03fc3ee49bab660def6558f2a',1,'Date']]],
+  ['debugprintfolder_10',['debugPrintFolder',['../folder_8c.html#ab3eacf7783c48c3edb0cd5e0860e581e',1,'debugPrintFolder(Folder f):&#160;folder.c'],['../folder_8h.html#ab07088c358681fec394094f50eefa08a',1,'debugPrintFolder(Folder):&#160;folder.c']]],
+  ['debugprintfolderlist_11',['debugPrintFolderList',['../folder__list_8c.html#ada7d22a96e060e49c49b8bb089393059',1,'debugPrintFolderList(FolderList list):&#160;folder_list.c'],['../folder__list_8h.html#ac0834cd86da5fd60e51e3406ce7dc6d2',1,'debugPrintFolderList(FolderList):&#160;folder_list.c']]],
+  ['debugprintlist_12',['debugPrintList',['../list_8c.html#a21342236d9d68cc4f60b56fc83edd433',1,'debugPrintList(const List *list):&#160;list.c'],['../list_8h.html#abfa9548479828ecf4fc09297457783eb',1,'debugPrintList(const List *):&#160;list.c']]],
+  ['debugprinttask_13',['debugPrintTask',['../task_8c.html#a65bd4df4b52ce1fb3240143b5f8fca81',1,'debugPrintTask(Task t):&#160;task.c'],['../task_8h.html#a19a73463ba0d524a50ec1abf4ab56925',1,'debugPrintTask(Task):&#160;task.c']]],
+  ['debugprintuser_14',['debugPrintUser',['../user_8c.html#acffe4976a9c98f9fcaef66f46eeb0567',1,'debugPrintUser(User user):&#160;user.c'],['../user_8h.html#a9955f253e4aafd8c76552f548675a127',1,'debugPrintUser(User):&#160;user.c']]],
+  ['decreasepoints_15',['decreasePoints',['../user_8c.html#ab90e3649742fd7763fd2433a503f7f38',1,'decreasePoints(User *user, int amount):&#160;user.c'],['../user_8h.html#addb66194d8eccd3ad390ed93fba7e037',1,'decreasePoints(User *, int amount):&#160;user.c']]],
+  ['decrypt_16',['decrypt',['../encryption_8c.html#a039855d0ebff6f9bad07800ccd5bdee8',1,'decrypt(const char *encryptedMessage, const char *key):&#160;encryption.c'],['../encryption_8h.html#a039855d0ebff6f9bad07800ccd5bdee8',1,'decrypt(const char *encryptedMessage, const char *key):&#160;encryption.c']]],
+  ['descending_17',['DESCENDING',['../list_8h.html#ad9be72f666a31b4318bbc8e8a16a9472acee234b4fc0ed1e29e965d79cfe252a6',1,'list.h']]],
+  ['description_18',['description',['../struct_task.html#a593ecff420239a404a9fed479a3a19e7',1,'Task']]],
+  ['destroyfolder_19',['destroyFolder',['../folder_8c.html#abebdf23b9296ae06181abdf03b2d7662',1,'destroyFolder(Folder folder):&#160;folder.c'],['../folder_8h.html#abb4a42606bcfd42449b0351620ccebc2',1,'destroyFolder(Folder):&#160;folder.c']]],
+  ['destroyfolderlist_20',['destroyFolderList',['../folder__list_8c.html#a97c829286363088d1b5cfa35dda76dc4',1,'destroyFolderList(FolderList *list):&#160;folder_list.c'],['../folder__list_8h.html#a98448342edef7dbf2f2a604f7932a1ac',1,'destroyFolderList(FolderList *):&#160;folder_list.c']]],
+  ['destroylist_21',['destroyList',['../list_8c.html#a02cac1d5ec7b088b37cec51af3324be2',1,'destroyList(List *list):&#160;list.c'],['../list_8h.html#a4c29158daa6b2aab203888f0ac7ef9d5',1,'destroyList(List *):&#160;list.c']]]
 ];

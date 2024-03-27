@@ -84,37 +84,49 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">folder.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="folder_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;list.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;task.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="list_8h.html">list.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="task_8h.html">task.h</a>&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define FOLDER_NAME_LENGTH 128</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="folder_8h.html#a484642dde589e1b78bc88923a51e7d3e">    8</a></span><span class="preprocessor">#define FOLDER_NAME_LENGTH 128</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="struct_folder.html">   11</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_folder.html">Folder</a> {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">char</span> name[FOLDER_NAME_LENGTH];</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_struct" href="struct_list.html">List</a>* list;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>} <a class="code hl_struct" href="struct_folder.html">Folder</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="struct_folder.html#ae3a30fe4174f13c767203042c340ce95">   12</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_folder.html#ae3a30fe4174f13c767203042c340ce95">name</a>[<a class="code hl_define" href="folder_8h.html#a484642dde589e1b78bc88923a51e7d3e">FOLDER_NAME_LENGTH</a>];</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="struct_folder.html#adc5a33c24031c978eeae95cff8efea95">   13</a></span>    <a class="code hl_struct" href="struct_list.html">List</a>* <a class="code hl_variable" href="struct_folder.html#adc5a33c24031c978eeae95cff8efea95">list</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="folder_8h.html#aa59b03d9a31361eac5c9e68b7fa88ef4">   14</a></span>} <a class="code hl_typedef" href="folder_8h.html#aa59b03d9a31361eac5c9e68b7fa88ef4">Folder</a>;</div>
 </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><a class="code hl_struct" href="struct_folder.html">Folder</a> createFolder(<span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><a class="code hl_struct" href="struct_folder.html">Folder</a> <a class="code hl_function" href="folder_8h.html#ab6103bab0f3a02302c96087cefd8a313">createFolder</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">bool</span> equalFolder(<a class="code hl_struct" href="struct_folder.html">Folder</a>, <a class="code hl_struct" href="struct_folder.html">Folder</a>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">bool</span> <a class="code hl_function" href="folder_8h.html#ab28f0162434e038b41a56e81f57e2080">equalFolder</a>(<a class="code hl_struct" href="struct_folder.html">Folder</a>, <a class="code hl_struct" href="struct_folder.html">Folder</a>);</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><a class="code hl_struct" href="struct_folder.html">Folder</a> copyFolder(<a class="code hl_struct" href="struct_folder.html">Folder</a> src);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><a class="code hl_struct" href="struct_folder.html">Folder</a> <a class="code hl_function" href="folder_8h.html#a5057acc0cfabb54482d583a256d2098d">copyFolder</a>(<a class="code hl_struct" href="struct_folder.html">Folder</a> src);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">bool</span> setName(<a class="code hl_struct" href="struct_folder.html">Folder</a>*, <span class="keyword">const</span> <span class="keywordtype">char</span>* newName);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">bool</span> <a class="code hl_function" href="folder_8h.html#a8f026584f812b961118fb57df02152ba">setName</a>(<a class="code hl_struct" href="struct_folder.html">Folder</a>*, <span class="keyword">const</span> <span class="keywordtype">char</span>* newName);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">void</span> destroyFolder(<a class="code hl_struct" href="struct_folder.html">Folder</a>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">void</span> <a class="code hl_function" href="folder_8h.html#abb4a42606bcfd42449b0351620ccebc2">destroyFolder</a>(<a class="code hl_struct" href="struct_folder.html">Folder</a>);</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">void</span> debugPrintFolder(<a class="code hl_struct" href="struct_folder.html">Folder</a>);</div>
-<div class="ttc" id="astruct_folder_html"><div class="ttname"><a href="struct_folder.html">Folder</a></div><div class="ttdef"><b>Definition</b> folder.h:11</div></div>
-<div class="ttc" id="astruct_list_html"><div class="ttname"><a href="struct_list.html">List</a></div><div class="ttdef"><b>Definition</b> list.h:19</div></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">void</span> <a class="code hl_function" href="folder_8h.html#ab07088c358681fec394094f50eefa08a">debugPrintFolder</a>(<a class="code hl_struct" href="struct_folder.html">Folder</a>);</div>
+<div class="ttc" id="afolder_8h_html_a484642dde589e1b78bc88923a51e7d3e"><div class="ttname"><a href="folder_8h.html#a484642dde589e1b78bc88923a51e7d3e">FOLDER_NAME_LENGTH</a></div><div class="ttdeci">#define FOLDER_NAME_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="#l00008">folder.h:8</a></div></div>
+<div class="ttc" id="afolder_8h_html_a5057acc0cfabb54482d583a256d2098d"><div class="ttname"><a href="folder_8h.html#a5057acc0cfabb54482d583a256d2098d">copyFolder</a></div><div class="ttdeci">Folder copyFolder(Folder src)</div><div class="ttdef"><b>Definition</b> <a href="folder_8c_source.html#l00029">folder.c:29</a></div></div>
+<div class="ttc" id="afolder_8h_html_a8f026584f812b961118fb57df02152ba"><div class="ttname"><a href="folder_8h.html#a8f026584f812b961118fb57df02152ba">setName</a></div><div class="ttdeci">bool setName(Folder *, const char *newName)</div><div class="ttdef"><b>Definition</b> <a href="folder_8c_source.html#l00035">folder.c:35</a></div></div>
+<div class="ttc" id="afolder_8h_html_aa59b03d9a31361eac5c9e68b7fa88ef4"><div class="ttname"><a href="folder_8h.html#aa59b03d9a31361eac5c9e68b7fa88ef4">Folder</a></div><div class="ttdeci">struct Folder Folder</div></div>
+<div class="ttc" id="afolder_8h_html_ab07088c358681fec394094f50eefa08a"><div class="ttname"><a href="folder_8h.html#ab07088c358681fec394094f50eefa08a">debugPrintFolder</a></div><div class="ttdeci">void debugPrintFolder(Folder)</div><div class="ttdef"><b>Definition</b> <a href="folder_8c_source.html#l00047">folder.c:47</a></div></div>
+<div class="ttc" id="afolder_8h_html_ab28f0162434e038b41a56e81f57e2080"><div class="ttname"><a href="folder_8h.html#ab28f0162434e038b41a56e81f57e2080">equalFolder</a></div><div class="ttdeci">bool equalFolder(Folder, Folder)</div><div class="ttdef"><b>Definition</b> <a href="folder_8c_source.html#l00022">folder.c:22</a></div></div>
+<div class="ttc" id="afolder_8h_html_ab6103bab0f3a02302c96087cefd8a313"><div class="ttname"><a href="folder_8h.html#ab6103bab0f3a02302c96087cefd8a313">createFolder</a></div><div class="ttdeci">Folder createFolder(const char *name)</div><div class="ttdef"><b>Definition</b> <a href="folder_8c_source.html#l00011">folder.c:11</a></div></div>
+<div class="ttc" id="afolder_8h_html_abb4a42606bcfd42449b0351620ccebc2"><div class="ttname"><a href="folder_8h.html#abb4a42606bcfd42449b0351620ccebc2">destroyFolder</a></div><div class="ttdeci">void destroyFolder(Folder)</div><div class="ttdef"><b>Definition</b> <a href="folder_8c_source.html#l00043">folder.c:43</a></div></div>
+<div class="ttc" id="alist_8h_html"><div class="ttname"><a href="list_8h.html">list.h</a></div></div>
+<div class="ttc" id="astruct_folder_html"><div class="ttname"><a href="struct_folder.html">Folder</a></div><div class="ttdef"><b>Definition</b> <a href="#l00011">folder.h:11</a></div></div>
+<div class="ttc" id="astruct_folder_html_adc5a33c24031c978eeae95cff8efea95"><div class="ttname"><a href="struct_folder.html#adc5a33c24031c978eeae95cff8efea95">Folder::list</a></div><div class="ttdeci">List * list</div><div class="ttdef"><b>Definition</b> <a href="#l00013">folder.h:13</a></div></div>
+<div class="ttc" id="astruct_folder_html_ae3a30fe4174f13c767203042c340ce95"><div class="ttname"><a href="struct_folder.html#ae3a30fe4174f13c767203042c340ce95">Folder::name</a></div><div class="ttdeci">char name[FOLDER_NAME_LENGTH]</div><div class="ttdef"><b>Definition</b> <a href="#l00012">folder.h:12</a></div></div>
+<div class="ttc" id="astruct_list_html"><div class="ttname"><a href="struct_list.html">List</a></div><div class="ttdef"><b>Definition</b> <a href="list_8h_source.html#l00019">list.h:19</a></div></div>
+<div class="ttc" id="atask_8h_html"><div class="ttname"><a href="task_8h.html">task.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
