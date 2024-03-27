@@ -105,7 +105,7 @@ void printStatus(Status s, bool newLine) {
 		printf("Blocked");
 		break;
 	case COMPLETED:
-		printf("Competed");
+		printf("Completed");
 		break;
 	default:
 		break;
