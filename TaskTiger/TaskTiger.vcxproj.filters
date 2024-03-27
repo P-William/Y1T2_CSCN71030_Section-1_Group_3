@@ -66,6 +66,9 @@
     <ClCompile Include="folder_list.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="encryption.c">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="task.h">
@@ -97,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="folder_list.h">
       <Filter>Header Files\ADTs</Filter>
+    </ClInclude>
+    <ClInclude Include="encryption.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
