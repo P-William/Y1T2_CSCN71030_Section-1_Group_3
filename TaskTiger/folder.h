@@ -18,6 +18,7 @@ typedef struct Folder {
  * Creates a new folder with the given name.
  * @param name The name of the folder to create.
  * @return The newly created folder.
+ * @note The caller is responsible for calling destroyFolder
  */
 Folder createFolder(const char* name);
 
@@ -33,6 +34,7 @@ bool equalFolder(Folder, Folder);
  * Creates a copy of a folder.
  * @param src The folder to copy.
  * @return The copy of the folder.
+ * @note The caller is responsible for calling destroyFolder
  */
 Folder copyFolder(Folder src);
 

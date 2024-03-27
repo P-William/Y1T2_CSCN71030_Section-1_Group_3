@@ -26,6 +26,7 @@ typedef struct List {
  * Creates and initializes a new list.
  *
  * @return A pointer to the newly created list, or NULL if memory allocation fails.
+ * @note The caller is responsible for calling destroyList
  */
 List* createList();
 
@@ -37,6 +38,7 @@ List* createList();
   * @param list The source list to be copied.
   * @return A pointer to the new list containing the same elements as the source list,
   *         or NULL if memory allocation fails.
+  * @note The caller is responsible for calling destroyList
   */
 List* copyList(const List*);
 
@@ -134,6 +136,7 @@ bool contains(const List*, Task);
  * @param list Pointer to the list of tasks to filter.
  * @param title The title to filter by.
  * @return A new list containing tasks with titles matching the provided title. NULL if the input list is NULL or memory allocation fails.
+ * @note The caller is responsible for calling destroyList
  */
 List* filterByTitle(const List*, const char* title);
 /**
@@ -142,6 +145,7 @@ List* filterByTitle(const List*, const char* title);
  * @param list Pointer to the list of tasks to filter.
  * @param status The status to filter by.
  * @return A new list containing tasks with status matching the provided status. NULL if the input list is NULL or memory allocation fails.
+ * @note The caller is responsible for calling destroyList
  */
 List* filterByStatus(const List*, Status);
 /**
@@ -150,6 +154,7 @@ List* filterByStatus(const List*, Status);
  * @param list Pointer to the list of tasks to filter.
  * @param priority The priority to filter by.
  * @return A new list containing tasks with priority matching the provided priority. NULL if the input list is NULL or memory allocation fails.
+ * @note The caller is responsible for calling destroyList
  */
 List* filterByPriority(const List*, Priority);
 
@@ -160,6 +165,7 @@ List* filterByPriority(const List*, Priority);
  * @return A new list containing only the items from the original list
  *         that have the specified date. Returns NULL if the input list is NULL
  *         or if memory allocation fails.
+ * @note The caller is responsible for calling destroyList
  */
 List* filterByDate(const List*, Date);
 
@@ -170,6 +176,7 @@ List* filterByDate(const List*, Date);
  * @return A new list containing only the items from the original list
  *         that have a date within the specified number of days remaining.
  *         Returns NULL if the input list is NULL or if memory allocation fails.
+ * @note The caller is responsible for calling destroyList
  */
 List* filterByDateTimeRemaining(const List*, int daysRemaining);
 

@@ -63,11 +63,11 @@
     <ClCompile Include="date.c">
       <Filter>Source Files\ADTs</Filter>
     </ClCompile>
-    <ClCompile Include="folder_list.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="encryption.c">
       <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="folder_list.c">
+      <Filter>Source Files\ADTs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
