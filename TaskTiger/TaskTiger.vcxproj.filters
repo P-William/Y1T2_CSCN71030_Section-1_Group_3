@@ -93,40 +93,40 @@
     <ClCompile Include="file_io.c">
       <Filter>Source Files\IO</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\DisplaySettingsMenu.c">
+    <ClCompile Include="DisplayCalendar.c">
       <Filter>Source Files\UI\Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\DisplayTaskMenu.c">
+    <ClCompile Include="DisplayFolderMenu.c">
       <Filter>Source Files\UI\Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\DisplayTigerMenu.c">
+    <ClCompile Include="DisplayMainMenu.c">
       <Filter>Source Files\UI\Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\DisplayCalendar.c">
+    <ClCompile Include="DisplaySettingsMenu.c">
       <Filter>Source Files\UI\Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\DisplayFolderMenu.c">
+    <ClCompile Include="DisplayTaskMenu.c">
       <Filter>Source Files\UI\Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\DisplayMainMenu.c">
+    <ClCompile Include="DisplayTigerMenu.c">
       <Filter>Source Files\UI\Display</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\BCSW24\Project\Project menu\Project1\Calendar.c">
+    <ClCompile Include="Calendar.c">
       <Filter>Source Files\UI\UI_Functions</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\BCSW24\Project\Project menu\Project1\TaskMenu.c">
+    <ClCompile Include="MainMenu.c">
       <Filter>Source Files\UI\UI_Functions</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\BCSW24\Project\Project menu\Project1\TigerMenu.c">
+    <ClCompile Include="SettingsMenu.c">
       <Filter>Source Files\UI\UI_Functions</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\BCSW24\Project\Project menu\Project1\FolderMenu.c">
+    <ClCompile Include="TaskMenu.c">
       <Filter>Source Files\UI\UI_Functions</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\BCSW24\Project\Project menu\Project1\MainMenu.c">
+    <ClCompile Include="TigerMenu.c">
       <Filter>Source Files\UI\UI_Functions</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\BCSW24\Project\Project menu\Project1\SettingsMenu.c">
+    <ClCompile Include="FolderMenu.c">
       <Filter>Source Files\UI\UI_Functions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -170,37 +170,40 @@
     <ClInclude Include="file_io.h">
       <Filter>Header Files\IO</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\DisplayCalendar.h">
+    <ClInclude Include="DisplayCalendar.h">
       <Filter>Header Files\UI\Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\DisplayFolderMenu.h">
+    <ClInclude Include="DisplayFolderMenu.h">
       <Filter>Header Files\UI\Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\DisplayMainMenu.h">
+    <ClInclude Include="DisplayMainMenu.h">
       <Filter>Header Files\UI\Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\DisplaySettingsMenu.h">
+    <ClInclude Include="DisplaySettingsMenu.h">
       <Filter>Header Files\UI\Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\DisplayTaskMenu.h">
+    <ClInclude Include="DisplayTaskMenu.h">
       <Filter>Header Files\UI\Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\DisplayTigerMenu.h">
+    <ClInclude Include="DisplayTigerMenu.h">
       <Filter>Header Files\UI\Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\BCSW24\Project\Project menu\Project1\FolderMenu.h">
+    <ClInclude Include="Calendar.h">
       <Filter>Header Files\UI\UI_Functions</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\BCSW24\Project\Project menu\Project1\MainMenu.h">
+    <ClInclude Include="FolderMenu.h">
       <Filter>Header Files\UI\UI_Functions</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\BCSW24\Project\Project menu\Project1\SettingsMenu.h">
+    <ClInclude Include="MainMenu.h">
       <Filter>Header Files\UI\UI_Functions</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\BCSW24\Project\Project menu\Project1\TaskMenu.h">
+    <ClInclude Include="SettingsMenu.h">
       <Filter>Header Files\UI\UI_Functions</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\BCSW24\Project\Project menu\Project1\TigerMenu.h">
+    <ClInclude Include="TaskMenu.h">
+      <Filter>Header Files\UI\UI_Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="TigerMenu.h">
       <Filter>Header Files\UI\UI_Functions</Filter>
     </ClInclude>
   </ItemGroup>
