@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include "FolderMenu.h"
 #include "DisplayFolderMenu.h"
+#include "input_handler.h"
 
 /*printf("-----------------------------------------------\n");
 	printf("				Folder Menu\n");
@@ -14,7 +16,7 @@
 	printf("\nw) Back\n");
 	printf("q) Save and Quit\n");*/
 bool FolderMenu() {
-	DisplayFolderMenu();//changed up to here <
+	DisplayFolderMenu();
 	bool inMenu = true;
 	char input = { 0 };
 	while (inMenu) {
@@ -25,27 +27,28 @@ bool FolderMenu() {
 
 		switch (input) {
 		case 'a':
-			DisplayAllFolders(); //create
+			//DisplayAllFolders(); //create
 			break;
 		case 'b':
-			SelectFolder(); //create
+			//SelectFolder(); //create
 			break;
 		case 'c':
-			CreateFolder(); //create
+			//CreateFolder(); //create
 			break;
 		case 'd':
-			EditFolder(); //create
+			//EditFolder(); //create
 			break;
 		case 'e':
-			DeleteFolder(); //create
+			//DeleteFolder(); //create
 			break;
 
 		case 'w': //back
-			MainMenu(); 
+			return true;
 			break;
 		case 'q': //quit
-			SaveAndQuit();
+			//SaveAndQuit();
 			inMenu = false;
 		}
 
 	}
+}
