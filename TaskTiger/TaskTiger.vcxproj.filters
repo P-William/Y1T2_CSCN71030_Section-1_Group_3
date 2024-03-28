@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -75,6 +75,9 @@
     <ClCompile Include="taskAPI.c">
       <Filter>Source Files\API</Filter>
     </ClCompile>
+    <ClCompile Include="folderAPI.c">
+      <Filter>Source Files\API</Filter>
+    </ClCompile>
     <ClCompile Include="input_handler.c">
       <Filter>Source Files\IO</Filter>
     </ClCompile>
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="file_io.h">
       <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="folderAPI.h">
+      <Filter>Header Files\API</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

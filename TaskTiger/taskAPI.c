@@ -9,7 +9,7 @@ Task CreateTaskFromUser()
 	Task newTask = createTask("");
 
 	// Get task title
-	while (!getStringFromUser(TASK_TITLE_LENGTH, &(newTask.title), "Enter a title for your new task: ")) {}
+	RenameTask(&newTask);
 
 	// Get optional data
 	bool settingUp = true;
@@ -23,22 +23,24 @@ bool SetOptional(Task* task) {
 	printColoredStringAdvanced(ORANGE, BG_BLACK, ITALIC, task->title);
 	printf("\n");
 
+	printf("a) Rename\n");
+
 	if (stringCompare(task->description, TASK_EMPTY_DESCRIPTION_PLACEHOLDER)) {
-		printf("a) Add description\n");
+		printf("b) Add description\n");
 	}
 	else {
-		printf("a) Change description | ");
+		printf("b) Change description | ");
 		printColoredStringAdvanced(GREY, BG_BLACK, ITALIC, task->description);
 		printf("\n");
 	}
 
-	printf("b) Set status | ");
+	printf("c) Set status | ");
 	printStatusT(*task, true);
 
-	printf("c) Set priority | ");
+	printf("d) Set priority | ");
 	printPriorityT(*task, true);
 
-	printColoredStringAdvanced(B_GREY, BG_BLACK, ITALIC, "d) Continue\n\n");
+	printColoredStringAdvanced(B_GREY, BG_BLACK, ITALIC, "e) Continue\n\n");
 
 	char selection;
 	while (!getCharFromUser(&selection, "Please make a selection:")) {}
@@ -46,25 +48,40 @@ bool SetOptional(Task* task) {
 	switch (selection)
 	{
 	case 'a':
-		SetDescription(task);
+		RenameTask(task);
 		break;
 	case 'b':
-		SetStatus(task);
+		SetDescription(task);
 		break;
 	case 'c':
-		SetPriority(task);
+		SetStatus(task);
 		break;
 	case 'd':
+		SetPriority(task);
+		break;
+	case 'e':
 		return false;
 	default:
 		return true;
 	}
 }
 
+void RenameTask(Task* task) {
+	if (stringCompare(task->title, "")) {
+		printColoredStringAdvanced(YELLOW, BG_BLACK, BOLD, "\Set Task Title");
+	}
+	else {
+		printColoredStringAdvanced(YELLOW, BG_BLACK, BOLD, "\Set Task Title | ");
+		printColoredStringAdvanced(ORANGE, BG_BLACK, ITALIC, task->title);
+	}
+
+	getStringFromUser(TASK_TITLE_LENGTH, task->title, "\nPlease enter a title:");
+}
+
 void SetDescription(Task* task) {
 	printColoredStringAdvanced(YELLOW, BG_BLACK, BOLD, "\nSet Description | ");
 	printColoredStringAdvanced(ORANGE, BG_BLACK, ITALIC, task->title);
-	getStringFromUser(TASK_DESCRIPTION_LENGTH, task->description, "\nPlease type a description:");
+	getStringFromUser(TASK_DESCRIPTION_LENGTH, task->description, "\nPlease enter a description:");
 }
 
 void SetStatus(Task* task) {
