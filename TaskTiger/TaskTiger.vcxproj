@@ -130,6 +130,7 @@
     <ClCompile Include="date.c" />
     <ClCompile Include="encryption.c" />
     <ClCompile Include="folder.c" />
+    <ClCompile Include="folderAPI.c" />
     <ClCompile Include="folder_list.c" />
     <ClCompile Include="input_handler.c" />
     <ClCompile Include="list.c" />
@@ -143,6 +144,7 @@
     <ClInclude Include="date.h" />
     <ClInclude Include="encryption.h" />
     <ClInclude Include="folder.h" />
+    <ClInclude Include="folderAPI.h" />
     <ClInclude Include="folder_list.h" />
     <ClInclude Include="input_handler.h" />
     <ClInclude Include="list.h" />
