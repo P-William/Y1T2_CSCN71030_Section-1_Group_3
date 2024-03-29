@@ -4,11 +4,10 @@
 #include "task.h"
 #include "list.h"
 #include "MainMenu.h"
-#include "folderAPI.h"
+#include "taskAPI.h"
 
 int main(void) {
-	Folder folder = CreateFolderFromUser();
-	EditFolder(&folder);
+	Task task = CreateTaskFromUser();
 
 	MainMenu();
 
