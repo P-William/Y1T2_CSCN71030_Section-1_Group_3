@@ -1,2 +1,5 @@
 #pragma once
-bool MainMenu();
+
+#include "folder_list.h"
+
+bool MainMenu(FolderList* fl);

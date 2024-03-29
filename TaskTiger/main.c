@@ -7,9 +7,10 @@
 #include "taskAPI.h"
 
 int main(void) {
-	Task task = CreateTaskFromUser();
+	// fake setup
+	FolderList folderlist = createFolderList();
 
-	MainMenu();
+	MainMenu(&folderlist);
 
 
 	return 0;

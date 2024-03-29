@@ -170,3 +170,20 @@ void SetPriority(Task* task)
 		break;
 	}
 }
+
+Task* searchTask(const List* list) {
+	char taskTitle[TASK_TITLE_LENGTH];
+	getStringFromUser(TASK_TITLE_LENGTH, taskTitle, "Enter the name of the task you wish to find:");
+
+	if (list == NULL) {
+		fprintf(stderr, "Cannot check null list\n");
+		return NULL;
+	}
+	for (size_t i = 0; i < list->size; i++) {
+		bool match = stringCompare(list->arr[i].title, taskTitle);
+		if (match) {
+			return &(list->arr[i]);
+		}
+	}
+	return NULL;
+}

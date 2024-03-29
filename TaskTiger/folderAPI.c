@@ -16,10 +16,10 @@ Folder CreateFolderFromUser()
 
 void RenameFolder(Folder* folder) {
 	if (stringCompare(folder->name, "")) {
-		printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\Set Folder Name");
+		printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\nSet Folder Name");
 	}
 	else {
-		printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\Set Folder Name | ");
+		printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\nSet Folder Name | ");
 		printColoredStringAdvanced(ORANGE, NO_BG, ITALIC, folder->name);
 	}
 
@@ -53,5 +53,30 @@ void EditFolder(Folder* folder) {
 		case 'c':
 			editing = false;
 		}
+	}
+}
+
+Folder* searchFolder(FolderList* fl) {
+	char folderName[FOLDER_NAME_LENGTH];
+	getStringFromUser(FOLDER_NAME_LENGTH, folderName, "Enter the name of the folder you wish to find:");
+
+	FolderNode* current = fl->head;
+
+	while (current != NULL) {
+		if (stringCompare(current->folder.name, folderName)) return &(current->folder);
+
+		current = current->next;
+	}
+
+	return NULL;
+}
+
+void PrintFolders(FolderList* fl)
+{
+	FolderNode* current = fl->head;
+
+	while (current != NULL) {
+		printf("Folder: %s", current->folder.name);
+		current = current->next;
 	}
 }
