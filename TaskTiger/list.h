@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "task.h"
@@ -196,5 +197,20 @@ bool sortList(List*, SortKey, SortOrder);
 */
 void destroyList(List*);
 
+/**
+ * Saves a list of tasks to a file.
+ *
+ * @param fp Pointer to the FILE object to write to.
+ * @param list Pointer to the List structure to be saved.
+ * @return True if the task list was successfully saved, false otherwise.
+ */
+bool saveList(FILE* fp, const List*);
+/**
+ * Loads a list of tasks from a file.
+ *
+ * @param fp Pointer to the FILE object to read from.
+ * @return Pointer to the List structure loaded from the file.
+ */
+List* loadList(FILE* fp);
 
 void debugPrintList(const List*);

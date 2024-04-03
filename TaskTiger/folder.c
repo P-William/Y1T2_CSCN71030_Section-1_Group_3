@@ -3,8 +3,10 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "folder.h"
+#include "file_io.h"
 #include "string_utils.h"
 
 
@@ -43,6 +45,32 @@ bool setName(Folder* folder, const char* newName) {
 void destroyFolder(Folder folder) {
 	destroyList(folder.list);
 }
+
+bool saveFolder(FILE* fp, Folder folder) {
+	if (fp == NULL) {
+		fprintf(stderr, "Null file pointer passed\n");
+		return false;
+	}
+
+	writeStringToFile(fp, folder.name);
+
+	return saveList(fp, folder.list);
+}
+
+Folder loadFolder(FILE* fp) {
+	if (fp == NULL) {
+		fprintf(stderr, "Null file pointer passed\n");
+		exit(-1);
+	}
+
+	Folder newFolder;
+	getStringFromFile(fp, newFolder.name, FOLDER_NAME_LENGTH);
+
+	newFolder.list = loadList(fp);
+
+	return newFolder;
+}
+
 
 void debugPrintFolder(Folder f) {
 	printf("=== DEBUG PRINT FOLDER ===\n");

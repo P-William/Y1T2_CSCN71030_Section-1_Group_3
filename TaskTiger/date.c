@@ -2,12 +2,13 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <time.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
+#include <limits.h>
 
 #include "date.h"
+#include "file_io.h"
 #include "input_handler.h"
 
 #define DATE_STRING_LENGTH 11
@@ -162,7 +163,7 @@ int dateDifference(Date dateOne, Date dateTwo) {
     double differenceInSeconds = difftime(timeOne, timeTwo);
 
     // Convert to days
-    int differenceInDays = differenceInSeconds / (60 * 60 * 24);
+    int differenceInDays = (int)differenceInSeconds / (60 * 60 * 24);
 
     // Return the difference
     return differenceInDays;
@@ -170,4 +171,35 @@ int dateDifference(Date dateOne, Date dateTwo) {
 
 int dateDifferenceAbsolute(Date dateOne, Date dateTwo) {
     return abs(dateDifference(dateOne, dateTwo));
+}
+
+
+bool saveDate(FILE* fp, Date date) {
+    if (fp == NULL) {
+        fprintf(stderr, "Null file pointer passed\n");
+        return false;
+    }
+
+    writeIntToFile(fp, date.day);
+    writeIntToFile(fp, date.month);
+    writeIntToFile(fp, date.year);
+
+    return true;
+}
+
+Date loadDate(FILE* fp) {
+    if (fp == NULL) {
+        fprintf(stderr, "Null file pointer passed\n");
+        exit(-1);
+    }
+
+    int day;
+    int month;
+    int year;
+
+    getIntFromFile(fp, &day);
+    getIntFromFile(fp, &month);
+    getIntFromFile(fp, &year);
+
+    return createDate(day, month, year);
 }

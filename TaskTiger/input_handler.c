@@ -124,29 +124,3 @@ bool getIntFromUserWithRange(int min, int max, int* output, const char* prompt, 
     *output = number;
     return true;
 }
-
-bool getStringFromStream(int maxLength, char* output, FILE* fp) {
-    char* tempString = (char*)malloc(maxLength * sizeof(char));
-    if (tempString == NULL) {
-        fprintf(stderr, "Failed to allocate memory\n");
-        return false;
-    }
-
-    char* result = fgets(tempString, maxLength, fp);
-    if (result == NULL) {
-        fprintf(stderr, "Failed to get input\n");
-        free(tempString);
-        return false;
-    }
-
-    // remove the \n from fgets
-    char* newLine = strchr(tempString, '\n');
-    if (newLine != NULL) {
-        *newLine = '\0';
-    }
-
-    strncpy(output, tempString, maxLength);
-
-    free(tempString);
-    return true;
-}

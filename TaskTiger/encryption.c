@@ -15,7 +15,12 @@
 char* encrypt(const char* message, const char* key) {
     size_t messageLength = strlen(message);
     size_t keyLength = strlen(key);
+
     char* encryptedMessage = (char*)malloc(messageLength + 1);
+    if (encryptedMessage == NULL) {
+        fprintf(stderr, "Failed to allocate memory for encryption\n");
+        return NULL;
+    }
 
     // Iterate over each character in the message
     for (size_t i = 0; i < messageLength; i++) {
@@ -34,13 +39,14 @@ char* decrypt(const char* encryptedMessage, const char* key) {
 
 const char base64CharSet[65] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
 
-char* base64Encode(const unsigned char* data) {
+char* base64Encode(const unsigned char* data, size_t* outputLength) {
     size_t inputLength = strlen(data);
+    printf("Strlen: %d\n", inputLength);
 
     // Calculate the length of the output data
-    size_t outputLength = 4 * ((inputLength + 2) / 3); // Ceiling division
+    *outputLength = 4 * ((inputLength + 2) / 3); // Ceiling division
 
-    char* encodedData = (char*)malloc(outputLength + 1); // Allocate memory for encoded data
+    char* encodedData = (char*)malloc(*outputLength + 1); // Allocate memory for encoded data
     if (encodedData == NULL) {
         fprintf(stderr, "Failed memory allocation for base64 encode\n");
         return NULL;
@@ -91,11 +97,11 @@ char* base64Encode(const unsigned char* data) {
 
     // Add padding '=' characters if necessary to reach the 24 bits
     for (size_t i = 0; i < (3 - inputLength % 3) % 3; i++) {
-        encodedData[outputLength - 1 - i] = '=';
+        encodedData[*outputLength - 1 - i] = '=';
     }
 
     // Null-terminate the encoded data
-    encodedData[outputLength] = '\0';
+    encodedData[*outputLength] = '\0';
     return encodedData;
 }
 
@@ -124,7 +130,7 @@ int base64ValueLookup(char c) {
     return -1; // Return -1 for invalid characters
 }
 
-unsigned char* base64Decode(const char* data) {
+unsigned char* base64Decode(const char* data, size_t* outputLength) {
     size_t inputLength = strlen(data);
 
     // Check if the input length is a multiple of 4
@@ -134,18 +140,18 @@ unsigned char* base64Decode(const char* data) {
     }
 
     // Calculate the length of the output buffer
-    size_t outputLength = inputLength / 4 * 3;
+    *outputLength = inputLength / 4 * 3;
 
     // Adjust output length if padding characters are present
     if (data[inputLength - 1] == '=') {
-        (outputLength)--;
+        (*outputLength)--;
     }
     if (data[inputLength - 2] == '=') {
-        (outputLength)--;
+        (*outputLength)--;
     }
 
     // Allocate memory for the decoded data, plus one extra byte for null termination
-    unsigned char* decodedData = (unsigned char*)malloc(outputLength + 1);
+    unsigned char* decodedData = (unsigned char*)malloc(*outputLength + 1);
     if (decodedData == NULL) {
         fprintf(stderr, "Failed memory allocation for base64 decode\n");
         return NULL;
@@ -197,22 +203,22 @@ unsigned char* base64Decode(const char* data) {
         // Decode the triple into three bytes and store in the array
         // We decode the 24 bit triple into three bytes by shifting and bit masking each byte
         // Each byte being 8 bits and a triple containing 3 bytes
-        if (j < outputLength) {
+        if (j < *outputLength) {
             // first byte we get by shifting the triple right by 16 bits to extract the most significant byte
             // We use bit masking to mask all bits except the 8 we want. We do masking through the AND operation using 0xFF (11111111 in binary).
             decodedData[j++] = (triple >> 2 * 8) & 0xFF;
         }
-        if (j < outputLength) {
+        if (j < *outputLength) {
             // second we shift by 8 bits
             decodedData[j++] = (triple >> 1 * 8) & 0xFF;
         }
-        if (j < outputLength) {
+        if (j < *outputLength) {
             // We don't need to shift the last since it occupies space at the end of the triple
             decodedData[j++] = triple & 0xFF;
         }
     }
 
     // Null-terminate the decoded data
-    decodedData[outputLength] = '\0';
+    decodedData[*outputLength] = '\0';
     return decodedData;
 }

@@ -1,10 +1,11 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
-#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "task.h"
+#include "file_io.h"
 #include "string_utils.h"
 
 
@@ -144,6 +145,41 @@ void printPriority(Priority p, bool newLine) {
 void printPriorityT(Task t, bool newLine) {
 	printPriority(t.priority, newLine);
 }
+
+
+bool saveTask(FILE* fp, Task task) {
+	if (fp == NULL) {
+		fprintf(stderr, "Null file pointer passed\n");
+		return false;
+	}
+
+	writeStringToFile(fp, task.title);
+	writeStringToFile(fp, task.description);
+	writeIntToFile(fp, task.status);
+	writeIntToFile(fp, task.priority);
+	saveDate(fp, task.date);
+
+	return true;
+}
+Task loadTask(FILE* fp) {
+	if (fp == NULL) {
+		fprintf(stderr, "Null file pointer passed\n");
+		exit(-1);
+	}
+
+	Task newTask;
+
+	getStringFromFile(fp, newTask.title, TASK_TITLE_LENGTH);
+	getStringFromFile(fp, newTask.description, TASK_DESCRIPTION_LENGTH);
+	getIntFromFile(fp, (int*)&newTask.status);
+	getIntFromFile(fp, (int*)&newTask.priority);
+	newTask.date = loadDate(fp);
+
+	return newTask;
+}
+
+
+
 
 void debugPrintTask(Task t) {
 	printf("=== DEBUG PRINT TASK ===\n");
