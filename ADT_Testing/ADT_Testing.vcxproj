@@ -100,7 +100,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)\TaskTiger\x64\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>date.obj;encryption.obj;file_io.obj;folder.obj;folder_list.obj;input_handler.obj;list.obj;string_utils.obj;task.obj;taskAPI.obj;user.obj;tiger.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>task.obj;Calendar.obj;date.obj;DisplayCalendar.obj;DisplayFolderMenu.obj;DisplayMainMenu.obj;DisplaySettingsMenu.obj;DisplayTaskMenu.obj;DisplayTigerMenu.obj;encryption.obj;file_io.obj;folder.obj;folderAPI.obj;FolderMenu.obj;folder_list.obj;input_handler.obj;list.obj;main.obj;MainMenu.obj;SettingsMenu.obj;string_utils.obj;taskAPI.obj;TaskMenu.obj;tiger.obj;tigerAPI.obj;TigerMenu.obj;user.obj;userAPI.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

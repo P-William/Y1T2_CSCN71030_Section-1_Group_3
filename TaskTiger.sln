@@ -6,8 +6,14 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TaskTiger", "TaskTiger\TaskTiger.vcxproj", "{CBA77F66-31BC-4F06-9078-0E51374B7B51}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ADT_Testing", "ADT_Testing\ADT_Testing.vcxproj", "{15EF73B8-777C-46F3-B37B-1E88E761355A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CBA77F66-31BC-4F06-9078-0E51374B7B51} = {CBA77F66-31BC-4F06-9078-0E51374B7B51}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UtilTesting", "UtilTesting\UtilTesting.vcxproj", "{6D6C0BCA-3640-4E58-9280-7B4A45722921}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CBA77F66-31BC-4F06-9078-0E51374B7B51} = {CBA77F66-31BC-4F06-9078-0E51374B7B51}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

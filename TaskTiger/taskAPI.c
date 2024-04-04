@@ -72,10 +72,10 @@ bool SetOptional(Task* task) {
 
 void RenameTask(Task* task) {
 	if (stringCompare(task->title, "")) {
-		printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\Set Task Title");
+		printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\nSet Task Title");
 	}
 	else {
-		printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\Set Task Title | ");
+		printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\nSet Task Title | ");
 		printColoredStringAdvanced(ORANGE, NO_BG, ITALIC, task->title);
 	}
 
