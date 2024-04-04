@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaskTiger: D:/Coding/GitKraken/Y1T2_CSCN71030_Section-1_Group_3/TaskTiger/list.c File Reference</title>
+<title>TaskTiger: D:/Downloads/New folder/Y1T2_CSCN71030_Section-1_Group_3/TaskTiger/list.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,13 +82,11 @@ $(function() {
   <div class="headertitle"><div class="title">list.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="list_8h_source.html">list.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="file__io_8h_source.html">file_io.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="string__utils_8h_source.html">string_utils.h</a>&quot;</code><br />
-</div>
-<p><a href="list_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ad3f3c3716cb19cc14366667a0fa0de12" id="r_ad3f3c3716cb19cc14366667a0fa0de12"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3f3c3716cb19cc14366667a0fa0de12">INITAL_CAPACITY</a>&#160;&#160;&#160;10</td></tr>
@@ -158,6 +156,10 @@ Functions</h2></td></tr>
 <tr class="separator:a7432c7107b3ebf411d0a9f3dad738f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02cac1d5ec7b088b37cec51af3324be2" id="r_a02cac1d5ec7b088b37cec51af3324be2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02cac1d5ec7b088b37cec51af3324be2">destroyList</a> (<a class="el" href="struct_list.html">List</a> *list)</td></tr>
 <tr class="separator:a02cac1d5ec7b088b37cec51af3324be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa61d1bde57b24c54992c969a3fee2673" id="r_aa61d1bde57b24c54992c969a3fee2673"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa61d1bde57b24c54992c969a3fee2673">saveList</a> (FILE *fp, const <a class="el" href="struct_list.html">List</a> *list)</td></tr>
+<tr class="separator:aa61d1bde57b24c54992c969a3fee2673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a533c946fa78cf35d0922c062c1c32d" id="r_a4a533c946fa78cf35d0922c062c1c32d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a533c946fa78cf35d0922c062c1c32d">loadList</a> (FILE *fp)</td></tr>
+<tr class="separator:a4a533c946fa78cf35d0922c062c1c32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21342236d9d68cc4f60b56fc83edd433" id="r_a21342236d9d68cc4f60b56fc83edd433"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21342236d9d68cc4f60b56fc83edd433">debugPrintList</a> (const <a class="el" href="struct_list.html">List</a> *list)</td></tr>
 <tr class="separator:a21342236d9d68cc4f60b56fc83edd433"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -174,8 +176,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00009">9</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="ad3f3c3716cb19cc14366667a0fa0de12" name="ad3f3c3716cb19cc14366667a0fa0de12"></a>
@@ -189,8 +189,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00008">8</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
 
 </div>
 </div>
@@ -223,8 +221,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00116">116</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a8f4dc2d9ef095214abd7c5293e398654" name="a8f4dc2d9ef095214abd7c5293e398654"></a>
@@ -250,8 +246,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00194">194</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="af7c2ab6b1c3d130b28a1b44a76817a5a" name="af7c2ab6b1c3d130b28a1b44a76817a5a"></a>
@@ -272,8 +266,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00368">368</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
 
 </div>
 </div>
@@ -296,8 +288,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00397">397</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a1f04dd545b1d5940898e64db78034755" name="a1f04dd545b1d5940898e64db78034755"></a>
@@ -318,8 +308,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00362">362</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
 
 </div>
 </div>
@@ -342,8 +330,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00391">391</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a1b4a6fa3d8d78cccbf3d15f084ab7c46" name="a1b4a6fa3d8d78cccbf3d15f084ab7c46"></a>
@@ -364,8 +350,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00356">356</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
 
 </div>
 </div>
@@ -388,8 +372,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00385">385</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a03a85246fc93af7081e68589677e7a8c" name="a03a85246fc93af7081e68589677e7a8c"></a>
@@ -411,8 +393,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00350">350</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a04f81778caa61fa628d93663b7b67a74" name="a04f81778caa61fa628d93663b7b67a74"></a>
@@ -433,8 +413,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00379">379</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
 
 </div>
 </div>
@@ -468,8 +446,6 @@ Functions</h2></td></tr>
 <dd>
 Also returns false if the list is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00237">237</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a9293c6fb7bf09378ca2800d328cd06bd" name="a9293c6fb7bf09378ca2800d328cd06bd"></a>
@@ -497,8 +473,6 @@ Also returns false if the list is NULL. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the new list containing the same elements as the source list, or NULL if memory allocation fails. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The caller is responsible for calling destroyList </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00072">72</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a6ae10f3a23dc25c7f1e1dd7d2de3d487" name="a6ae10f3a23dc25c7f1e1dd7d2de3d487"></a>
@@ -519,8 +493,6 @@ Also returns false if the list is NULL. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the newly created list, or NULL if memory allocation fails. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The caller is responsible for calling destroyList </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00053">53</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a21342236d9d68cc4f60b56fc83edd433" name="a21342236d9d68cc4f60b56fc83edd433"></a>
@@ -537,8 +509,6 @@ Also returns false if the list is NULL. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00450">450</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
 
 </div>
 </div>
@@ -562,8 +532,6 @@ Also returns false if the list is NULL. </dd></dl>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00446">446</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
 
 </div>
 </div>
@@ -595,8 +563,6 @@ Also returns false if the list is NULL. </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the lists are equal, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00093">93</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a61eb69d19893045796ecb3adaf9633a1" name="a61eb69d19893045796ecb3adaf9633a1"></a>
@@ -627,8 +593,6 @@ Also returns false if the list is NULL. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A new list containing only the items from the original list that have the specified date. Returns NULL if the input list is NULL or if memory allocation fails. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The caller is responsible for calling destroyList </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00310">310</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="acbef9ebcfd2a6585b67c10d595743fd2" name="acbef9ebcfd2a6585b67c10d595743fd2"></a>
@@ -658,8 +622,6 @@ Also returns false if the list is NULL. </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A new list containing only the items from the original list that have a date within the specified number of days remaining. Returns NULL if the input list is NULL or if memory allocation fails. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The caller is responsible for calling destroyList </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00329">329</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
 
 </div>
 </div>
@@ -692,8 +654,6 @@ Also returns false if the list is NULL. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A new list containing tasks with priority matching the provided priority. NULL if the input list is NULL or memory allocation fails. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The caller is responsible for calling destroyList </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00291">291</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a95a4d5b53feacb2a96ce4646b96d8098" name="a95a4d5b53feacb2a96ce4646b96d8098"></a>
@@ -725,8 +685,6 @@ Also returns false if the list is NULL. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A new list containing tasks with status matching the provided status. NULL if the input list is NULL or memory allocation fails. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The caller is responsible for calling destroyList </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00272">272</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="afd2dec575570b96ac3d4b73be078afa7" name="afd2dec575570b96ac3d4b73be078afa7"></a>
@@ -757,8 +715,6 @@ Also returns false if the list is NULL. </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A new list containing tasks with titles matching the provided title. NULL if the input list is NULL or memory allocation fails. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The caller is responsible for calling destroyList </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00252">252</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
 
 </div>
 </div>
@@ -796,8 +752,6 @@ Also returns false if the list is NULL. </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00132">132</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a53d0ce38f741cbc6fc7b5486e95afc86" name="a53d0ce38f741cbc6fc7b5486e95afc86"></a>
@@ -825,7 +779,30 @@ Also returns false if the list is NULL. </dd></dl>
 <dd>
 Also returns false if the list is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00229">229</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
+</div>
+</div>
+<a id="a4a533c946fa78cf35d0922c062c1c32d" name="a4a533c946fa78cf35d0922c062c1c32d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a533c946fa78cf35d0922c062c1c32d">&#9670;&#160;</a></span>loadList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_list.html">List</a> * loadList </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads a list of tasks from a file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fp</td><td>Pointer to the FILE object to read from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the <a class="el" href="struct_list.html">List</a> structure loaded from the file. </dd></dl>
 
 </div>
 </div>
@@ -856,8 +833,6 @@ Also returns false if the list is NULL. </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00177">177</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
 
 </div>
 </div>
@@ -890,8 +865,6 @@ Also returns false if the list is NULL. </dd></dl>
 <dd>
 returns a pointer to the new array if successful, otherwise returns the original array to prevent data loss </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00019">19</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a1f3f4f7f3d6032ea5ec32b6fe844d777" name="a1f3f4f7f3d6032ea5ec32b6fe844d777"></a>
@@ -922,8 +895,6 @@ returns a pointer to the new array if successful, otherwise returns the original
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the task was found and removed, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00158">158</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="aa1b91c06a4e26a34e81e303b1a63ebff" name="aa1b91c06a4e26a34e81e303b1a63ebff"></a>
@@ -945,7 +916,35 @@ returns a pointer to the new array if successful, otherwise returns the original
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00041">41</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
+</div>
+</div>
+<a id="aa61d1bde57b24c54992c969a3fee2673" name="aa61d1bde57b24c54992c969a3fee2673"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa61d1bde57b24c54992c969a3fee2673">&#9670;&#160;</a></span>saveList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool saveList </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fp</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_list.html">List</a> *</td>          <td class="paramname"><span class="paramname"><em>list</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Saves a list of tasks to a file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fp</td><td>Pointer to the FILE object to write to. </td></tr>
+    <tr><td class="paramname">list</td><td>Pointer to the <a class="el" href="struct_list.html">List</a> structure to be saved. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the task list was successfully saved, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -983,8 +982,6 @@ returns a pointer to the new array if successful, otherwise returns the original
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00208">208</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="abd49a1abf5027aaafad66a6400b6242c" name="abd49a1abf5027aaafad66a6400b6242c"></a>
@@ -1011,8 +1008,6 @@ returns a pointer to the new array if successful, otherwise returns the original
 <dl class="section return"><dt>Returns</dt><dd>The number of elements in the list. </dd>
 <dd>
 Returns 0 if the list is NULL. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00222">222</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
 
 </div>
 </div>
@@ -1050,8 +1045,6 @@ Returns 0 if the list is NULL. </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if sorting is successful, false if an error occured </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00401">401</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
-
 </div>
 </div>
 <a id="a21552bcb4f671af95a9996397e894109" name="a21552bcb4f671af95a9996397e894109"></a>
@@ -1068,8 +1061,6 @@ Returns 0 if the list is NULL. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="list_8c_source.html#l00029">29</a> of file <a class="el" href="list_8c_source.html">list.c</a>.</p>
 
 </div>
 </div>

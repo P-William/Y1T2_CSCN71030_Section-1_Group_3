@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaskTiger: D:/Coding/GitKraken/Y1T2_CSCN71030_Section-1_Group_3/TaskTiger/string_utils.c File Reference</title>
+<title>TaskTiger: D:/Downloads/New folder/Y1T2_CSCN71030_Section-1_Group_3/TaskTiger/string_utils.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,17 +86,22 @@ $(function() {
 <code>#include &lt;ctype.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdarg.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="string__utils_8h_source.html">string_utils.h</a>&quot;</code><br />
-</div>
-<p><a href="string__utils_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:af08ec37a8c99d747fb60fa15bc28678b" id="r_af08ec37a8c99d747fb60fa15bc28678b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af08ec37a8c99d747fb60fa15bc28678b">_CRT_SECURE_NO_WARNINGS</a></td></tr>
 <tr class="separator:af08ec37a8c99d747fb60fa15bc28678b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79bcfb6bde984f42d1124b068a509af7" id="r_a79bcfb6bde984f42d1124b068a509af7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79bcfb6bde984f42d1124b068a509af7">BASE</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a79bcfb6bde984f42d1124b068a509af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aa5ae5b0074b94fbbdf51a1986ba84617" id="r_aa5ae5b0074b94fbbdf51a1986ba84617"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5ae5b0074b94fbbdf51a1986ba84617">stringToInt</a> (const char *string, int *output)</td></tr>
+<tr class="separator:aa5ae5b0074b94fbbdf51a1986ba84617"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5121c766eaf6e131a09d30af1e45b69" id="r_ae5121c766eaf6e131a09d30af1e45b69"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5121c766eaf6e131a09d30af1e45b69">intToString</a> (int integer, char *outputString, size_t outputSize)</td></tr>
+<tr class="separator:ae5121c766eaf6e131a09d30af1e45b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeec4d653cdb08bb3e6156ba97f6fea37" id="r_aeec4d653cdb08bb3e6156ba97f6fea37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeec4d653cdb08bb3e6156ba97f6fea37">stringCompare</a> (const char *str1, const char *str2)</td></tr>
 <tr class="separator:aeec4d653cdb08bb3e6156ba97f6fea37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99a351341defcb068974c9c7b4cbe84a" id="r_a99a351341defcb068974c9c7b4cbe84a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99a351341defcb068974c9c7b4cbe84a">stringCompareI</a> (const char *str1, const char *str2)</td></tr>
@@ -131,11 +136,59 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="string__utils_8c_source.html#l00002">2</a> of file <a class="el" href="string__utils_8c_source.html">string_utils.c</a>.</p>
+</div>
+</div>
+<a id="a79bcfb6bde984f42d1124b068a509af7" name="a79bcfb6bde984f42d1124b068a509af7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79bcfb6bde984f42d1124b068a509af7">&#9670;&#160;</a></span>BASE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BASE&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ae5121c766eaf6e131a09d30af1e45b69" name="ae5121c766eaf6e131a09d30af1e45b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5121c766eaf6e131a09d30af1e45b69">&#9670;&#160;</a></span>intToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool intToString </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>integer</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>outputString</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>outputSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts an integer to a string.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">integer</td><td>The integer to convert. </td></tr>
+    <tr><td class="paramname">outputString</td><td>Pointer to a character buffer where the result will be stored. </td></tr>
+    <tr><td class="paramname">outputSize</td><td>The size of the output buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if conversion is successful, false otherwise. </dd></dl>
+
+</div>
+</div>
 <a id="a24f328519179d29f3e33dcffaf11b3d8" name="a24f328519179d29f3e33dcffaf11b3d8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a24f328519179d29f3e33dcffaf11b3d8">&#9670;&#160;</a></span>printColoredString()</h2>
 
@@ -169,8 +222,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="string__utils_8c_source.html#l00141">141</a> of file <a class="el" href="string__utils_8c_source.html">string_utils.c</a>.</p>
 
 </div>
 </div>
@@ -216,8 +267,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="string__utils_8c_source.html#l00090">90</a> of file <a class="el" href="string__utils_8c_source.html">string_utils.c</a>.</p>
-
 </div>
 </div>
 <a id="a663861c274692c358785ac615705744d" name="a663861c274692c358785ac615705744d"></a>
@@ -257,8 +306,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="string__utils_8c_source.html#l00059">59</a> of file <a class="el" href="string__utils_8c_source.html">string_utils.c</a>.</p>
 
 </div>
 </div>
@@ -306,8 +353,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="string__utils_8c_source.html#l00079">79</a> of file <a class="el" href="string__utils_8c_source.html">string_utils.c</a>.</p>
-
 </div>
 </div>
 <a id="aeec4d653cdb08bb3e6156ba97f6fea37" name="aeec4d653cdb08bb3e6156ba97f6fea37"></a>
@@ -329,8 +374,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>strcmp wrapper that returns a bool </p>
-
-<p class="definition">Definition at line <a class="el" href="string__utils_8c_source.html#l00011">11</a> of file <a class="el" href="string__utils_8c_source.html">string_utils.c</a>.</p>
 
 </div>
 </div>
@@ -362,7 +405,35 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns <code>true</code> if the strings are equal (ignoring case); otherwise, returns <code>false</code>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="string__utils_8c_source.html#l00014">14</a> of file <a class="el" href="string__utils_8c_source.html">string_utils.c</a>.</p>
+</div>
+</div>
+<a id="aa5ae5b0074b94fbbdf51a1986ba84617" name="aa5ae5b0074b94fbbdf51a1986ba84617"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5ae5b0074b94fbbdf51a1986ba84617">&#9670;&#160;</a></span>stringToInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stringToInt </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>string</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts a string to an integer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>The null-terminated string to convert. </td></tr>
+    <tr><td class="paramname">output</td><td>Pointer to an integer where the result will be stored. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if conversion is successful, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -386,8 +457,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="string__utils_8c_source.html#l00045">45</a> of file <a class="el" href="string__utils_8c_source.html">string_utils.c</a>.</p>
 
 </div>
 </div>
@@ -417,8 +486,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="string__utils_8c_source.html#l00053">53</a> of file <a class="el" href="string__utils_8c_source.html">string_utils.c</a>.</p>
-
 </div>
 </div>
 <a id="a6cbb44addb5d016b78957d1dc2fc3a0c" name="a6cbb44addb5d016b78957d1dc2fc3a0c"></a>
@@ -441,8 +508,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="string__utils_8c_source.html#l00032">32</a> of file <a class="el" href="string__utils_8c_source.html">string_utils.c</a>.</p>
 
 </div>
 </div>
@@ -471,8 +536,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="string__utils_8c_source.html#l00040">40</a> of file <a class="el" href="string__utils_8c_source.html">string_utils.c</a>.</p>
 
 </div>
 </div>

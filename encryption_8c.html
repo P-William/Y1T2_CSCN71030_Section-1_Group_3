@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaskTiger: D:/Coding/GitKraken/Y1T2_CSCN71030_Section-1_Group_3/TaskTiger/encryption.c File Reference</title>
+<title>TaskTiger: D:/Downloads/New folder/Y1T2_CSCN71030_Section-1_Group_3/TaskTiger/encryption.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,21 +90,21 @@ $(function() {
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;ctype.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="encryption_8h_source.html">encryption.h</a>&quot;</code><br />
-</div>
-<p><a href="encryption_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad305be4e6e2db969e24e4bd504eb8a84" id="r_ad305be4e6e2db969e24e4bd504eb8a84"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad305be4e6e2db969e24e4bd504eb8a84">encrypt</a> (const char *message, const char *key)</td></tr>
 <tr class="separator:ad305be4e6e2db969e24e4bd504eb8a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a039855d0ebff6f9bad07800ccd5bdee8" id="r_a039855d0ebff6f9bad07800ccd5bdee8"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a039855d0ebff6f9bad07800ccd5bdee8">decrypt</a> (const char *encryptedMessage, const char *key)</td></tr>
 <tr class="separator:a039855d0ebff6f9bad07800ccd5bdee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa117d5f9ff884b45216220ded2b68bc4" id="r_aa117d5f9ff884b45216220ded2b68bc4"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa117d5f9ff884b45216220ded2b68bc4">base64Encode</a> (const unsigned char *data)</td></tr>
-<tr class="separator:aa117d5f9ff884b45216220ded2b68bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aa21debbb3e55d47b4d45251c09484f" id="r_a0aa21debbb3e55d47b4d45251c09484f"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0aa21debbb3e55d47b4d45251c09484f">base64Encode</a> (const unsigned char *data, size_t *outputLength)</td></tr>
+<tr class="memdesc:a0aa21debbb3e55d47b4d45251c09484f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes data into base64 format.  <br /></td></tr>
+<tr class="separator:a0aa21debbb3e55d47b4d45251c09484f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad625063b33e7341496a74e4482c21ebc" id="r_ad625063b33e7341496a74e4482c21ebc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad625063b33e7341496a74e4482c21ebc">base64ValueLookup</a> (char c)</td></tr>
 <tr class="separator:ad625063b33e7341496a74e4482c21ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ab7ad5bf3ca8f7507b5ba326ecc019a" id="r_a5ab7ad5bf3ca8f7507b5ba326ecc019a"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ab7ad5bf3ca8f7507b5ba326ecc019a">base64Decode</a> (const char *data)</td></tr>
-<tr class="separator:a5ab7ad5bf3ca8f7507b5ba326ecc019a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a919d5ea101b7f13208dcd2ba61eaaf" id="r_a8a919d5ea101b7f13208dcd2ba61eaaf"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a919d5ea101b7f13208dcd2ba61eaaf">base64Decode</a> (const char *data, size_t *outputLength)</td></tr>
+<tr class="memdesc:a8a919d5ea101b7f13208dcd2ba61eaaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes base64 encoded data.  <br /></td></tr>
+<tr class="separator:a8a919d5ea101b7f13208dcd2ba61eaaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -112,8 +112,8 @@ Variables</h2></td></tr>
 <tr class="separator:a78b55664bb8679e106cbf7e20a268eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a5ab7ad5bf3ca8f7507b5ba326ecc019a" name="a5ab7ad5bf3ca8f7507b5ba326ecc019a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ab7ad5bf3ca8f7507b5ba326ecc019a">&#9670;&#160;</a></span>base64Decode()</h2>
+<a id="a8a919d5ea101b7f13208dcd2ba61eaaf" name="a8a919d5ea101b7f13208dcd2ba61eaaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a919d5ea101b7f13208dcd2ba61eaaf">&#9670;&#160;</a></span>base64Decode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -121,27 +121,32 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">unsigned char * base64Decode </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>data</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">size_t *</td>          <td class="paramname"><span class="paramname"><em>outputLength</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Decodes Base64 encoded data.</p>
+
+<p>Decodes base64 encoded data. </p>
+<p>This function takes a base64 encoded string and decodes it into binary data.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>The Base64 encoded data. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the null-terminated string containing base64 encoded data. </td></tr>
+    <tr><td class="paramname">outputLength</td><td>Pointer to a size_t variable to store the length of the decoded data. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A dynamically allocated buffer containing the decoded data. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The caller is responsible for freeing the memory allocated for the returned buffer. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="encryption_8c_source.html#l00127">127</a> of file <a class="el" href="encryption_8c_source.html">encryption.c</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>A dynamically allocated buffer containing the decoded binary data. It is the responsibility of the caller to free this memory. Returns NULL if memory allocation fails or if the input length is not valid for base64 encoding. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Caller is responsible for freeing memory </dd></dl>
 
 </div>
 </div>
-<a id="aa117d5f9ff884b45216220ded2b68bc4" name="aa117d5f9ff884b45216220ded2b68bc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa117d5f9ff884b45216220ded2b68bc4">&#9670;&#160;</a></span>base64Encode()</h2>
+<a id="a0aa21debbb3e55d47b4d45251c09484f" name="a0aa21debbb3e55d47b4d45251c09484f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aa21debbb3e55d47b4d45251c09484f">&#9670;&#160;</a></span>base64Encode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,22 +154,27 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">char * base64Encode </td>
           <td>(</td>
-          <td class="paramtype">const unsigned char *</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td class="paramtype">const unsigned char *</td>          <td class="paramname"><span class="paramname"><em>data</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">size_t *</td>          <td class="paramname"><span class="paramname"><em>outputLength</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Encodes data into Base64 format.</p>
+
+<p>Encodes data into base64 format. </p>
+<p>This function takes an input buffer of binary data and encodes it into base64 format.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>The data to be encoded. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the input buffer containing binary data. </td></tr>
+    <tr><td class="paramname">outputLength</td><td>Pointer to a size_t variable to store the length of the encoded data. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A dynamically allocated string containing the Base64 encoded data. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The caller is responsible for freeing the memory allocated for the returned string. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="encryption_8c_source.html#l00037">37</a> of file <a class="el" href="encryption_8c_source.html">encryption.c</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>A dynamically allocated buffer containing the base64 encoded data. It is the responsibility of the caller to free this memory. Returns NULL if memory allocation fails. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Caller is responsible for freeing memory </dd></dl>
 
 </div>
 </div>
@@ -182,8 +192,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="encryption_8c_source.html#l00102">102</a> of file <a class="el" href="encryption_8c_source.html">encryption.c</a>.</p>
 
 </div>
 </div>
@@ -215,8 +223,6 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A dynamically allocated string containing the decrypted message. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The caller is responsible for freeing the memory allocated for the returned string. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="encryption_8c_source.html#l00031">31</a> of file <a class="el" href="encryption_8c_source.html">encryption.c</a>.</p>
 
 </div>
 </div>
@@ -250,8 +256,6 @@ Variables</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>The caller is responsible for freeing the memory allocated for the returned string. </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Once encrypted, data is no long ensured to be printable characters, it is just raw binary data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="encryption_8c_source.html#l00015">15</a> of file <a class="el" href="encryption_8c_source.html">encryption.c</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -266,8 +270,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="encryption_8c_source.html#l00035">35</a> of file <a class="el" href="encryption_8c_source.html">encryption.c</a>.</p>
 
 </div>
 </div>

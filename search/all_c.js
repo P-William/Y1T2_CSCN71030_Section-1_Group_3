@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['name',['../struct_folder.html#ae3a30fe4174f13c767203042c340ce95',1,'Folder']]],
+  ['name_0',['name',['../struct_folder.html#ae3a30fe4174f13c767203042c340ce95',1,'Folder::name'],['../structtiger.html#aec8f3d3014670f56307b8e7c1626be0c',1,'tiger::name']]],
   ['next_1',['next',['../struct_folder_node.html#a609df8d7affeace0d67b89286ee384b9',1,'FolderNode']]],
   ['no_5fbg_2',['NO_BG',['../string__utils_8h.html#a20c3d953d44c65ccdbf60b78355daf0aa3fedf18c9e257bd90620311372339ef6',1,'string_utils.h']]],
   ['no_5fcolor_3',['NO_COLOR',['../string__utils_8h.html#ae4bfdbf09d871b1384d4e6eb055d3077a49ab6da9e5945a0af27ee598df5d5520',1,'string_utils.h']]],

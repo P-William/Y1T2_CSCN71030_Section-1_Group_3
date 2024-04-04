@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaskTiger: D:/Coding/GitKraken/Y1T2_CSCN71030_Section-1_Group_3/TaskTiger/user.c File Reference</title>
+<title>TaskTiger: D:/Downloads/New folder/Y1T2_CSCN71030_Section-1_Group_3/TaskTiger/user.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,13 +82,13 @@ $(function() {
   <div class="headertitle"><div class="title">user.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="user_8h_source.html">user.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="file__io_8h_source.html">file_io.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="string__utils_8h_source.html">string_utils.h</a>&quot;</code><br />
-</div>
-<p><a href="user_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<code>#include &quot;<a class="el" href="tiger_a_p_i_8h_source.html">TigerAPI.h</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:af08ec37a8c99d747fb60fa15bc28678b" id="r_af08ec37a8c99d747fb60fa15bc28678b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af08ec37a8c99d747fb60fa15bc28678b">_CRT_SECURE_NO_WARNINGS</a></td></tr>
@@ -120,6 +120,10 @@ Functions</h2></td></tr>
 <tr class="separator:a03638cde9a143aee0b6bd271dbbe4315"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31579477ed24bdda7ad37edd52a44d47" id="r_a31579477ed24bdda7ad37edd52a44d47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31579477ed24bdda7ad37edd52a44d47">printTigerStatusU</a> (<a class="el" href="struct_user.html">User</a> user, bool newLine)</td></tr>
 <tr class="separator:a31579477ed24bdda7ad37edd52a44d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d72e5fd03c0579ac19aae58272493d7" id="r_a8d72e5fd03c0579ac19aae58272493d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d72e5fd03c0579ac19aae58272493d7">saveUser</a> (FILE *fp, <a class="el" href="struct_user.html">User</a> user)</td></tr>
+<tr class="separator:a8d72e5fd03c0579ac19aae58272493d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7281fc9a05ce062cc02aad9d411f00a" id="r_ac7281fc9a05ce062cc02aad9d411f00a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_user.html">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7281fc9a05ce062cc02aad9d411f00a">loadUser</a> (FILE *fp)</td></tr>
+<tr class="separator:ac7281fc9a05ce062cc02aad9d411f00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acffe4976a9c98f9fcaef66f46eeb0567" id="r_acffe4976a9c98f9fcaef66f46eeb0567"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acffe4976a9c98f9fcaef66f46eeb0567">debugPrintUser</a> (<a class="el" href="struct_user.html">User</a> user)</td></tr>
 <tr class="separator:acffe4976a9c98f9fcaef66f46eeb0567"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -135,8 +139,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00002">2</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
 
 </div>
 </div>
@@ -162,8 +164,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The copy of the user. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00028">28</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
 
 </div>
 </div>
@@ -194,8 +194,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the copy was successful, false if dest is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00035">35</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
-
 </div>
 </div>
 <a id="aef19e2ecdb0191e6103d0d999cf1a1a9" name="aef19e2ecdb0191e6103d0d999cf1a1a9"></a>
@@ -225,8 +223,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The newly created user. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00010">10</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
-
 </div>
 </div>
 <a id="acffe4976a9c98f9fcaef66f46eeb0567" name="acffe4976a9c98f9fcaef66f46eeb0567"></a>
@@ -243,8 +239,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00135">135</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
 
 </div>
 </div>
@@ -275,8 +269,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the points were successfully decreased, false if user is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00072">72</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
-
 </div>
 </div>
 <a id="ab9415ece3342f30c3a156289fc0c21b1" name="ab9415ece3342f30c3a156289fc0c21b1"></a>
@@ -305,8 +297,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the users are equal, false otherwise. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00019">19</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
 
 </div>
 </div>
@@ -337,7 +327,30 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the points were successfully increased, false if user is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00064">64</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
+</div>
+</div>
+<a id="ac7281fc9a05ce062cc02aad9d411f00a" name="ac7281fc9a05ce062cc02aad9d411f00a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7281fc9a05ce062cc02aad9d411f00a">&#9670;&#160;</a></span>loadUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_user.html">User</a> loadUser </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads a user from a file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fp</td><td>Pointer to the FILE object to read from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="struct_user.html">User</a> structure loaded from the file. </dd></dl>
 
 </div>
 </div>
@@ -367,8 +380,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00103">103</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
-
 </div>
 </div>
 <a id="a31579477ed24bdda7ad37edd52a44d47" name="a31579477ed24bdda7ad37edd52a44d47"></a>
@@ -397,7 +408,35 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00130">130</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
+</div>
+</div>
+<a id="a8d72e5fd03c0579ac19aae58272493d7" name="a8d72e5fd03c0579ac19aae58272493d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d72e5fd03c0579ac19aae58272493d7">&#9670;&#160;</a></span>saveUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool saveUser </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fp</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_user.html">User</a></td>          <td class="paramname"><span class="paramname"><em>user</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Saves a user to a file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fp</td><td>Pointer to the FILE object to write to. </td></tr>
+    <tr><td class="paramname">user</td><td>The <a class="el" href="struct_user.html">User</a> structure to be saved. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the user was successfully saved, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -428,8 +467,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the password was successfully set, false if user or newPassword is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00055">55</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
-
 </div>
 </div>
 <a id="ab13339852347b92ac1a5ff8527b194d0" name="ab13339852347b92ac1a5ff8527b194d0"></a>
@@ -458,8 +495,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the username was successfully set, false if user or newUsername is NULL. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00047">47</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
 
 </div>
 </div>
@@ -490,8 +525,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the task completion was successfully updated, false if user is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00080">80</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
-
 </div>
 </div>
 <a id="ab71a6e4b76d6e18f6df5d554b7e44801" name="ab71a6e4b76d6e18f6df5d554b7e44801"></a>
@@ -520,8 +553,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the profile data was successfully wiped, false if youSure is false. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="user_8c_source.html#l00088">88</a> of file <a class="el" href="user_8c_source.html">user.c</a>.</p>
 
 </div>
 </div>

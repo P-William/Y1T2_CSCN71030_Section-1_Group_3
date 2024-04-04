@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaskTiger: D:/Coding/GitKraken/Y1T2_CSCN71030_Section-1_Group_3/TaskTiger/task.c File Reference</title>
+<title>TaskTiger: D:/Downloads/New folder/Y1T2_CSCN71030_Section-1_Group_3/TaskTiger/task.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,13 +82,12 @@ $(function() {
   <div class="headertitle"><div class="title">task.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="task_8h_source.html">task.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="file__io_8h_source.html">file_io.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="string__utils_8h_source.html">string_utils.h</a>&quot;</code><br />
-</div>
-<p><a href="task_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:af08ec37a8c99d747fb60fa15bc28678b" id="r_af08ec37a8c99d747fb60fa15bc28678b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af08ec37a8c99d747fb60fa15bc28678b">_CRT_SECURE_NO_WARNINGS</a></td></tr>
@@ -122,6 +121,10 @@ Functions</h2></td></tr>
 <tr class="separator:ad04933c0fbf6b8fab21704ae96ab95e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7a93181cf0e15f38f5208d97834641c" id="r_ac7a93181cf0e15f38f5208d97834641c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7a93181cf0e15f38f5208d97834641c">printPriorityT</a> (<a class="el" href="struct_task.html">Task</a> t, bool newLine)</td></tr>
 <tr class="separator:ac7a93181cf0e15f38f5208d97834641c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1efb31a7c304a34a18ae66b2a15406f" id="r_ad1efb31a7c304a34a18ae66b2a15406f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1efb31a7c304a34a18ae66b2a15406f">saveTask</a> (FILE *fp, <a class="el" href="struct_task.html">Task</a> task)</td></tr>
+<tr class="separator:ad1efb31a7c304a34a18ae66b2a15406f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56dae1514949b260fe34ca33af06146e" id="r_a56dae1514949b260fe34ca33af06146e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_task.html">Task</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56dae1514949b260fe34ca33af06146e">loadTask</a> (FILE *fp)</td></tr>
+<tr class="separator:a56dae1514949b260fe34ca33af06146e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65bd4df4b52ce1fb3240143b5f8fca81" id="r_a65bd4df4b52ce1fb3240143b5f8fca81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65bd4df4b52ce1fb3240143b5f8fca81">debugPrintTask</a> (<a class="el" href="struct_task.html">Task</a> t)</td></tr>
 <tr class="separator:a65bd4df4b52ce1fb3240143b5f8fca81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -137,8 +140,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00002">2</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
 
 </div>
 </div>
@@ -164,8 +165,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The copy of the task. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00030">30</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
 
 </div>
 </div>
@@ -196,8 +195,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the copy was successful, false if dest is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00038">38</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
-
 </div>
 </div>
 <a id="ad068606efb5e738bf6c0ec9593dc0da8" name="ad068606efb5e738bf6c0ec9593dc0da8"></a>
@@ -222,8 +219,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The newly created task. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00011">11</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
-
 </div>
 </div>
 <a id="a65bd4df4b52ce1fb3240143b5f8fca81" name="a65bd4df4b52ce1fb3240143b5f8fca81"></a>
@@ -240,8 +235,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00148">148</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
 
 </div>
 </div>
@@ -272,7 +265,30 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the tasks are equal, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00021">21</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
+</div>
+</div>
+<a id="a56dae1514949b260fe34ca33af06146e" name="a56dae1514949b260fe34ca33af06146e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56dae1514949b260fe34ca33af06146e">&#9670;&#160;</a></span>loadTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_task.html">Task</a> loadTask </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads a task from a file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fp</td><td>Pointer to the FILE object to read from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="struct_task.html">Task</a> structure loaded from the file. </dd></dl>
 
 </div>
 </div>
@@ -302,8 +318,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00120">120</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
-
 </div>
 </div>
 <a id="ac7a93181cf0e15f38f5208d97834641c" name="ac7a93181cf0e15f38f5208d97834641c"></a>
@@ -331,8 +345,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00144">144</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
 
 </div>
 </div>
@@ -362,8 +374,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00093">93</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
-
 </div>
 </div>
 <a id="aeefd7af3a4d9ba2d6025fe26c79795f8" name="aeefd7af3a4d9ba2d6025fe26c79795f8"></a>
@@ -392,7 +402,35 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00117">117</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
+</div>
+</div>
+<a id="ad1efb31a7c304a34a18ae66b2a15406f" name="ad1efb31a7c304a34a18ae66b2a15406f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1efb31a7c304a34a18ae66b2a15406f">&#9670;&#160;</a></span>saveTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool saveTask </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fp</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_task.html">Task</a></td>          <td class="paramname"><span class="paramname"><em>task</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Saves a task to a file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fp</td><td>Pointer to the FILE object to write to. </td></tr>
+    <tr><td class="paramname">task</td><td>The <a class="el" href="struct_task.html">Task</a> structure to be saved. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the task was successfully saved, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -423,8 +461,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the date was successfully set, false if task is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00083">83</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
-
 </div>
 </div>
 <a id="a20020c92361feae858efa98bf69c98f5" name="a20020c92361feae858efa98bf69c98f5"></a>
@@ -453,8 +489,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the description was successfully set, false if task or newDesc is NULL. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00059">59</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
 
 </div>
 </div>
@@ -485,8 +519,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the priority was successfully set, false if task is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00067">67</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
-
 </div>
 </div>
 <a id="a0415bfbec6bffbb04a224c790a19557d" name="a0415bfbec6bffbb04a224c790a19557d"></a>
@@ -516,8 +548,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the status was successfully set, false if task is NULL. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00075">75</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
-
 </div>
 </div>
 <a id="a5c6d4b58764a3d1aeb5e817c7f1278e2" name="a5c6d4b58764a3d1aeb5e817c7f1278e2"></a>
@@ -546,8 +576,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the title was successfully set, false if task or newName is NULL. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="task_8c_source.html#l00051">51</a> of file <a class="el" href="task_8c_source.html">task.c</a>.</p>
 
 </div>
 </div>

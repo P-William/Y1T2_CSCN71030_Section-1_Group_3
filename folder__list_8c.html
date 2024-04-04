@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaskTiger: D:/Coding/GitKraken/Y1T2_CSCN71030_Section-1_Group_3/TaskTiger/folder_list.c File Reference</title>
+<title>TaskTiger: D:/Downloads/New folder/Y1T2_CSCN71030_Section-1_Group_3/TaskTiger/folder_list.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,10 +83,9 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="file__io_8h_source.html">file_io.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="folder__list_8h_source.html">folder_list.h</a>&quot;</code><br />
-</div>
-<p><a href="folder__list_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a97461cb94601d015b0c1f4787f47cfe5" id="r_a97461cb94601d015b0c1f4787f47cfe5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_folder_list.html">FolderList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97461cb94601d015b0c1f4787f47cfe5">createFolderList</a> ()</td></tr>
@@ -97,8 +96,8 @@ Functions</h2></td></tr>
 <tr class="separator:a8a32c72b98f1bb2cea45bc590992c213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60bb2eddee650cd930cb6e2c90b514b9" id="r_a60bb2eddee650cd930cb6e2c90b514b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60bb2eddee650cd930cb6e2c90b514b9">equalFolderList</a> (<a class="el" href="struct_folder_list.html">FolderList</a> listOne, <a class="el" href="struct_folder_list.html">FolderList</a> listTwo)</td></tr>
 <tr class="separator:a60bb2eddee650cd930cb6e2c90b514b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a806b7959ce88787d09e8f3cba9e67e71" id="r_a806b7959ce88787d09e8f3cba9e67e71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a806b7959ce88787d09e8f3cba9e67e71">getFolderListSize</a> (<a class="el" href="struct_folder_list.html">FolderList</a> list)</td></tr>
-<tr class="separator:a806b7959ce88787d09e8f3cba9e67e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a4e71732ad74daace756e7dbf73a6ec" id="r_a4a4e71732ad74daace756e7dbf73a6ec"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a4e71732ad74daace756e7dbf73a6ec">getFolderListSize</a> (<a class="el" href="struct_folder_list.html">FolderList</a> list)</td></tr>
+<tr class="separator:a4a4e71732ad74daace756e7dbf73a6ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b52622f1cec5dbcc368515aba405965" id="r_a3b52622f1cec5dbcc368515aba405965"><td class="memItemLeft" align="right" valign="top"><a class="el" href="folder__list_8h.html#a451cba8f281273464e0d9588662de5ba">pFolderNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b52622f1cec5dbcc368515aba405965">createFolderNode</a> (<a class="el" href="struct_folder.html">Folder</a> folder)</td></tr>
 <tr class="separator:a3b52622f1cec5dbcc368515aba405965"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30452c6240e89fc2cfa63340fc049d66" id="r_a30452c6240e89fc2cfa63340fc049d66"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30452c6240e89fc2cfa63340fc049d66">addFolder</a> (<a class="el" href="struct_folder_list.html">FolderList</a> *list, <a class="el" href="struct_folder.html">Folder</a> folder)</td></tr>
@@ -107,6 +106,10 @@ Functions</h2></td></tr>
 <tr class="separator:aac5f86211fa98cd9ba77ae962527f810"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97c829286363088d1b5cfa35dda76dc4" id="r_a97c829286363088d1b5cfa35dda76dc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97c829286363088d1b5cfa35dda76dc4">destroyFolderList</a> (<a class="el" href="struct_folder_list.html">FolderList</a> *list)</td></tr>
 <tr class="separator:a97c829286363088d1b5cfa35dda76dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a699852c472f6ade9b2afbda4c0d573cf" id="r_a699852c472f6ade9b2afbda4c0d573cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a699852c472f6ade9b2afbda4c0d573cf">saveFolderList</a> (FILE *fp, <a class="el" href="struct_folder_list.html">FolderList</a> folderList)</td></tr>
+<tr class="separator:a699852c472f6ade9b2afbda4c0d573cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af030fe767e578d7996b4d44113eab1f7" id="r_af030fe767e578d7996b4d44113eab1f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_folder_list.html">FolderList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af030fe767e578d7996b4d44113eab1f7">loadFolderList</a> (FILE *fp)</td></tr>
+<tr class="separator:af030fe767e578d7996b4d44113eab1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada7d22a96e060e49c49b8bb089393059" id="r_ada7d22a96e060e49c49b8bb089393059"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada7d22a96e060e49c49b8bb089393059">debugPrintFolderList</a> (<a class="el" href="struct_folder_list.html">FolderList</a> list)</td></tr>
 <tr class="separator:ada7d22a96e060e49c49b8bb089393059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -138,8 +141,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the folder was successfully added, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="folder__list_8c_source.html#l00065">65</a> of file <a class="el" href="folder__list_8c_source.html">folder_list.c</a>.</p>
-
 </div>
 </div>
 <a id="a229f9fa34ea166704312b1b135e01a26" name="a229f9fa34ea166704312b1b135e01a26"></a>
@@ -165,8 +166,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Copied <a class="el" href="struct_folder_list.html">FolderList</a>. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Caller is responsible for calling destroyFolderList </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="folder__list_8c_source.html#l00014">14</a> of file <a class="el" href="folder__list_8c_source.html">folder_list.c</a>.</p>
-
 </div>
 </div>
 <a id="a97461cb94601d015b0c1f4787f47cfe5" name="a97461cb94601d015b0c1f4787f47cfe5"></a>
@@ -186,8 +185,6 @@ Functions</h2></td></tr>
 <p>Creates an empty folder list. </p><dl class="section return"><dt>Returns</dt><dd>Empty <a class="el" href="struct_folder_list.html">FolderList</a>. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Caller is responsible for calling destroyFolderList </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="folder__list_8c_source.html#l00007">7</a> of file <a class="el" href="folder__list_8c_source.html">folder_list.c</a>.</p>
-
 </div>
 </div>
 <a id="a3b52622f1cec5dbcc368515aba405965" name="a3b52622f1cec5dbcc368515aba405965"></a>
@@ -205,8 +202,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="folder__list_8c_source.html#l00054">54</a> of file <a class="el" href="folder__list_8c_source.html">folder_list.c</a>.</p>
-
 </div>
 </div>
 <a id="ada7d22a96e060e49c49b8bb089393059" name="ada7d22a96e060e49c49b8bb089393059"></a>
@@ -223,8 +218,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="folder__list_8c_source.html#l00110">110</a> of file <a class="el" href="folder__list_8c_source.html">folder_list.c</a>.</p>
 
 </div>
 </div>
@@ -248,8 +241,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="folder__list_8c_source.html#l00100">100</a> of file <a class="el" href="folder__list_8c_source.html">folder_list.c</a>.</p>
 
 </div>
 </div>
@@ -280,18 +271,16 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the folder lists are equal, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="folder__list_8c_source.html#l00030">30</a> of file <a class="el" href="folder__list_8c_source.html">folder_list.c</a>.</p>
-
 </div>
 </div>
-<a id="a806b7959ce88787d09e8f3cba9e67e71" name="a806b7959ce88787d09e8f3cba9e67e71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a806b7959ce88787d09e8f3cba9e67e71">&#9670;&#160;</a></span>getFolderListSize()</h2>
+<a id="a4a4e71732ad74daace756e7dbf73a6ec" name="a4a4e71732ad74daace756e7dbf73a6ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a4e71732ad74daace756e7dbf73a6ec">&#9670;&#160;</a></span>getFolderListSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int getFolderListSize </td>
+          <td class="memname">size_t getFolderListSize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_folder_list.html">FolderList</a></td>          <td class="paramname"><span class="paramname"><em>list</em></span></td><td>)</td>
           <td></td>
@@ -305,8 +294,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The size of the folder list. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="folder__list_8c_source.html#l00042">42</a> of file <a class="el" href="folder__list_8c_source.html">folder_list.c</a>.</p>
 
 </div>
 </div>
@@ -332,7 +319,30 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the folder list is empty, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="folder__list_8c_source.html#l00026">26</a> of file <a class="el" href="folder__list_8c_source.html">folder_list.c</a>.</p>
+</div>
+</div>
+<a id="af030fe767e578d7996b4d44113eab1f7" name="af030fe767e578d7996b4d44113eab1f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af030fe767e578d7996b4d44113eab1f7">&#9670;&#160;</a></span>loadFolderList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_folder_list.html">FolderList</a> loadFolderList </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads a list of folders from a file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fp</td><td>Pointer to the FILE object to read from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="struct_folder_list.html">FolderList</a> structure loaded from the file. </dd></dl>
 
 </div>
 </div>
@@ -363,7 +373,35 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the folder was successfully removed, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="folder__list_8c_source.html#l00074">74</a> of file <a class="el" href="folder__list_8c_source.html">folder_list.c</a>.</p>
+</div>
+</div>
+<a id="a699852c472f6ade9b2afbda4c0d573cf" name="a699852c472f6ade9b2afbda4c0d573cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a699852c472f6ade9b2afbda4c0d573cf">&#9670;&#160;</a></span>saveFolderList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool saveFolderList </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fp</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_folder_list.html">FolderList</a></td>          <td class="paramname"><span class="paramname"><em>folderList</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Saves a list of folders to a file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fp</td><td>Pointer to the FILE object to write to. </td></tr>
+    <tr><td class="paramname">folderList</td><td>The <a class="el" href="struct_folder_list.html">FolderList</a> structure to be saved. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the folder list was successfully saved, false otherwise. </dd></dl>
 
 </div>
 </div>
