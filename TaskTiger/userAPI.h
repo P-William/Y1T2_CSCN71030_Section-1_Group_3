@@ -13,3 +13,4 @@ void SetUsernameFromUser(User* user);
 void SetPasswordFromUser(User* user);
 
 List* GetTasksFromDate(User* user, Date date);
+bool DateHasTask(User* user, Date date);
