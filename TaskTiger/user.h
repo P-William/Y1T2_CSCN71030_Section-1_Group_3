@@ -8,6 +8,8 @@
 #define USERNAME_LENGTH 128
 #define MAX_PASSWORD_LENGTH 64
 
+#define MAX_TIGER_NAME 128
+
 typedef enum TigerStatus {
 	GRUMPY,
 	STRESSED,
@@ -17,6 +19,25 @@ typedef enum TigerStatus {
 	HAPPY
 } TigerStatus;
 
+typedef struct tiger {
+	char name[MAX_TIGER_NAME];
+
+	TigerStatus tigerMood;
+	int hunger;
+	Date lastFed;
+	Date lastChecked;
+
+	// mood
+	/*
+	GRUMPY,
+	STRESSED,
+	SAD,
+	HUNGRY,
+	ANXIOUS,
+	HAPPY
+	*/
+	int moodValues[6];
+} Tiger;
 
 typedef struct User {
 	char username[USERNAME_LENGTH];
@@ -25,7 +46,8 @@ typedef struct User {
 	int totalTasksCompleted;
 	int tasksCompletedOnTime;
 	Date lastTaskCompletedDate;
-	TigerStatus tigerStatus;
+	Tiger tiger;
+
 } User;
 
 /**
