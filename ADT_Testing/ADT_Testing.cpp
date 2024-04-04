@@ -15,31 +15,15 @@
 #define USERNAME_LENGTH 128
 #define MAX_PASSWORD_LENGTH 64
 
-typedef enum TigerStatus {
-	GRUMPY,
-	STRESSED,
-	SAD,
-	HUNGRY,
-	ANXIOUS,
-	HAPPY
-} TigerStatus;
+#define MAX_TIGER_NAME 128
+
+#define FOLDER_NAME_LENGTH 128
 
 typedef struct Date {
 	int day;
 	int month;
 	int year;
 } Date;
-
-typedef struct User {
-	char username[USERNAME_LENGTH];
-	char passward[MAX_PASSWORD_LENGTH];
-	int points;
-	int totalTasksCompleted;
-	int tasksCompletedOnTime;
-	Date lastTaskCompletedDate;
-	TigerStatus tigerStatus;
-} User;
-
 
 typedef enum Status {
 	UNSET_STATUS,
@@ -65,6 +49,52 @@ typedef struct Task {
 	Date date;
 } Task;
 
+typedef struct List {
+	size_t size;
+	size_t capacity;
+	Task* arr;
+} List;
+
+typedef struct Folder {
+	char name[FOLDER_NAME_LENGTH];
+	List* list;
+} Folder;
+
+typedef struct FolderNode {
+	Folder folder;
+	struct FolderNode* next;
+} FolderNode, * pFolderNode;
+
+typedef struct FolderList {
+	FolderNode* head;
+} FolderList;
+
+typedef enum TigerStatus {
+	SAD,
+	HUNGRY,
+	HAPPY
+} TigerStatus;
+
+typedef struct tiger {
+	char name[MAX_TIGER_NAME];
+
+	TigerStatus tigerMood;
+	int hunger;
+	Date lastFed;
+	Date lastChecked;
+} Tiger;
+
+typedef struct User {
+	char username[USERNAME_LENGTH];
+	char passward[MAX_PASSWORD_LENGTH];
+	FolderList folders;
+	int points;
+	int totalTasksCompleted;
+	int tasksCompletedOnTime;
+	Date lastTaskCompletedDate;
+	Tiger tiger;
+} User;
+
 typedef enum SortOrder {
 	ASCENDING,
 	DESCENDING
@@ -76,12 +106,6 @@ typedef enum SortKey {
 	PRIORITY,
 	DATE
 } SortKey;
-
-typedef struct List {
-	size_t size;
-	size_t capacity;
-	Task* arr;
-} List;
 
 extern "C" Date createDate(int day, int month, int year);
 extern "C" Date createDate(int day, int month, int year);

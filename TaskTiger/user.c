@@ -1,4 +1,3 @@
-
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <string.h>
@@ -7,7 +6,6 @@
 #include "user.h"
 #include "file_io.h"
 #include "string_utils.h"
-#include "TigerAPI.h"
 
 User createUser(const char* username, const char* password) {
 	User newUser;
@@ -16,6 +14,9 @@ User createUser(const char* username, const char* password) {
 	newUser.folders = createFolderList();
 	newUser.points = 0;
 	newUser.tiger = CreateTiger();
+	newUser.totalTasksCompleted = 0;
+	newUser.tasksCompletedOnTime = 0;
+	newUser.lastTaskCompletedDate = createDateBlank();
 	return newUser;
 }
 
@@ -23,15 +24,23 @@ bool equalUser(User userOne, User userTwo) {
 	return (
 		stringCompare(userOne.username, userTwo.username) &&
 		stringCompare(userOne.passward, userTwo.passward) &&
-		userOne.points == userTwo.points//&&
-		//userOne.tigerStatus == userTwo.tigerStatus
-	);
+		equalFolderList(userOne.folders, userTwo.folders) &&
+		userOne.points == userTwo.points &&
+		userOne.totalTasksCompleted == userTwo.totalTasksCompleted &&
+		userOne.tasksCompletedOnTime == userTwo.tasksCompletedOnTime &&
+		equalDate(userOne.lastTaskCompletedDate, userTwo.lastTaskCompletedDate) &&
+		equalTiger(userOne.tiger, userTwo.tiger)
+		);
 }
 
 User copyUser(User src) {
 	User newUser = createUser(src.username, src.passward);
+	newUser.folders = copyFolderList(src.folders);
 	newUser.points = src.points;
-	//newUser.tigerStatus = src.tigerStatus;
+	newUser.totalTasksCompleted = src.totalTasksCompleted;
+	newUser.tasksCompletedOnTime = src.tasksCompletedOnTime;
+	newUser.lastTaskCompletedDate = copyDate(src.lastTaskCompletedDate);
+	newUser.tiger = copyTiger(src.tiger);
 	return newUser;
 }
 
@@ -43,7 +52,11 @@ bool copyUserInPlace(User* dest, User src) {
 	strncpy(dest->username, src.username, USERNAME_LENGTH);
 	strncpy(dest->passward, src.passward, MAX_PASSWORD_LENGTH);
 	dest->points = src.points;
-	//dest->tigerStatus = src.tigerStatus;
+	dest->folders = copyFolderList(src.folders);
+	dest->totalTasksCompleted = src.totalTasksCompleted;
+	dest->tasksCompletedOnTime = src.tasksCompletedOnTime;
+	dest->lastTaskCompletedDate = copyDate(src.lastTaskCompletedDate);
+	dest->tiger = copyTiger(src.tiger);
 	return true;
 }
 
@@ -110,7 +123,8 @@ bool wipeProfile(User* user, bool youSure) {
 	user->totalTasksCompleted = 0;
 	user->tasksCompletedOnTime = 0;
 	user->lastTaskCompletedDate = getCurrentDate();
-	//user->tigerStatus = HAPPY;
+	user->tiger = CreateTiger();
+	user->folders = createFolderList();
 	return true;
 }
 
@@ -148,7 +162,7 @@ bool saveUser(FILE* fp, User user) {
 	writeIntToFile(fp, user.totalTasksCompleted);
 	writeIntToFile(fp, user.tasksCompletedOnTime);
 	saveDate(fp, user.lastTaskCompletedDate);
-	writeIntToFile(fp, user.tigerStatus);
+	saveTiger(fp, user.tiger);
 
 	return true;
 }
@@ -166,7 +180,7 @@ User loadUser(FILE* fp) {
 	getIntFromFile(fp, &newUser.totalTasksCompleted);
 	getIntFromFile(fp, &newUser.tasksCompletedOnTime);
 	newUser.lastTaskCompletedDate = loadDate(fp);
-	getIntFromFile(fp, (int*)&newUser.tigerStatus);
+	newUser.tiger = loadTiger(fp);
 
 	return newUser;
 }

@@ -150,6 +150,7 @@
     <ClCompile Include="task.c" />
     <ClCompile Include="taskAPI.c" />
     <ClCompile Include="TaskMenu.c" />
+    <ClCompile Include="tiger.c" />
     <ClCompile Include="tigerAPI.c" />
     <ClCompile Include="TigerMenu.c" />
     <ClCompile Include="user.c" />
@@ -180,6 +181,7 @@
     <ClInclude Include="task.h" />
     <ClInclude Include="taskAPI.h" />
     <ClInclude Include="TaskMenu.h" />
+    <ClInclude Include="tiger.h" />
     <ClInclude Include="tigerAPI.h" />
     <ClInclude Include="TigerMenu.h" />
     <ClInclude Include="user.h" />

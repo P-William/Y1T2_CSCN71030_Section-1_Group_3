@@ -37,7 +37,7 @@ bool TaskMenuMenu(Folder folder) {
 			append(folder.list, CreateTaskFromUser()); //CreateTask(); //create
 			break;
 		case 'd':
-			SetOptional(searchTask(&(folder.list))); //EditTask(); //create
+			SetOptional(searchTask(folder.list)); //EditTask(); //create
 			break;
 		case 'e':
 			//DeleteTask(); //create
