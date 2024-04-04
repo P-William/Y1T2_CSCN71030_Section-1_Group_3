@@ -6,26 +6,10 @@
 #include "task.h"
 #include "date.h"
 #include "folder_list.h"
+#include "tiger.h"
 
 #define USERNAME_LENGTH 128
 #define MAX_PASSWORD_LENGTH 64
-
-#define MAX_TIGER_NAME 128
-
-typedef enum TigerStatus {
-	SAD,
-	HUNGRY,
-	HAPPY
-} TigerStatus;
-
-typedef struct tiger {
-	char name[MAX_TIGER_NAME];
-
-	TigerStatus tigerMood;
-	int hunger;
-	Date lastFed;
-	Date lastChecked;
-} Tiger;
 
 typedef struct User {
 	char username[USERNAME_LENGTH];

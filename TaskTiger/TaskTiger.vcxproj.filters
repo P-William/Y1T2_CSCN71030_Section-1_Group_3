@@ -135,8 +135,11 @@
     <ClCompile Include="tigerAPI.c">
       <Filter>Source Files\API</Filter>
     </ClCompile>
+    <ClCompile Include="tiger.c">
+      <Filter>Source Files\ADTs</Filter>
+    </ClCompile>
     <ClCompile Include="userAPI.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\API</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="userAPI.h">
       <Filter>Header Files\API</Filter>
+    </ClInclude>
+    <ClInclude Include="tiger.h">
+      <Filter>Header Files\ADTs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

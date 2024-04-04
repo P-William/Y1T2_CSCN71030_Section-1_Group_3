@@ -1,10 +1,10 @@
 #pragma once
 
+#include "tiger.h"
+
 #define TIGER_HUNGER_INC 15
 #define TIGER_HUNGER_DEC 20
 #define POINT_COST 100
-
-Tiger CreateTiger();
 
 void FeedTiger(User* user);
 void UpdateTigerHunger(Tiger* tiger);

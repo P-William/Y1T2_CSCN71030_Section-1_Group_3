@@ -3,14 +3,6 @@
 
 #include "tigerAPI.h"
 
-Tiger CreateTiger() {
-	Tiger newTiger;
-
-	newTiger.hunger = 100;
-	newTiger.lastChecked = getCurrentDate();
-	newTiger.lastFed = getCurrentDate();
-}
-
 void FeedTiger(User* user)
 {
 	// If user has enough points, feed tiger
