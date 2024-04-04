@@ -768,12 +768,147 @@ namespace ADTTesting {
 			append(list, t2);
 			append(list, t3);
 
-			insert(list, 1, t4);
+			bool result = insert(list, 1, t4);
 
-			Assert::AreEqual(list->size, (size_t)3);
+			for (int i = 0; i < list->size; i++) {
+				fprintf(stderr, "%s", list->arr[i].title);
+			}
+
+			Assert::AreEqual(list->size, (size_t)4);
 			Assert::IsTrue(equalTask(list->arr[0], t1));
 			Assert::IsTrue(equalTask(list->arr[1], t4));
-			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[2], t2));
+			Assert::IsTrue(equalTask(list->arr[3], t3));
+		}
+		TEST_METHOD(Insert_NULL_Test) {
+			Task t1 = createTask("Test1");
+
+			bool result = insert(NULL, 1, t1);
+
+			Assert::IsFalse(result);
+		}
+		TEST_METHOD(Insert_InvalidIndex_Test) {
+			Task t1 = createTask("Test1");
+
+			List* list = createList();
+
+			bool result = insert(list, 5, t1);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(RemoveTask_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			Assert::AreEqual(list->size, (size_t)3);
+
+			bool result = removeTask(list, t2);
+
+			Assert::IsTrue(result);
+			Assert::AreEqual(list->size, (size_t)2);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t3));
+		}
+		TEST_METHOD(RemoveTask_NULL_Test) {
+			Task t1 = createTask("Test1");
+
+			bool result = removeTask(NULL, t1);
+
+			Assert::IsFalse(result);
+		}
+		TEST_METHOD(RemoveTask_NotInList_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+			Task t4 = createTask("Test4");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = removeTask(list, t4);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(Pop_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			Assert::AreEqual(list->size, (size_t)3);
+
+			bool result = pop(list, 1);
+
+			Assert::IsTrue(result);
+			Assert::AreEqual(list->size, (size_t)2);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t3));
+		}
+		TEST_METHOD(Pop_NULL_Test) {
+			bool result = pop(NULL, 0);
+
+			Assert::IsFalse(result);
+		}
+		TEST_METHOD(Pop_InvalidIndex_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = pop(NULL, 6);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(Clear_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = clear(list);
+
+			Assert::IsTrue(result);
+			Assert::IsNotNull(list);
+			Assert::AreEqual(list->size, (size_t)0);
+		}
+		TEST_METHOD(Clear_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = clear(list);
+
+			Assert::IsTrue(result);
+			Assert::IsNotNull(list);
+			Assert::AreEqual(list->size, (size_t)0);
 		}
 	};
 }
