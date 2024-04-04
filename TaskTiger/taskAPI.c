@@ -187,3 +187,9 @@ Task* searchTask(const List* list) {
 	}
 	return NULL;
 }
+
+void PrintTasks(List tasks) {
+	for (int i = 0; i < tasks.size; i++) {
+		printf("Task: %s", tasks.arr[i].title);
+	}
+}
