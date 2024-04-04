@@ -16,7 +16,7 @@
 	
 	printf("\nw) Back\n");
 	printf("q) Save and Quit\n");*/
-bool FolderMenu(FolderList* fl) {
+bool FolderMenu(FolderList fl) {
 	DisplayFolderMenu();
 	bool inMenu = true;
 	char input = { 0 };
@@ -34,13 +34,13 @@ bool FolderMenu(FolderList* fl) {
 			//SelectFolder(); //create
 			break;
 		case 'c':
-			addFolder(fl, CreateFolderFromUser()); //CreateFolder(); //create
+			addFolder(&fl, CreateFolderFromUser()); //CreateFolder(); //create
 			break;
 		case 'd':
-			EditFolder(searchFolder(fl)); //EditFolder(); //create
+			EditFolder(searchFolder(&fl)); //EditFolder(); //create
 			break;
 		case 'e':
-			destroyFolder(*(searchFolder(fl))); //DeleteFolder(); //create
+			destroyFolder(*(searchFolder(&fl))); //DeleteFolder(); //create
 			break;
 
 		case 'w': //back

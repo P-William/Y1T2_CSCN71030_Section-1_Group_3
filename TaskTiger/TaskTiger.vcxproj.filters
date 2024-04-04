@@ -141,6 +141,9 @@
     <ClCompile Include="userAPI.c">
       <Filter>Source Files\API</Filter>
     </ClCompile>
+    <ClCompile Include="takeUserInfo.c">
+      <Filter>Source Files\UI\UI_Functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="task.h">
@@ -229,6 +232,9 @@
     </ClInclude>
     <ClInclude Include="tiger.h">
       <Filter>Header Files\ADTs</Filter>
+    </ClInclude>
+    <ClInclude Include="takeUserInfo.h">
+      <Filter>Header Files\UI\UI_Functions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

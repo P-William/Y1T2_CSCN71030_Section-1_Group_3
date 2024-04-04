@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include "user.h"
 #include "DisplayMainMenu.h"
 #include "MainMenu.h"
 #include "FolderMenu.h"
@@ -16,7 +17,7 @@
 */
 //main menu takes FolderList and User as input?
 
-bool MainMenu(FolderList* fl) {
+bool MainMenu(User user) {
 	DisplayMainMenu();
 	bool inMenu = true;
 	char input = { 0 };
@@ -29,7 +30,7 @@ bool MainMenu(FolderList* fl) {
 
 		switch (input) {
 		case 'a':
-			FolderMenu(fl);
+			FolderMenu(user.folders);
 			break;
 		case 'b':
 			//TigerMenu();
