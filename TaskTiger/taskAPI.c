@@ -40,9 +40,9 @@ bool SetOptional(Task* task) {
 	printf("d) Set priority | ");
 	printPriorityT(*task, true);
 
-	printf("e) Delete\n");
+	printf("e) Set Date");
 
-	printColoredStringAdvanced(B_GREY, NO_BG, ITALIC, "f) Back\n\n");
+	printColoredStringAdvanced(B_GREY, NO_BG, ITALIC, "w) Back\n\n");
 
 	char selection;
 	while (!getCharFromUser(&selection, "Please make a selection:")) {}
@@ -62,8 +62,9 @@ bool SetOptional(Task* task) {
 		SetPriority(task);
 		break;
 	case 'e':
-		// delete task
-	case 'f':
+		SetDateFromUser(task);
+		break;
+	case 'w':
 		return false;
 	default:
 		return true;
@@ -169,6 +170,18 @@ void SetPriority(Task* task)
 	default:
 		break;
 	}
+}
+
+void SetDateFromUser(Task* task) {
+	printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "Set Date\n");
+	
+	Date newDate = createDateBlank();
+
+	getIntFromUser(newDate.day, "Day: ");
+	getIntFromUser(newDate.month, "Month: ");
+	getIntFromUser(newDate.year, "Year: ");
+
+	task->date = newDate;
 }
 
 Task* searchTask(const List* list) {
