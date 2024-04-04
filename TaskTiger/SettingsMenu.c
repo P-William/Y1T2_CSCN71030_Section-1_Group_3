@@ -13,8 +13,7 @@
 	printf("c) Homepage Reminder Settings\n");
 	printf("d) Reset Save File\n");
 
-	printf("\nw) Back\n");
-	printf("q) Save and Quit\n");*/
+	printf("\nw) Back\n");*/
 
 bool SettingsMenu() {
 	DisplaySettingsMenu();
@@ -43,9 +42,6 @@ bool SettingsMenu() {
 
 		case 'w': //back
 			return true;
-		case 'q': //quit
-			//SaveAndQuit();
-			inMenu = false;
 		}
 
 	}

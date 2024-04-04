@@ -145,6 +145,7 @@
     <ClCompile Include="list.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="MainMenu.c" />
+    <ClCompile Include="saveAndQuit.c" />
     <ClCompile Include="SettingsMenu.c" />
     <ClCompile Include="string_utils.c" />
     <ClCompile Include="takeUserInfo.c" />
@@ -177,6 +178,7 @@
     <ClInclude Include="list_api.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="main_menu.h" />
+    <ClInclude Include="saveAndQuit.h" />
     <ClInclude Include="SettingsMenu.h" />
     <ClInclude Include="string_utils.h" />
     <ClInclude Include="takeUserInfo.h" />

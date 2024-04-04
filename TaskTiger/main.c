@@ -10,9 +10,10 @@
 #include "taskAPI.h"
 #include "takeUserInfo.h"
 #include "string.h"
+#include "saveAndQuit.h"
 
 int main(int argc, char* argv[]) {
-
+	/*
 	if (argc == 1) { //no file name passed, create new file
 		//take usernmane and password input, store and then name the filename as username
 		char username[USERNAME_LENGTH], password[MAX_PASSWORD_LENGTH];
@@ -22,9 +23,15 @@ int main(int argc, char* argv[]) {
 		char buff[USERNAME_LENGTH + 4];
 		snprintf(buff, sizeof(buff), "%s.txt", username);
 
-		FILE* new_file_handle = fopen(buff, "w");
+		//IF IT DOESNT WORK?
+
+		FILE* fp = fopen(buff, "w");
+
+		fclose(fp);
 
 		MainMenu(user);
+
+		saveAndQuit(user); //IF WE WNAT TO SAVE AND QUIT FROM EVERY MENU, HOW?? EXIT(0)?
 
 	}
 	if (argc == 2) { //existing filename passed
@@ -36,10 +43,19 @@ int main(int argc, char* argv[]) {
 
 		//load from file
 		User user = loadUser(fp);
+		fclose(fp);
 
 		MainMenu(user);
 
+		if (saveAndQuit(user) == false) {
+			printf("Error SAVING file. gg. \n");
+			return 1;
+		}
+
 	}
+	*/
+	User user = { 0 };
+	MainMenu(user);
 
 	return 0;
 }

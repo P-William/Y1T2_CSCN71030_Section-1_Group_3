@@ -10,7 +10,7 @@ void SetUsernameFromUser(User* user) {
 
 	char newUsername[USERNAME_LENGTH];
 	getStringFromUser(USERNAME_LENGTH, newUsername, "\nPlease enter a username:");
-	setUsername(user->username, newUsername);
+	setUsername(user, newUsername);
 }
 
 void SetPasswordFromUser(User* user)

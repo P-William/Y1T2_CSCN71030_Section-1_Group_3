@@ -2,4 +2,4 @@
 
 #include "folder_list.h"
 
-bool FolderMenu(FolderList fl);
+bool FolderMenu(FolderList* fl);

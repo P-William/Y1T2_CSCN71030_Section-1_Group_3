@@ -17,7 +17,7 @@
 */
 //main menu takes FolderList and User as input?
 
-bool MainMenu(User user) {
+bool MainMenu(User* user) {
 	DisplayMainMenu();
 	bool inMenu = true;
 	char input = { 0 };
@@ -30,10 +30,10 @@ bool MainMenu(User user) {
 
 		switch (input) {
 		case 'a':
-			FolderMenu(user.folders);
+			FolderMenu(&user->folders);
 			break;
 		case 'b':
-			//TigerMenu();
+			//TigerMenu() me
 			break;
 		case 'c':
 			//Calendar();
@@ -42,7 +42,7 @@ bool MainMenu(User user) {
 			SettingsMenu();
 			break;
 		case 'q':
-			//SaveAndQuit();
+		
 			inMenu = false;
 			break;
 		}
