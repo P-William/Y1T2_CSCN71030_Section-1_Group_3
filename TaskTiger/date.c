@@ -78,6 +78,11 @@ void printDate(Date date, bool newLine) {
 }
 
 bool stringToDate(Date* output, const char* dateString) {
+    if (output == NULL || dateString == NULL) {
+        fprintf(stderr, "Cannot convert with null pointer\n");
+        return false;
+    }
+
     int day;
     int month;
     int year;
@@ -103,7 +108,7 @@ bool stringToDate(Date* output, const char* dateString) {
     // Date format: DD-MM-YY or DD-MM-YYYY or DD/MM/YY or DD/MM/YYYY
     if (year < 100) {
         // Convert 2-digit year to 4-digit year
-        if (year >= 0 && year <= 21)
+        if (year >= 0 && year <= 30)
             year += 2000;
         else
             year += 1900;

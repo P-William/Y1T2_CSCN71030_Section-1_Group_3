@@ -24,7 +24,8 @@ bool equalTask(Task t1, Task t2) {
 		stringCompare(t1.title, t2.title) &&
 		stringCompare(t1.description, t2.description) &&
 		t1.status == t2.status &&
-		t1.priority == t2.priority
+		t1.priority == t2.priority && 
+		equalDate(t1.date, t2.date)
 	);
 }
 

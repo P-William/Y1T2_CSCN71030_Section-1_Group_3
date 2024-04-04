@@ -39,13 +39,12 @@ bool stepArraySize(List* list) {
 }
 
 bool resizeArray(List* list, size_t newCapacity) {
-	size_t newCap = newCapacity * sizeof(Task);
-	bool updatedArr = realloc_s(list->arr, newCap);
+	bool updatedArr = realloc_s(list->arr, newCapacity);
 	if (!updatedArr) {
 		fprintf(stderr, "Failed to append item due to reallocation failure\n");
 		return false;
 	}
-	list->capacity = newCap;
+	list->capacity = newCapacity;
 
 	return true;
 }
@@ -70,21 +69,17 @@ List* createList() {
 }
 
 List* copyList(const List* list) {
+	if (list == NULL) {
+		return NULL;
+	}
+
 	List* newList = createList();
 	if (newList == NULL) {
 		return NULL;
 	}
 
-	bool resized = resizeArray(newList, list->capacity);
-	if (!resized) {
-		fprintf(stderr, "Failed to resize list\n");
-		return NULL;
-	}
-
-	newList->size = list->size;
-
 	for (size_t i = 0; i < list->size; i++) {
-		newList->arr[i] = copyTask(list->arr[i]);
+		append(newList, copyTask(list->arr[i]));
 	}
 
 	return newList;

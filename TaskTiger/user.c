@@ -13,6 +13,9 @@ User createUser(const char* username, const char* password) {
 	strncpy(newUser.username, username, USERNAME_LENGTH);
 	strncpy(newUser.passward, password, MAX_PASSWORD_LENGTH);
 	newUser.points = 0;
+	newUser.totalTasksCompleted = 0;
+	newUser.tasksCompletedOnTime = 0;
+	newUser.lastTaskCompletedDate = createDateBlank();
 	newUser.tigerStatus = HAPPY;
 	return newUser;
 }
