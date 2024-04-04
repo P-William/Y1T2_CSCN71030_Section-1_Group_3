@@ -3,6 +3,7 @@
 #include "FolderMenu.h"
 #include "DisplayFolderMenu.h"
 #include "input_handler.h"
+#include "FolderAPI.h"
 
 /*printf("-----------------------------------------------\n");
 	printf("				Folder Menu\n");
@@ -15,7 +16,7 @@
 	
 	printf("\nw) Back\n");
 	printf("q) Save and Quit\n");*/
-bool FolderMenu() {
+bool FolderMenu(FolderList* fl) {
 	DisplayFolderMenu();
 	bool inMenu = true;
 	char input = { 0 };
@@ -33,13 +34,13 @@ bool FolderMenu() {
 			//SelectFolder(); //create
 			break;
 		case 'c':
-			//CreateFolder(); //create
+			addFolder(fl, CreateFolderFromUser()); //CreateFolder(); //create
 			break;
 		case 'd':
-			//EditFolder(); //create
+			EditFolder(searchFolder(fl)); //EditFolder(); //create
 			break;
 		case 'e':
-			//DeleteFolder(); //create
+			destroyFolder(*(searchFolder(fl))); //DeleteFolder(); //create
 			break;
 
 		case 'w': //back

@@ -1,2 +1,5 @@
 #pragma once
-bool TaskMenuMenu();
+
+#include "folder.h"
+
+bool TaskMenuMenu(Folder folder);

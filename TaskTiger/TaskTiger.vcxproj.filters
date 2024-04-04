@@ -132,6 +132,12 @@
     <ClCompile Include="FolderMenu.c">
       <Filter>Source Files\UI\UI_Functions</Filter>
     </ClCompile>
+    <ClCompile Include="tigerAPI.c">
+      <Filter>Source Files\API</Filter>
+    </ClCompile>
+    <ClCompile Include="userAPI.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="task.h">
@@ -211,6 +217,12 @@
     </ClInclude>
     <ClInclude Include="TigerMenu.h">
       <Filter>Header Files\UI\UI_Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="tigerAPI.h">
+      <Filter>Header Files\API</Filter>
+    </ClInclude>
+    <ClInclude Include="userAPI.h">
+      <Filter>Header Files\API</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
