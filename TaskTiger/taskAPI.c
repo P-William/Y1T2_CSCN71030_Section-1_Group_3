@@ -9,7 +9,7 @@ Task CreateTaskFromUser()
 	Task newTask = createTask("");
 
 	// Get task title
-	while (!getStringFromUser(TASK_TITLE_LENGTH, &(newTask.title), "Enter a title for your new task: ")) {}
+	RenameTask(&newTask);
 
 	// Get optional data
 	bool settingUp = true;
@@ -19,26 +19,30 @@ Task CreateTaskFromUser()
 }
 
 bool SetOptional(Task* task) {
-	printColoredStringAdvanced(YELLOW, BG_BLACK, BOLD, "\nEdit Task | ");
-	printColoredStringAdvanced(ORANGE, BG_BLACK, ITALIC, task->title);
+	printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\nEdit Task | ");
+	printColoredStringAdvanced(ORANGE, NO_BG, ITALIC, task->title);
 	printf("\n");
 
+	printf("a) Rename\n");
+
 	if (stringCompare(task->description, TASK_EMPTY_DESCRIPTION_PLACEHOLDER)) {
-		printf("a) Add description\n");
+		printf("b) Add description\n");
 	}
 	else {
-		printf("a) Change description | ");
-		printColoredStringAdvanced(GREY, BG_BLACK, ITALIC, task->description);
+		printf("b) Change description | ");
+		printColoredStringAdvanced(GREY, NO_BG, ITALIC, task->description);
 		printf("\n");
 	}
 
-	printf("b) Set status | ");
+	printf("c) Set status | ");
 	printStatusT(*task, true);
 
-	printf("c) Set priority | ");
+	printf("d) Set priority | ");
 	printPriorityT(*task, true);
 
-	printColoredStringAdvanced(B_GREY, BG_BLACK, ITALIC, "d) Continue\n\n");
+	printf("e) Delete\n");
+
+	printColoredStringAdvanced(B_GREY, NO_BG, ITALIC, "f) Back\n\n");
 
 	char selection;
 	while (!getCharFromUser(&selection, "Please make a selection:")) {}
@@ -46,25 +50,42 @@ bool SetOptional(Task* task) {
 	switch (selection)
 	{
 	case 'a':
-		SetDescription(task);
+		RenameTask(task);
 		break;
 	case 'b':
-		SetStatus(task);
+		SetDescription(task);
 		break;
 	case 'c':
-		SetPriority(task);
+		SetStatus(task);
 		break;
 	case 'd':
+		SetPriority(task);
+		break;
+	case 'e':
+		// delete task
+	case 'f':
 		return false;
 	default:
 		return true;
 	}
 }
 
+void RenameTask(Task* task) {
+	if (stringCompare(task->title, "")) {
+		printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\Set Task Title");
+	}
+	else {
+		printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\Set Task Title | ");
+		printColoredStringAdvanced(ORANGE, NO_BG, ITALIC, task->title);
+	}
+
+	getStringFromUser(TASK_TITLE_LENGTH, task->title, "\nPlease enter a title:");
+}
+
 void SetDescription(Task* task) {
-	printColoredStringAdvanced(YELLOW, BG_BLACK, BOLD, "\nSet Description | ");
-	printColoredStringAdvanced(ORANGE, BG_BLACK, ITALIC, task->title);
-	getStringFromUser(TASK_DESCRIPTION_LENGTH, task->description, "\nPlease type a description:");
+	printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\nSet Description | ");
+	printColoredStringAdvanced(ORANGE, NO_BG, ITALIC, task->title);
+	getStringFromUser(TASK_DESCRIPTION_LENGTH, task->description, "\nPlease enter a description:");
 }
 
 void SetStatus(Task* task) {
@@ -73,14 +94,14 @@ void SetStatus(Task* task) {
 
 	// while < a || > e || != w
 	while ((selection < 97 || selection > 101) && selection != 'w') {
-		printColoredStringAdvanced(YELLOW, BG_BLACK, BOLD, "Set Status | ");
-		printColoredStringAdvanced(ORANGE, BG_BLACK, ITALIC, task->title);
+		printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "Set Status | ");
+		printColoredStringAdvanced(ORANGE, NO_BG, ITALIC, task->title);
 		printf("\na) Remove Status\n");
 		printf("b) In Progress\n");
 		printf("c) On Hold\n");
 		printf("d) Blocked\n");
 		printf("e) Completed\n");
-		printColoredStringAdvanced(B_GREY, BG_BLACK, ITALIC, "w) Back\n\n");
+		printColoredStringAdvanced(B_GREY, NO_BG, ITALIC, "w) Back\n\n");
 
 		getCharFromUser(&selection, "Please make a selection:");
 		selection = tolower(selection);
@@ -115,14 +136,14 @@ void SetPriority(Task* task)
 
 	// while < a || > e || != w
 	while ((selection < 97 || selection > 101) && selection != 'w') {
-		printColoredStringAdvanced(YELLOW, BG_BLACK, BOLD, "Set Priority | ");
-		printColoredStringAdvanced(ORANGE, BG_BLACK, ITALIC, task->title);
+		printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "Set Priority | ");
+		printColoredStringAdvanced(ORANGE, NO_BG, ITALIC, task->title);
 		printf("\na) Remove Priority\n");
 		printf("b) Low\n");
 		printf("c) Medium\n");
 		printf("d) High\n");
 		printf("e) Urgent\n");
-		printColoredStringAdvanced(WHITE, BG_BLACK, ITALIC, "w) Back\n\n");
+		printColoredStringAdvanced(WHITE, NO_BG, ITALIC, "w) Back\n\n");
 
 		getCharFromUser(&selection, "Please make a selection:");
 		selection = tolower(selection);
@@ -148,4 +169,21 @@ void SetPriority(Task* task)
 	default:
 		break;
 	}
+}
+
+Task* searchTask(const List* list) {
+	char taskTitle[TASK_TITLE_LENGTH];
+	getStringFromUser(TASK_TITLE_LENGTH, taskTitle, "Enter the name of the task you wish to find:");
+
+	if (list == NULL) {
+		fprintf(stderr, "Cannot check null list\n");
+		return NULL;
+	}
+	for (size_t i = 0; i < list->size; i++) {
+		bool match = stringCompare(list->arr[i].title, taskTitle);
+		if (match) {
+			return &(list->arr[i]);
+		}
+	}
+	return NULL;
 }

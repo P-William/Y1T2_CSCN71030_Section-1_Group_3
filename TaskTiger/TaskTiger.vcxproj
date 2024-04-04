@@ -127,33 +127,63 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Calendar.c" />
     <ClCompile Include="date.c" />
+    <ClCompile Include="DisplayCalendar.c" />
+    <ClCompile Include="DisplayFolderMenu.c" />
+    <ClCompile Include="DisplayMainMenu.c" />
+    <ClCompile Include="DisplaySettingsMenu.c" />
+    <ClCompile Include="DisplayTaskMenu.c" />
+    <ClCompile Include="DisplayTigerMenu.c" />
     <ClCompile Include="encryption.c" />
     <ClCompile Include="file_io.c" />
     <ClCompile Include="folder.c" />
+    <ClCompile Include="FolderMenu.c" />
+    <ClCompile Include="folderAPI.c" />
     <ClCompile Include="folder_list.c" />
     <ClCompile Include="input_handler.c" />
     <ClCompile Include="list.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="MainMenu.c" />
+    <ClCompile Include="SettingsMenu.c" />
     <ClCompile Include="string_utils.c" />
     <ClCompile Include="task.c" />
     <ClCompile Include="taskAPI.c" />
+    <ClCompile Include="TaskMenu.c" />
+    <ClCompile Include="tigerAPI.c" />
+    <ClCompile Include="TigerMenu.c" />
     <ClCompile Include="user.c" />
+    <ClCompile Include="userAPI.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Calendar.h" />
     <ClInclude Include="date.h" />
+    <ClInclude Include="DisplayCalendar.h" />
+    <ClInclude Include="DisplayFolderMenu.h" />
+    <ClInclude Include="DisplayMainMenu.h" />
+    <ClInclude Include="DisplaySettingsMenu.h" />
+    <ClInclude Include="DisplayTaskMenu.h" />
+    <ClInclude Include="DisplayTigerMenu.h" />
     <ClInclude Include="encryption.h" />
     <ClInclude Include="file_io.h" />
     <ClInclude Include="folder.h" />
+    <ClInclude Include="folderAPI.h" />
+    <ClInclude Include="FolderMenu.h" />
     <ClInclude Include="folder_list.h" />
     <ClInclude Include="input_handler.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="list_api.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="main_menu.h" />
+    <ClInclude Include="SettingsMenu.h" />
     <ClInclude Include="string_utils.h" />
     <ClInclude Include="task.h" />
     <ClInclude Include="taskAPI.h" />
+    <ClInclude Include="TaskMenu.h" />
+    <ClInclude Include="tigerAPI.h" />
+    <ClInclude Include="TigerMenu.h" />
     <ClInclude Include="user.h" />
+    <ClInclude Include="userAPI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
