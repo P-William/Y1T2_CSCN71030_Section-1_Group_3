@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "file_io.h"
 #include "folder_list.h"
 
 FolderList createFolderList() {
@@ -39,9 +40,9 @@ bool equalFolderList(FolderList listOne, FolderList listTwo) {
 	return (currentOne == NULL && currentTwo == NULL);
 }
 
-int getFolderListSize(FolderList list) {
+size_t getFolderListSize(FolderList list) {
 	pFolderNode current = list.head;
-	int count = 0;
+	size_t count = 0;
 
 	while (current != NULL) {
 		current = current->next;
@@ -105,6 +106,41 @@ void destroyFolderList(FolderList* list) {
 		free(temp);
 	}
 	list->head = NULL;
+}
+
+bool saveFolderList(FILE* fp, FolderList folderList) {
+	if (fp == NULL) {
+		fprintf(stderr, "Null file pointer passed\n");
+		return false;
+	}
+
+	pFolderNode current = folderList.head;
+
+	fprintf(fp, "%llu\n", getFolderListSize(folderList));
+
+	while (current != NULL)	{
+		saveFolder(fp, current->folder);
+		current = current->next;
+	}
+	return true;
+}
+FolderList loadFolderList(FILE* fp) {
+	if (fp == NULL) {
+		fprintf(stderr, "Null file pointer passed\n");
+		exit(-1);
+	}
+
+	size_t listSize;
+	getIntFromFile(fp, (int*)&listSize);
+
+	FolderList list = createFolderList();
+
+	for (int i = 0; i < listSize; i++) {
+		Folder folder = loadFolder(fp);
+		addFolder(&list, folder);
+	}
+
+	return list;
 }
 
 void debugPrintFolderList(FolderList list) {

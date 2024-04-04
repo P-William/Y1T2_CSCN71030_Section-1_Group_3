@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdio.h>
 #include <stdbool.h>
 
 #include "task.h"
@@ -125,6 +126,22 @@ void printTigerStatus(TigerStatus, bool newLine);
  * @param newLine Flag indicating whether to print a newline character.
  */
 void printTigerStatusU(User, bool newLine);
+
+/**
+ * Saves a user to a file.
+ *
+ * @param fp Pointer to the FILE object to write to.
+ * @param user The User structure to be saved.
+ * @return True if the user was successfully saved, false otherwise.
+ */
+bool saveUser(FILE* fp, User);
+/**
+ * Loads a user from a file.
+ *
+ * @param fp Pointer to the FILE object to read from.
+ * @return The User structure loaded from the file.
+ */
+User loadUser(FILE* fp);
 
 
 void debugPrintUser(User);

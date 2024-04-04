@@ -47,14 +47,3 @@ bool getCharFromUser(char* outputChar, const char* prompt, ...);
  * @return Returns true if a string was successfully read, otherwise false.
  */
 bool getStringFromUser(int maxLength, char* output, const char* prompt, ...);
-
-/**
- * Gets a string from the provided stream.
- *
- * @param max size of the string (also must be the size of the output buffer)
- * @param output A pointer to the variable where the input will be stored.
- * @param file pointer
- *
- * @return Returns true if a valid input was successfully read from the user. Otherwise false.
- */
-bool getStringFromStream(int maxLength, char* output, FILE* fp);

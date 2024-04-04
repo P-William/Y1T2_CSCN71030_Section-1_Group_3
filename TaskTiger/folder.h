@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdio.h>
 #include <stdbool.h>
 
 #include "list.h"
@@ -51,5 +52,22 @@ bool setName(Folder*, const char* newName);
  * @param folder The folder to destroy.
  */
 void destroyFolder(Folder);
+
+/**
+ * Saves a folder to a file.
+ *
+ * @param fp Pointer to the FILE object to write to.
+ * @param folder The Folder structure to be saved.
+ * @return True if the folder was successfully saved, false otherwise.
+ */
+bool saveFolder(FILE* fp, Folder folder);
+/**
+ * Loads a folder from a file.
+ *
+ * @param fp Pointer to the FILE object to read from.
+ * @return The Folder structure loaded from the file.
+ */
+Folder loadFolder(FILE* fp);
+
 
 void debugPrintFolder(Folder);

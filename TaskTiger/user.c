@@ -1,10 +1,11 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
-#include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "user.h"
+#include "file_io.h"
 #include "string_utils.h"
 #include "TigerAPI.h"
 
@@ -85,6 +86,10 @@ int getRandomNumber(int min, int max) {
 }
 
 bool taskCompleted(User* user, Task task) {
+	if (user == NULL) {
+		fprintf(stderr, "Null user pointer passed\n");
+		return false;
+	}
 	user->lastTaskCompletedDate = getCurrentDate();
 	user->totalTasksCompleted += 1;
 	increasePoints(user, getRandomNumber(30, 40));
@@ -92,6 +97,8 @@ bool taskCompleted(User* user, Task task) {
 		user->tasksCompletedOnTime += 1;
 		getRandomNumber(80, 100);
 	}
+
+	return true;
 }
 
 bool wipeProfile(User* user, bool youSure) {
@@ -127,6 +134,41 @@ void printTigerStatus(TigerStatus status, bool newLine) {
 }
 void printTigerStatusU(User user, bool newLine) {
 	//printTigerStatus(user.tigerStatus, newLine);
+}
+
+bool saveUser(FILE* fp, User user) {
+	if (fp == NULL) {
+		fprintf(stderr, "Null file pointer passed\n");
+		return false;
+	}
+
+	writeStringToFile(fp, user.username);
+	writeStringToFile(fp, user.passward);
+	writeIntToFile(fp, user.points);
+	writeIntToFile(fp, user.totalTasksCompleted);
+	writeIntToFile(fp, user.tasksCompletedOnTime);
+	saveDate(fp, user.lastTaskCompletedDate);
+	writeIntToFile(fp, user.tigerStatus);
+
+	return true;
+}
+User loadUser(FILE* fp) {
+	if (fp == NULL) {
+		fprintf(stderr, "Null file pointer passed\n");
+		exit(-1);
+	}
+
+	User newUser;
+
+	getStringFromFile(fp, newUser.username, USERNAME_LENGTH);
+	getStringFromFile(fp, newUser.passward, MAX_PASSWORD_LENGTH);
+	getIntFromFile(fp, &newUser.points);
+	getIntFromFile(fp, &newUser.totalTasksCompleted);
+	getIntFromFile(fp, &newUser.tasksCompletedOnTime);
+	newUser.lastTaskCompletedDate = loadDate(fp);
+	getIntFromFile(fp, (int*)&newUser.tigerStatus);
+
+	return newUser;
 }
 
 

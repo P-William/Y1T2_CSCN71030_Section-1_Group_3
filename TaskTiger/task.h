@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdio.h>
 #include <stdbool.h>
 
 #include "date.h"
@@ -122,5 +123,21 @@ void printPriority(Priority, bool newLine);
  * @param newLine Flag indicating whether to print a newline character.
  */
 void printPriorityT(Task, bool newLine);
+
+/**
+ * Saves a task to a file.
+ *
+ * @param fp Pointer to the FILE object to write to.
+ * @param task The Task structure to be saved.
+ * @return True if the task was successfully saved, false otherwise.
+ */
+bool saveTask(FILE* fp, Task);
+/**
+ * Loads a task from a file.
+ *
+ * @param fp Pointer to the FILE object to read from.
+ * @return The Task structure loaded from the file.
+ */
+Task loadTask(FILE* fp);
 
 void debugPrintTask(Task);

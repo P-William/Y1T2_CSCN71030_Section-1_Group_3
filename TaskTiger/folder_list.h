@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdio.h>
 #include <stdbool.h>
 
 #include "folder.h"
@@ -7,7 +8,7 @@
 typedef struct FolderNode {
 	Folder folder;
 	struct FolderNode* next;
-} FolderNode, * pFolderNode;
+} FolderNode, *pFolderNode;
 
 typedef struct FolderList {
 	FolderNode* head;
@@ -48,7 +49,7 @@ bool equalFolderList(FolderList, FolderList);
  * @param list The folder list to get the size of.
  * @return The size of the folder list.
  */
-int getFolderListSize(FolderList);
+size_t getFolderListSize(FolderList);
 
 /**
  * Adds a folder to the beginning of the folder list.
@@ -70,5 +71,22 @@ bool removeFolder(FolderList*, Folder);
  * @param list Pointer to the folder list to destroy.
  */
 void destroyFolderList(FolderList*);
+
+/**
+ * Saves a list of folders to a file.
+ *
+ * @param fp Pointer to the FILE object to write to.
+ * @param folderList The FolderList structure to be saved.
+ * @return True if the folder list was successfully saved, false otherwise.
+ */
+bool saveFolderList(FILE* fp, FolderList);
+/**
+ * Loads a list of folders from a file.
+ *
+ * @param fp Pointer to the FILE object to read from.
+ * @return The FolderList structure loaded from the file.
+ */
+FolderList loadFolderList(FILE* fp);
+
 
 void debugPrintFolderList(FolderList);

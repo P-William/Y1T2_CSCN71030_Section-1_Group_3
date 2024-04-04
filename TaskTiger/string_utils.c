@@ -5,8 +5,43 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 #include "string_utils.h"
+
+#define BASE 10
+
+bool stringToInt(const char* string, int* output) {
+    if (string == NULL || output == NULL) {
+        fprintf(stderr, "Null pointer passed, cannot convert\n");
+        return false;
+    }
+
+    char* endptr;
+
+    int convertedNumber = (int)strtol(string, &endptr, BASE);
+    if (string == endptr) {
+        return false;
+    }
+
+    *output = convertedNumber;
+    return true;
+}
+bool intToString(int integer, char* outputString, size_t outputSize) {
+    if (outputString == NULL) {
+        fprintf(stderr, "Cannot output to null pointer\n");
+        return false;
+    }
+    if (outputSize < CHARS_FOR_INT) {
+        fprintf(stderr, "Too small of output buffer provided, buffer must be of size %d or greater", CHARS_FOR_INT);
+        return false;
+    }
+
+    snprintf(outputString, outputSize, "%d", integer);
+    outputString[CHARS_FOR_INT - 1] = '\0';
+
+    return true;
+}
 
 bool stringCompare(const char* str1, const char* str2) {
     return (strcmp(str1, str2) == 0);

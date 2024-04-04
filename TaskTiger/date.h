@@ -1,6 +1,6 @@
 #pragma once
 
-#include <limits.h>
+#include <stdio.h>
 #include <stdbool.h>
 
 typedef struct Date {
@@ -101,3 +101,19 @@ int dateDifference(Date, Date);
  *         Returns INT_MIN if an error occurs
  */
 int dateDifferenceAbsolute(Date, Date);
+
+/**
+ * Saves a date to a file.
+ *
+ * @param fp Pointer to the FILE object to write to.
+ * @param date The Date structure to be saved.
+ * @return True if the date was successfully saved, false otherwise.
+ */
+bool saveDate(FILE* fp, Date);
+/**
+ * Loads a date from a file.
+ *
+ * @param fp Pointer to the FILE object to read from.
+ * @return The Date structure loaded from the file.
+ */
+Date loadDate(FILE* fp);

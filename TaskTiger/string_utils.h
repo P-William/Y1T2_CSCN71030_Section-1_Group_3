@@ -2,6 +2,27 @@
 
 #include <stdbool.h>
 
+// –2147483648 + null terminator
+#define CHARS_FOR_INT 12
+
+/**
+ * Converts a string to an integer.
+ *
+ * @param string The null-terminated string to convert.
+ * @param output Pointer to an integer where the result will be stored.
+ * @return true if conversion is successful, false otherwise.
+ */
+bool stringToInt(const char* string, int* output);
+/**
+ * Converts an integer to a string.
+ *
+ * @param integer The integer to convert.
+ * @param outputString Pointer to a character buffer where the result will be stored.
+ * @param outputSize The size of the output buffer.
+ * @return true if conversion is successful, false otherwise.
+ */
+bool intToString(int integer, char* outputString, size_t outputSize);
+
 /**
  * strcmp wrapper that returns a bool
  */
