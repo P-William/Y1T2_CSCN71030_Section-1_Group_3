@@ -18,10 +18,11 @@
 	printf("\nw) Back\n");*/
 
 bool FolderMenu(FolderList* fl) {
-	DisplayFolderMenu();
+	
 	bool inMenu = true;
 	char input = { 0 };
 	while (inMenu) {
+		DisplayFolderMenu();
 		bool inputCheck = getCharFromUser(&input, "Please enter your choice: ");
 		if (!inputCheck) {
 			printf("error taking input.\n");

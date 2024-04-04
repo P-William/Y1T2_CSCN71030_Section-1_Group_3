@@ -9,5 +9,6 @@
 Folder CreateFolderFromUser();
 void RenameFolder(Folder* folder);
 void EditFolder(Folder* folder);
+void SelectFolder(FolderList* fl);
 Folder* searchFolder(FolderList* fl);
 void PrintFolders(FolderList* fl);

@@ -19,7 +19,7 @@ void DisplayMainMenu() {
 	printf("-----------------------------------------------\n");
 	printf("		Main Menu\n");
 	printf("-----------------------------------------------\n");
-	printf("a) View Folder(s)\n"); //maybe italics "folders contain tasks"?
+	printf("a) View Folder Menu\n");
 	printf("b) Task Tiger\n");
 	printf("c) View Calendar\n");
 	printf("d) Settings\n");

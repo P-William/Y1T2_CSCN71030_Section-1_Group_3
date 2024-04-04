@@ -35,6 +35,7 @@ List* GetTasksFromDate(User* user, Date date)
 				append(foundTasks, currentTasks->arr[i]);
 			}
 		}
+		currentFolder = currentFolder->next;
 	}
 
 	return foundTasks;
@@ -42,16 +43,18 @@ List* GetTasksFromDate(User* user, Date date)
 
 bool DateHasTask(User* user, Date date)
 {
-	List* foundTasks = createList();
-	FolderNode* currentFolder = user->folders.head;
+	if (!emptyDate(date)) {
+		FolderNode* currentFolder = user->folders.head;
 
-	while (currentFolder != NULL) {
-		List* currentTasks = currentFolder->folder.list;
+		while (currentFolder != NULL) {
+			List* currentTasks = currentFolder->folder.list;
 
-		for (int i = 0; i < currentTasks->size; i++) {
-			if (equalDate(currentTasks->arr[i].date, date)) {
-				return true;
+			for (int i = 0; i < currentTasks->size; i++) {
+				if (equalDate(currentTasks->arr[i].date, date)) {
+					return true;
+				}
 			}
+			currentFolder = currentFolder->next;
 		}
 	}
 

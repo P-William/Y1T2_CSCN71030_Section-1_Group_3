@@ -10,3 +10,4 @@ void FeedTiger(User* user);
 void UpdateTigerHunger(Tiger* tiger);
 int GetTigerHunger(Tiger* tiger);
 void DetermineTigerMood(User* user);
+void petTiger();

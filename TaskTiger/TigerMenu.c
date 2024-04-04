@@ -20,10 +20,11 @@
 	printf("\nw) Back\n");*/
 
 bool TigerMenu(User* user) {
-	DisplayTigerMenu();
+
 	bool inMenu = true;
 	char input = { 0 };
 	while (inMenu) {
+		DisplayTigerMenu();
 		bool inputCheck = getCharFromUser(&input, "Please enter your choice: ");
 		if (!inputCheck) {
 			printf("error taking input.\n");
@@ -31,16 +32,18 @@ bool TigerMenu(User* user) {
 
 		switch (input) {
 		case 'a':
-			//petTiger
+			petTiger();
 			break;
 		case 'b':
-			//feedTiger
+			FeedTiger(user);
 			break;
 		case 'c':
-			//tigerMood
+			DetermineTigerMood(user);
+			printf("Your tiger is ");
+			printTigerStatus(user->tiger.tigerMood, true);
 			break;
 		case 'd':
-			//renameTiger
+			NameTiger(&user->tiger);
 			break;
 
 

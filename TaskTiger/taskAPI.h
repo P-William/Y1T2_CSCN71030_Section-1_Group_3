@@ -14,3 +14,4 @@ void SetStatus(Task* task);
 void SetPriority(Task* task);
 
 Task* searchTask(const List* list);
+void PrintTasks(List tasks);

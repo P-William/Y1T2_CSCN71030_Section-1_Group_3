@@ -6,6 +6,7 @@
 #include "FolderMenu.h"
 #include "SettingsMenu.h"
 #include "input_handler.h"
+#include "calendar.h"
 
 
 /*
@@ -18,11 +19,11 @@
 //main menu takes FolderList and User as input?
 
 bool MainMenu(User* user) {
-	DisplayMainMenu();
+
 	bool inMenu = true;
 	char input = { 0 };
 	while (inMenu) {
-
+		DisplayMainMenu();
 		bool inputCheck = getCharFromUser(&input, "Please enter your choice: ");
 		if (!inputCheck) {
 			printf("error taking input.\n");
@@ -33,10 +34,10 @@ bool MainMenu(User* user) {
 			FolderMenu(&user->folders);
 			break;
 		case 'b':
-			//TigerMenu() me
+			TigerMenu(user);
 			break;
 		case 'c':
-			//Calendar();
+			print_calendar(*user, getCurrentDate());
 			break;
 		case 'd':
 			SettingsMenu();

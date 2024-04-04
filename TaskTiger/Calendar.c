@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include "date.h"
-void print_calendar(const Date date) {
+#include "string_utils.h"
+#include "userAPI.h"
+#include <time.h>
+
+
+void print_calendar(User user, const Date date) {
     int daysInMonth;
     int dayOfWeek;
     int calendar[6][7] = { 0 }; // 6 rows and 7 columns for the calendar
@@ -36,7 +41,12 @@ void print_calendar(const Date date) {
                 printf("    ");
             }
             else {
-                printf("%3d ", calendar[row][col]);
+                if (DateHasTask(&user, createDate(calendar[row][col], date.month, date.year))) {
+                    printColoredStringAdvanced(GREEN, NO_BG, NO_TOOL, "%3d ", calendar[row][col]);
+                }
+                else {
+                    printf("%3d ", calendar[row][col]);
+                }
             }
         }
         printf("\n");

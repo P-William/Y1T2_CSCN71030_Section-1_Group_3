@@ -17,10 +17,11 @@
 	printf("\nw) Back\n");*/
 
 bool TaskMenu(Folder* folder) {
-	DisplayTaskMenu();
+
 	bool inMenu = true;
 	char input;
 	while (inMenu) {
+		DisplayTaskMenu();
 		bool inputCheck = getCharFromUser(&input, "Please enter your choice: ");
 		if (!inputCheck) {
 			printf("error taking input.\n");
@@ -28,7 +29,7 @@ bool TaskMenu(Folder* folder) {
 
 		switch (input) {
 		case 'a':
-			//DisplayTasks(); //create
+			PrintTasks(*folder->list);
 			break;
 		case 'b':
 			//MarkTaskAsComplete(); //create

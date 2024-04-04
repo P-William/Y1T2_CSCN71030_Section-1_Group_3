@@ -81,7 +81,7 @@ void SelectFolder(FolderList* fl) {
 		return;
 	}
 
-	//TaskMenu(foundFolder);
+	TaskMenu(foundFolder);
 }
 
 void PrintFolders(FolderList* fl)
@@ -89,7 +89,7 @@ void PrintFolders(FolderList* fl)
 	FolderNode* current = fl->head;
 
 	while (current != NULL) {
-		printf("Folder: %s", current->folder.name);
+		printf("Folder: %s\n", current->folder.name);
 		current = current->next;
 	}
 }

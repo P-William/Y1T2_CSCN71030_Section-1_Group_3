@@ -7,7 +7,7 @@
 #include "task.h"
 #include "list.h"
 #include "MainMenu.h"
-#include "taskAPI.h"
+#include "taskAPI.h"'
 #include "takeUserInfo.h"
 #include "string.h"
 #include "saveAndQuit.h"
@@ -55,6 +55,17 @@ int main(int argc, char* argv[]) {
 	}
 	*/
 	User user = { 0 };
+	Folder folder = createFolder("william");
+	Task task = createTask("ETHAN");
+	task.date = createDate(5, 4, 2024);
+	append(folder.list, task);
+	addFolder(&user.folders, folder);
+
+	Task task2 = createTask("new");
+	task2.date = createDate(10, 4, 2024);
+	append(folder.list, task2);
+	addFolder(&user.folders, folder);
+
 	MainMenu(user);
 
 	return 0;
