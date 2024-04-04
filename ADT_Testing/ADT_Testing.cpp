@@ -756,5 +756,24 @@ namespace ADTTesting {
 
 			Assert::IsFalse(result);
 		}
+
+		TEST_METHOD(Insert_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+			Task t4 = createTask("Task4");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			insert(list, 1, t4);
+
+			Assert::AreEqual(list->size, (size_t)3);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t4));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+		}
 	};
 }
