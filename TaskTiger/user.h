@@ -11,11 +11,8 @@
 #define MAX_TIGER_NAME 128
 
 typedef enum TigerStatus {
-	GRUMPY,
-	STRESSED,
 	SAD,
 	HUNGRY,
-	ANXIOUS,
 	HAPPY
 } TigerStatus;
 
@@ -26,17 +23,6 @@ typedef struct tiger {
 	int hunger;
 	Date lastFed;
 	Date lastChecked;
-
-	// mood
-	/*
-	GRUMPY,
-	STRESSED,
-	SAD,
-	HUNGRY,
-	ANXIOUS,
-	HAPPY
-	*/
-	int moodValues[6];
 } Tiger;
 
 typedef struct User {

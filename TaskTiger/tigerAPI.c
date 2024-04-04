@@ -5,6 +5,7 @@
 
 #define TIGER_HUNGER_INC 15
 #define TIGER_HUNGER_DEC 20
+#define POINT_COST 20
 
 Tiger CreateTiger() {
 	Tiger newTiger;
@@ -12,21 +13,15 @@ Tiger CreateTiger() {
 	newTiger.hunger = 100;
 	newTiger.lastChecked = getCurrentDate();
 	newTiger.lastFed = getCurrentDate();
-	
-	/*
-	GRUMPY,
-	STRESSED,
-	SAD,
-	HUNGRY,
-	ANXIOUS,
-	HAPPY
-	*/
+}
 
-	newTiger.moodValues[GRUMPY] = 0;
-	newTiger.moodValues[STRESSED] = 0;
-	newTiger.moodValues[SAD] = 0;
-	newTiger.moodValues[HUNGRY] = 0;
-	newTiger.moodValues[HAPPY] = 100;
+void FeedTiger(User* user)
+{
+	// If user has enough points, feed tiger
+	if (user->points >= POINT_COST) {
+		user->points -= POINT_COST;
+		user->tiger.hunger += TIGER_HUNGER_INC;
+	}
 }
 
 void UpdateTigerHunger(Tiger* tiger) {
@@ -55,25 +50,20 @@ int GetTigerHunger(Tiger* tiger) {
 	return tiger->hunger;
 }
 
-void DetermineTigerMood(User* user, Tiger* tiger) {
+void DetermineTigerMood(User* user) {
+	Tiger* tiger = &(user->tiger);
+
 	UpdateTigerHunger(tiger);
 
 	tiger->lastChecked = getCurrentDate();
 
-	/*
-	GRUMPY,
-	STRESSED,
-	SAD,
-	HUNGRY,
-	ANXIOUS,
-	HAPPY
-	*/
-
-	TigerStatus strongestMood = GRUMPY;
-	for (int i = 1; i < 6; i++) {
-		if (strongestMood < tiger->moodValues[i])
-			strongestMood = (TigerStatus)i;
+	if (tiger->hunger >= 75) {
+		tiger->tigerMood = HAPPY;
 	}
-
-	tiger->tigerMood = strongestMood;
+	else if (tiger->hunger >= 25) {
+		tiger->tigerMood = HUNGRY;
+	}
+	else {
+		tiger->tigerMood = SAD;
+	}
 }
