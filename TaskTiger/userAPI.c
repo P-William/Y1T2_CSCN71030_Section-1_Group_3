@@ -1,6 +1,4 @@
 #include "userAPI.h"
-#include "string_utils.h"
-#include "input_handler.h"
 
 int GetPointsFromUser(User* user)
 {
@@ -20,6 +18,24 @@ void SetPasswordFromUser(User* user)
 	printColoredStringAdvanced(YELLOW, NO_BG, BOLD, "\nSet Password");
 	
 	char newPassword[MAX_PASSWORD_LENGTH];
-	getStringFromUser(MAX_PASSWORD_LENGTH, newPassword, "\nPlease enter a username:");
+	getStringFromUser(MAX_PASSWORD_LENGTH, newPassword, "\nPlease enter a password:");
 	setPassword(user, newPassword);
+}
+
+List* GetTasksFromDate(User* user, Date date)
+{
+	List* foundTasks = createList();
+	FolderNode* currentFolder = user->folders.head;
+
+	while (currentFolder != NULL) {
+		List* currentTasks = currentFolder->folder.list;
+
+		for (int i = 0; i < currentTasks->size; i++) {
+			if (equalDate(currentTasks->arr[i].date, getCurrentDate())) {
+				append(foundTasks, currentTasks->arr[i]);
+			}
+		}
+	}
+
+	return foundTasks;
 }

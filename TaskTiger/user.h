@@ -4,6 +4,7 @@
 
 #include "task.h"
 #include "date.h"
+#include "folder_list.h"
 
 #define USERNAME_LENGTH 128
 #define MAX_PASSWORD_LENGTH 64
@@ -28,12 +29,12 @@ typedef struct tiger {
 typedef struct User {
 	char username[USERNAME_LENGTH];
 	char passward[MAX_PASSWORD_LENGTH];
+	FolderList folders;
 	int points;
 	int totalTasksCompleted;
 	int tasksCompletedOnTime;
 	Date lastTaskCompletedDate;
 	Tiger tiger;
-
 } User;
 
 /**

@@ -12,6 +12,7 @@ User createUser(const char* username, const char* password) {
 	User newUser;
 	strncpy(newUser.username, username, USERNAME_LENGTH);
 	strncpy(newUser.passward, password, MAX_PASSWORD_LENGTH);
+	newUser.folders = createFolderList();
 	newUser.points = 0;
 	newUser.tiger = CreateTiger();
 	return newUser;
@@ -78,13 +79,18 @@ bool decreasePoints(User* user, int amount) {
 	user->points -= amount;
 	return true;
 }
+
+int getRandomNumber(int min, int max) {
+	return rand() % (max + 1 - min) + min;
+}
+
 bool taskCompleted(User* user, Task task) {
 	user->lastTaskCompletedDate = getCurrentDate();
 	user->totalTasksCompleted += 1;
-	increasePoints(user, 25);
+	increasePoints(user, getRandomNumber(30, 40));
 	if (dateDifference(task.date, getCurrentDate()) >= 0) {
 		user->tasksCompletedOnTime += 1;
-		increasePoints(user, 50);
+		getRandomNumber(80, 100);
 	}
 }
 
