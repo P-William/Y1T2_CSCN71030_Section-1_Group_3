@@ -81,8 +81,10 @@ bool decreasePoints(User* user, int amount) {
 bool taskCompleted(User* user, Task task) {
 	user->lastTaskCompletedDate = getCurrentDate();
 	user->totalTasksCompleted += 1;
+	increasePoints(user, 25);
 	if (dateDifference(task.date, getCurrentDate()) >= 0) {
 		user->tasksCompletedOnTime += 1;
+		increasePoints(user, 50);
 	}
 }
 
@@ -99,19 +101,8 @@ bool wipeProfile(User* user, bool youSure) {
 	return true;
 }
 
-
-
 void printTigerStatus(TigerStatus status, bool newLine) {
 	switch (status) {
-	case GRUMPY:
-		printf("Grumpy");
-		break;
-	case STRESSED:
-		printf("Stressed");
-		break;
-	case ANXIOUS:
-		printf("Anxious");
-		break;
 	case HUNGRY:
 		printf("Hungry");
 		break;

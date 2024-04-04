@@ -2,7 +2,7 @@
 
 #define TIGER_HUNGER_INC 15
 #define TIGER_HUNGER_DEC 20
-#define POINT_COST 20
+#define POINT_COST 100
 
 Tiger CreateTiger();
 

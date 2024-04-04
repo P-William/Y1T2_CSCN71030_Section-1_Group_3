@@ -3,10 +3,6 @@
 
 #include "tigerAPI.h"
 
-#define TIGER_HUNGER_INC 15
-#define TIGER_HUNGER_DEC 20
-#define POINT_COST 20
-
 Tiger CreateTiger() {
 	Tiger newTiger;
 
@@ -19,7 +15,7 @@ void FeedTiger(User* user)
 {
 	// If user has enough points, feed tiger
 	if (user->points >= POINT_COST) {
-		user->points -= POINT_COST;
+		decreasePoints(user, POINT_COST);
 		user->tiger.hunger += TIGER_HUNGER_INC;
 	}
 }

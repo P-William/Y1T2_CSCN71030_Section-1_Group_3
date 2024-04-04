@@ -153,6 +153,7 @@
     <ClCompile Include="tigerAPI.c" />
     <ClCompile Include="TigerMenu.c" />
     <ClCompile Include="user.c" />
+    <ClCompile Include="userAPI.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Calendar.h" />
@@ -182,6 +183,7 @@
     <ClInclude Include="tigerAPI.h" />
     <ClInclude Include="TigerMenu.h" />
     <ClInclude Include="user.h" />
+    <ClInclude Include="userAPI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
