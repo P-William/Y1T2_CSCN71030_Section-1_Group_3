@@ -770,10 +770,6 @@ namespace ADTTesting {
 
 			bool result = insert(list, 1, t4);
 
-			for (int i = 0; i < list->size; i++) {
-				fprintf(stderr, "%s", list->arr[i].title);
-			}
-
 			Assert::AreEqual(list->size, (size_t)4);
 			Assert::IsTrue(equalTask(list->arr[0], t1));
 			Assert::IsTrue(equalTask(list->arr[1], t4));
@@ -894,7 +890,109 @@ namespace ADTTesting {
 			Assert::IsNotNull(list);
 			Assert::AreEqual(list->size, (size_t)0);
 		}
-		TEST_METHOD(Clear_Test) {
+		TEST_METHOD(Clear_NULL_Test) {
+			bool result = clear(NULL);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(Set_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+			Task t4 = createTask("Test4");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = set(list, 1, t4);
+
+			Assert::IsTrue(result);
+			Assert::AreEqual(list->size, (size_t)3);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t4));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+		}
+		TEST_METHOD(Set_NULL_Test) {
+			Task t1 = createTask("Test1");
+			bool result = set(NULL, 0, t1);
+
+			Assert::IsFalse(result);
+		}
+		TEST_METHOD(Set_InvalidIndex_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+			Task t4 = createTask("Test4");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = set(list, 7, t4);
+
+			Assert::IsFalse(result);
+			Assert::AreEqual(list->size, (size_t)3);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t2));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+		}
+
+		TEST_METHOD(Size_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+			Task t4 = createTask("Test4");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			size_t size1 = size(list);
+
+			append(list, t4);
+
+			size_t size2 = size(list);
+			
+
+			Assert::AreEqual(size1, (size_t)3);
+			Assert::AreEqual(size2, (size_t)4);
+		}
+		TEST_METHOD(Size_NULL_Test) {
+			bool result = size(NULL);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(IsEmpty_Test) {
+			List* list = createList();
+
+			bool result = isEmpty(list);
+
+			Assert::IsTrue(result);
+		}
+		TEST_METHOD(IsEmpty__False_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+
+			bool result = isEmpty(list);
+
+			Assert::IsFalse(result);
+		}
+		TEST_METHOD(IsEmpty_NULL_Test) {
+			bool result = isEmpty(NULL);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(Contains_Test) {
 			Task t1 = createTask("Test1");
 			Task t2 = createTask("Test2");
 			Task t3 = createTask("Test3");
@@ -904,11 +1002,66 @@ namespace ADTTesting {
 			append(list, t2);
 			append(list, t3);
 
-			bool result = clear(list);
+			bool result = contains(list, t2);
 
 			Assert::IsTrue(result);
-			Assert::IsNotNull(list);
-			Assert::AreEqual(list->size, (size_t)0);
+		}
+		TEST_METHOD(Contains_False_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+			Task t4 = createTask("Test4");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = contains(list, t4);
+
+			Assert::IsFalse(result);
+		}
+		TEST_METHOD(Contains_NULL_Test) {
+			Task t1 = createTask("Test1");
+
+			bool result = contains(NULL, t1);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(FilterTitle_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test1");
+			Task t4 = createTask("Test2");
+			Task t5 = createTask("Test1");
+
+			List* targetList = createList();
+			append(targetList, t2);
+			append(targetList, t4);
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+			append(list, t4);
+			append(list, t5);
+
+			List* filteredList = filterByTitle(list, "Test2");
+
+			Assert::IsNotNull(filteredList);
+			Assert::IsTrue(equalList(targetList, filteredList));
+		}
+		TEST_METHOD(FilterTitle_NULL_Test) {
+			List* list = createList();
+
+			List* filteredList1 = filterByTitle(NULL, "Test2");
+			List* filteredList2 = filterByTitle(list, NULL);
+			List* filteredList3 = filterByTitle(NULL, NULL);
+
+			Assert::IsNull(filteredList1);
+			Assert::IsNull(filteredList2);
+			Assert::IsNull(filteredList3);
 		}
 	};
 }

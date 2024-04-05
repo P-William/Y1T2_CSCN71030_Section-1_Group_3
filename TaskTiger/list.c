@@ -245,7 +245,7 @@ bool contains(const List* list, Task task) {
 
 
 List* filterByTitle(const List* list, const char* title) {
-	if (list == NULL) {
+	if (list == NULL || title == NULL) {
 		fprintf(stderr, "Cannot filter null list\n");
 		return NULL;
 	}
