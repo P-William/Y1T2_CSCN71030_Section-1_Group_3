@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include "user.h"
 #include "DisplayMainMenu.h"
+#include "TigerMenu.h"
 #include "MainMenu.h"
 #include "FolderMenu.h"
 #include "SettingsMenu.h"

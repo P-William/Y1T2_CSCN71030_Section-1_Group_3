@@ -35,10 +35,10 @@ bool TaskMenu(Folder* folder) {
 			//MarkTaskAsComplete(); //create
 			break;
 		case 'c':
-			append(folder->list, CreateTaskFromUser()); //CreateTask(); //create
+			append(folder->list, CreateTaskFromUser()); 
 			break;
 		case 'd':
-			SetOptional(searchTask(folder->list)); //EditTask(); //create
+			SetOptional(searchTask(folder->list)); 
 			break;
 		case 'e':
 			//DeleteTask(); //create
