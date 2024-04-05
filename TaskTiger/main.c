@@ -10,10 +10,12 @@
 #include "taskAPI.h"
 #include "takeUserInfo.h"
 #include "string.h"
+#include "saveAndQuit.h"
 
 int main(int argc, char* argv[]) {
-
+	
 	if (argc == 1) { //no file name passed, create new file
+		printf("1 arg\n");
 		//take usernmane and password input, store and then name the filename as username
 		char username[USERNAME_LENGTH], password[MAX_PASSWORD_LENGTH];
 		User user = takeUserInfo(username, password);
@@ -22,12 +24,17 @@ int main(int argc, char* argv[]) {
 		char buff[USERNAME_LENGTH + 4];
 		snprintf(buff, sizeof(buff), "%s.txt", username);
 
-		FILE* new_file_handle = fopen(buff, "w");
+		FILE* fp = fopen(buff, "w");
 
-		MainMenu(user);
+		fclose(fp);
+
+		MainMenu(&user);
+
+		saveAndQuit(user);
 
 	}
 	if (argc == 2) { //existing filename passed
+		printf("2 arg\n");
 		FILE* fp = fopen(argv[1], "r");
 		if (fp == NULL) {
 			printf("Error opening file. Please try again. \n");
@@ -36,10 +43,30 @@ int main(int argc, char* argv[]) {
 
 		//load from file
 		User user = loadUser(fp);
+		fclose(fp);
 
-		MainMenu(user);
+		MainMenu(&user);
+
+		if (saveAndQuit(user) == false) {
+			printf("Error SAVING file. gg. \n");
+			return 1;
+		}
 
 	}
+	/*
+	User user = createUser("william", "ethan");
+	Folder folder = createFolder("william");
+	Task task = createTask("ETHAN");
+	task.date = createDate(5, 4, 2024);
+	append(folder.list, task);
+	addFolder(&user.folders, folder);
 
+	Task task2 = createTask("new");
+	task2.date = createDate(10, 4, 2024);
+	append(folder.list, task2);
+	addFolder(&user.folders, folder);
+
+	MainMenu(user);
+	*/
 	return 0;
 }

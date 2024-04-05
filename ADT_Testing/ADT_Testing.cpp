@@ -1212,5 +1212,335 @@ namespace ADTTesting {
 			Assert::IsNull(filteredList2);
 			Assert::IsNull(filteredList3);
 		}
+
+		TEST_METHOD(FilterStatus_Test) {
+			Task t1 = createTask("Test1");
+			t1.status = COMPLETED;
+			Task t2 = createTask("Test2");
+			t2.status = IN_PROGRESS;
+			Task t3 = createTask("Test3");
+			t3.status = BLOCKED;
+			Task t4 = createTask("Test4");
+			t4.status = IN_PROGRESS;
+
+			List* targetList = createList();
+			append(targetList, t2);
+			append(targetList, t4);
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+			append(list, t4);
+
+			List* filteredList = filterByStatus(list, IN_PROGRESS);
+
+			Assert::IsNotNull(filteredList);
+			Assert::IsTrue(equalList(targetList, filteredList));
+		}
+		TEST_METHOD(FilterStatus_NULL_Test) {
+			List* filteredList = filterByStatus(NULL, COMPLETED);
+
+			Assert::IsNull(filteredList);
+
+		}
+
+		TEST_METHOD(FilterPriority_Test) {
+			Task t1 = createTask("Test1");
+			t1.priority = HIGH;
+			Task t2 = createTask("Test2");
+			t2.priority = MEDIUM;
+			Task t3 = createTask("Test3");
+			t3.priority = LOW;
+			Task t4 = createTask("Test4");
+			t4.priority = MEDIUM;
+
+			List* targetList = createList();
+			append(targetList, t2);
+			append(targetList, t4);
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+			append(list, t4);
+
+			List* filteredList = filterByPriority(list, MEDIUM);
+
+			Assert::IsNotNull(filteredList);
+			Assert::IsTrue(equalList(targetList, filteredList));
+		}
+		TEST_METHOD(FilterPriority_NULL_Test) {
+			List* filteredList = filterByPriority(NULL, MEDIUM);
+
+			Assert::IsNull(filteredList);
+
+		}
+
+		TEST_METHOD(FilterDate_Test) {
+			Task t1 = createTask("Test1");
+			t1.date = createDate(9, 3, 2021);
+			Task t2 = createTask("Test2");
+			t2.date = createDate(2, 7, 2000);
+			Task t3 = createTask("Test3");
+			t1.date = createDate(5, 5, 2025);
+			Task t4 = createTask("Test4");
+			t4.date = createDate(2, 7, 2000);
+
+
+			List* targetList = createList();
+			append(targetList, t2);
+			append(targetList, t4);
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+			append(list, t4);
+
+			List* filteredList = filterByDate(list, createDate(2, 7, 2000));
+
+			Assert::IsNotNull(filteredList);
+			Assert::IsTrue(equalList(targetList, filteredList));
+		}
+		TEST_METHOD(FilterDate_NULL_Test) {
+			List* filteredList = filterByDate(NULL, createDate(5, 5, 2025));
+
+			Assert::IsNull(filteredList);
+
+		}
+
+		TEST_METHOD(FilterDateTimeRemaining_NULL_Test) {
+			List* filteredList = filterByDateTimeRemaining(NULL, 5);
+
+			Assert::IsNull(filteredList);
+
+		}
+
+		TEST_METHOD(SortList_Title_Test) {
+			Task t1 = createTask("A");
+			Task t2 = createTask("B");
+			Task t3 = createTask("C");
+			Task t4 = createTask("D");
+			Task t5 = createTask("E");
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, TITLE, ASCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t2));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t4));
+			Assert::IsTrue(equalTask(list->arr[4], t5));
+		}
+		TEST_METHOD(SortList_Title_Descending_Test) {
+			Task t1 = createTask("A");
+			Task t2 = createTask("B");
+			Task t3 = createTask("C");
+			Task t4 = createTask("D");
+			Task t5 = createTask("E");
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, TITLE, DESCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t5));
+			Assert::IsTrue(equalTask(list->arr[1], t4));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t2));
+			Assert::IsTrue(equalTask(list->arr[4], t1));
+		}
+		TEST_METHOD(SortList_NULL_Test) {
+			bool result = sortList(NULL, TITLE, ASCENDING);
+
+			Assert::IsFalse(result);
+		}
+
+
+		TEST_METHOD(SortList_Status_Test) {
+			Task t1 = createTask("A");
+			t1.status = UNSET_STATUS;
+			Task t2 = createTask("B");
+			t2.status = IN_PROGRESS;
+			Task t3 = createTask("C");
+			t3.status = ON_HOLD;
+			Task t4 = createTask("D");
+			t4.status = BLOCKED;
+			Task t5 = createTask("E");
+			t5.status = COMPLETED;
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, STATUS, ASCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t2));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t4));
+			Assert::IsTrue(equalTask(list->arr[4], t5));
+		}
+		TEST_METHOD(SortList_Status_Descending_Test) {
+			Task t1 = createTask("A");
+			t1.status = UNSET_STATUS;
+			Task t2 = createTask("B");
+			t2.status = IN_PROGRESS;
+			Task t3 = createTask("C");
+			t3.status = ON_HOLD;
+			Task t4 = createTask("D");
+			t4.status = BLOCKED;
+			Task t5 = createTask("E");
+			t5.status = COMPLETED;
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, TITLE, DESCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t5));
+			Assert::IsTrue(equalTask(list->arr[1], t4));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t2));
+			Assert::IsTrue(equalTask(list->arr[4], t1));
+		}
+
+		TEST_METHOD(SortList_Priority_Test) {
+			Task t1 = createTask("A");
+			t1.priority = UNSET_PRIORITY;
+			Task t2 = createTask("B");
+			t2.priority = LOW;
+			Task t3 = createTask("C");
+			t3.priority = MEDIUM;
+			Task t4 = createTask("D");
+			t4.priority = HIGH;
+			Task t5 = createTask("E");
+			t5.priority = URGENT;
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, PRIORITY, ASCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t2));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t4));
+			Assert::IsTrue(equalTask(list->arr[4], t5));
+		}
+		TEST_METHOD(SortList_Priority_Descending_Test) {
+			Task t1 = createTask("A");
+			t1.priority = UNSET_PRIORITY;
+			Task t2 = createTask("B");
+			t2.priority = LOW;
+			Task t3 = createTask("C");
+			t3.priority = MEDIUM;
+			Task t4 = createTask("D");
+			t4.priority = HIGH;
+			Task t5 = createTask("E");
+			t5.priority = URGENT;
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, PRIORITY, DESCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t5));
+			Assert::IsTrue(equalTask(list->arr[1], t4));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t2));
+			Assert::IsTrue(equalTask(list->arr[4], t1));
+		}
+
+		TEST_METHOD(SortList_Date_Test) {
+			Task t1 = createTask("A");
+			t1.date = createDate(1, 2, 2025);
+			Task t2 = createTask("B");
+			t2.date = createDate(2, 3, 2026);
+			Task t3 = createTask("C");
+			t3.date = createDate(3, 4, 2027);
+			Task t4 = createTask("D");
+			t4.date = createDate(4, 5, 2028);
+			Task t5 = createTask("E");
+			t5.date = createDate(5, 6, 2029);
+
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, DATE, ASCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t2));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t4));
+			Assert::IsTrue(equalTask(list->arr[4], t5));
+		}
+		TEST_METHOD(SortList_Date_Descending_Test) {
+			Task t1 = createTask("A");
+			t1.date = createDate(1, 2, 2025);
+			Task t2 = createTask("B");
+			t2.date = createDate(2, 3, 2026);
+			Task t3 = createTask("C");
+			t3.date = createDate(3, 4, 2027);
+			Task t4 = createTask("D");
+			t4.date = createDate(4, 5, 2028);
+			Task t5 = createTask("E");
+			t5.date = createDate(5, 6, 2029);
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, DATE, DESCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t5));
+			Assert::IsTrue(equalTask(list->arr[1], t4));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t2));
+			Assert::IsTrue(equalTask(list->arr[4], t1));
+		}
+
 	};
 }

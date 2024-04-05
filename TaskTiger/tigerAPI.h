@@ -6,7 +6,8 @@
 #define TIGER_HUNGER_DEC 20
 #define POINT_COST 100
 
-void FeedTiger(User* user);
-void UpdateTigerHunger(Tiger* tiger);
+bool FeedTiger(User* user);
+bool UpdateTigerHunger(Tiger* tiger);
 int GetTigerHunger(Tiger* tiger);
 void DetermineTigerMood(User* user);
+void petTiger();
