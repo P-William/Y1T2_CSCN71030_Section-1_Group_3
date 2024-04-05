@@ -144,7 +144,7 @@ void SetPriority(Task* task)
 		printf("c) Medium\n");
 		printf("d) High\n");
 		printf("e) Urgent\n");
-		printColoredStringAdvanced(WHITE, NO_BG, ITALIC, "w) Back\n\n");
+		printColoredStringAdvanced(B_GREY, NO_BG, ITALIC, "w) Back\n\n");
 
 		getCharFromUser(&selection, "Please make a selection:");
 		selection = tolower(selection);

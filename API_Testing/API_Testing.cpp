@@ -179,6 +179,7 @@ extern "C" bool FeedTiger(User * user);
 extern "C" bool UpdateTigerHunger(Tiger * tiger);
 extern "C" bool equalTiger(Tiger tigerOne, Tiger tigerTwo);
 extern "C" Tiger copyTiger(Tiger src);
+extern "C" int GetTigerHunger(Tiger * tiger);
 
 bool getIntFromUser(int* output, const char* prompt, ...);
 bool getIntFromUserWithRange(int min, int max, int* output, const char* prompt, ...);
@@ -355,6 +356,20 @@ namespace APITesting
 			UpdateTigerHunger(&tiger);
 
 			Assert::AreNotEqual(tiger.hunger, 50);
+		}
+		TEST_METHOD(GetTigerHungerOne) {
+			Tiger tiger = CreateTiger();
+			tiger.lastChecked.day -= 2;
+			tiger.lastFed.day -= 2;
+
+			Assert::AreEqual(60, GetTigerHunger(&tiger));
+		}
+		TEST_METHOD(GetTigerHungerTwo) {
+			Tiger tiger = CreateTiger();
+			tiger.lastChecked.day -= 1;
+			tiger.lastFed.day -= 1;
+
+			Assert::AreNotEqual(60, GetTigerHunger(&tiger));
 		}
 	};
 }

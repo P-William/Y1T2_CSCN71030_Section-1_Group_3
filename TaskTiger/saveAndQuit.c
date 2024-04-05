@@ -14,4 +14,3 @@ bool saveAndQuit(User user) {
 
 	return saveUser(fp, user);;
 }
-
