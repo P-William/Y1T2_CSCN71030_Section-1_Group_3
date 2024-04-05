@@ -3,6 +3,7 @@
 #include <ctype.h>
 
 #include "taskAPI.h"
+#include "user.h"
 
 Task CreateTaskFromUser()
 {
@@ -177,9 +178,9 @@ void SetDateFromUser(Task* task) {
 	
 	Date newDate = createDateBlank();
 
-	getIntFromUser(newDate.day, "Day: ");
-	getIntFromUser(newDate.month, "Month: ");
-	getIntFromUser(newDate.year, "Year: ");
+	getIntFromUser(&newDate.day, "Day: ");
+	getIntFromUser(&newDate.month, "Month: ");
+	getIntFromUser(&newDate.year, "Year: ");
 
 	task->date = newDate;
 }
@@ -204,5 +205,39 @@ Task* searchTask(const List* list) {
 void PrintTasks(List tasks) {
 	for (int i = 0; i < tasks.size; i++) {
 		printf("Task: %s\n", tasks.arr[i].title);
+	}
+}
+
+//find and remove task of user's choice
+void deleteTask(List* list) {
+	char taskTitle[TASK_TITLE_LENGTH];
+	getStringFromUser(TASK_TITLE_LENGTH, taskTitle, "Enter the name of the task you wish to delete:");
+
+	if (list == NULL) {
+		fprintf(stderr, "Cannot check null list\n");
+		return;
+	}
+	for (size_t i = 0; i < list->size; i++) {
+		bool match = stringCompare(list->arr[i].title, taskTitle);
+		if (match) {
+			removeTask(list, list->arr[i]);
+		}
+	}
+
+}
+
+void markTaskAsComplete(User* user, List* list) {
+	char taskTitle[TASK_TITLE_LENGTH];
+	getStringFromUser(TASK_TITLE_LENGTH, taskTitle, "Enter the name of the task you wish to mark completed:");
+
+	if (list == NULL) {
+		fprintf(stderr, "Cannot check null list\n");
+		return;
+	}
+	for (size_t i = 0; i < list->size; i++) {
+		bool match = stringCompare(list->arr[i].title, taskTitle);
+		if (match) {
+			taskCompleted(user, list->arr[i]);
+		}
 	}
 }

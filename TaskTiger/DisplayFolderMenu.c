@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "string_utils.h"
 
 void DisplayFolderMenu() {
 
@@ -11,6 +12,5 @@ void DisplayFolderMenu() {
 	printf("c) Create Folder\n");
 	printf("d) Edit Folder\n");
 	printf("e) Delete Folder\n");
-	
-	printf("\nw) Back\n");
+	printColoredStringAdvanced(WHITE, NO_BG, ITALIC, "w) Back\n\n");
 }

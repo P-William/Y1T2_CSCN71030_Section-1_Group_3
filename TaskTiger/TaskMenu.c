@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include "user.h"
 #include "TaskMenu.h"
 #include "DisplayTaskMenu.h"
 #include "input_handler.h"
 #include "taskAPI.h"
+#include "list.h"
 
 /*printf("-----------------------------------------------\n");
 	printf("				Task Menu\n");
@@ -16,7 +18,7 @@
 
 	printf("\nw) Back\n");*/
 
-bool TaskMenu(Folder* folder) {
+bool TaskMenu(Folder* folder, User* user) {
 
 	bool inMenu = true;
 	char input;
@@ -32,7 +34,7 @@ bool TaskMenu(Folder* folder) {
 			PrintTasks(*folder->list);
 			break;
 		case 'b':
-			//MarkTaskAsComplete(); //create
+			markTaskAsComplete(user, folder->list);
 			break;
 		case 'c':
 			append(folder->list, CreateTaskFromUser()); 
@@ -41,7 +43,7 @@ bool TaskMenu(Folder* folder) {
 			SetOptional(searchTask(folder->list)); 
 			break;
 		case 'e':
-			//DeleteTask(); //create
+			deleteTask(folder->list);
 			break;
 
 		case 'w': //back

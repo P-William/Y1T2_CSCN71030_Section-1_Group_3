@@ -24,7 +24,7 @@ bool MainMenu(User* user) {
 	bool inMenu = true;
 	char input = { 0 };
 	while (inMenu) {
-		DisplayMainMenu();
+		DisplayMainMenu(*user);
 		bool inputCheck = getCharFromUser(&input, "Please enter your choice: ");
 		if (!inputCheck) {
 			printf("error taking input.\n");
@@ -32,7 +32,7 @@ bool MainMenu(User* user) {
 
 		switch (input) {
 		case 'a':
-			FolderMenu(&user->folders);
+			FolderMenu(&user->folders, user);
 			break;
 		case 'b':
 			TigerMenu(user);
@@ -49,4 +49,5 @@ bool MainMenu(User* user) {
 			break;
 		}
 	}
+	return true;
 }

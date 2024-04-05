@@ -15,3 +15,5 @@ void SetPriority(Task* task);
 void SetDateFromUser(Task* task);
 Task* searchTask(const List* list);
 void PrintTasks(List tasks);
+void deleteTask(List* list);
+void markTaskAsComplete(User* user, List* list);

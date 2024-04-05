@@ -1,2 +1,2 @@
 #pragma once
-void DisplayMainMenu();
+void DisplayMainMenu(User user);
