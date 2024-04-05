@@ -17,6 +17,7 @@ User createUser(const char* username, const char* password) {
 	newUser.totalTasksCompleted = 0;
 	newUser.tasksCompletedOnTime = 0;
 	newUser.lastTaskCompletedDate = createDateBlank();
+
 	return newUser;
 }
 
@@ -122,9 +123,10 @@ bool wipeProfile(User* user, bool youSure) {
 	user->points = 0;
 	user->totalTasksCompleted = 0;
 	user->tasksCompletedOnTime = 0;
-	user->lastTaskCompletedDate = getCurrentDate();
+	user->lastTaskCompletedDate = createDateBlank();
 	user->tiger = CreateTiger();
 	user->folders = createFolderList();
+
 	return true;
 }
 
