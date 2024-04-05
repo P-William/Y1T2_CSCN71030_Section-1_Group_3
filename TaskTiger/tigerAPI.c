@@ -3,33 +3,35 @@
 
 #include "tigerAPI.h"
 
-void FeedTiger(User* user)
+bool FeedTiger(User* user)
 {
 	// If user has enough points, feed tiger
 	if (user->points >= POINT_COST) {
 		decreasePoints(user, POINT_COST);
 		user->tiger.hunger += TIGER_HUNGER_INC;
+
+		return true;
 	}
+	return false;
 }
 
-void UpdateTigerHunger(Tiger* tiger) {
+bool UpdateTigerHunger(Tiger* tiger) {
 	// If last checked on today, don't update
-	if (dateDifference(tiger->lastChecked, getCurrentDate()) == 0) return;
-
-	if (dateDifference(tiger->lastFed, getCurrentDate()) == 1)
-		tiger->hunger -= TIGER_HUNGER_DEC;
+	if (dateDifference(tiger->lastChecked, getCurrentDate()) == 0) return false;
 
 	// decrease hunger by last date fed
-	for (int i = 0; i < 4; i++) {
-		if (dateDifference(tiger->lastFed, getCurrentDate()) == i)
+	for (int i = 1; i < 5; i++) {
+		if (dateDifference(tiger->lastFed, getCurrentDate()) == i * -1)
 			tiger->hunger -= TIGER_HUNGER_DEC * i;
 	}
 
 	// Make sure hunger doesn't go negative
 	if (tiger->hunger < 0) tiger->hunger = 0;
 
-	if (dateDifference(tiger->lastFed, getCurrentDate()) >= 5)
+	if (dateDifference(tiger->lastFed, getCurrentDate()) <= -5)
 		tiger->hunger = 0;
+
+	return true;
 }
 
 int GetTigerHunger(Tiger* tiger) {
@@ -53,5 +55,20 @@ void DetermineTigerMood(User* user) {
 	}
 	else {
 		tiger->tigerMood = SAD;
+	}
+}
+
+void petTiger() {
+	int temp = (rand() % 3) + 1;
+	switch(temp){
+	case 1:
+		printf("Your tiger ate you. You are dead.\n");
+		break;
+	case 2:
+		printf("Your tiger is happy :).\n");
+		break;
+	case 3: 
+		printf("Your tiger stares into your soul, you feel a connection, you must never leave your tiger alone again.\n");
+		break;
 	}
 }

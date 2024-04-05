@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
+#include "TaskMenu.h"
 
 Folder CreateFolderFromUser()
 {
@@ -71,12 +72,24 @@ Folder* searchFolder(FolderList* fl) {
 	return NULL;
 }
 
+
+void SelectFolder(FolderList* fl) {
+	Folder* foundFolder = searchFolder(fl);
+
+	if (foundFolder == NULL) {
+		printColoredString(RED, "Folder not found.\n");
+		return;
+	}
+
+	TaskMenu(foundFolder);
+}
+
 void PrintFolders(FolderList* fl)
 {
 	FolderNode* current = fl->head;
 
 	while (current != NULL) {
-		printf("Folder: %s", current->folder.name);
+		printf("Folder: %s\n", current->folder.name);
 		current = current->next;
 	}
 }

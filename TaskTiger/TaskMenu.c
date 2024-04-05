@@ -14,13 +14,14 @@
 	printf("d) Edit Task\n");
 	printf("e) Delete Task\n");
 
-	printf("\nw) Back\n");
-	printf("q) Save and Quit\n");*/
-bool TaskMenuMenu(Folder folder) {
-	DisplayTaskMenu();//changed up to here <
+	printf("\nw) Back\n");*/
+
+bool TaskMenu(Folder* folder) {
+
 	bool inMenu = true;
-	char input = { 0 };
+	char input;
 	while (inMenu) {
+		DisplayTaskMenu();
 		bool inputCheck = getCharFromUser(&input, "Please enter your choice: ");
 		if (!inputCheck) {
 			printf("error taking input.\n");
@@ -28,16 +29,16 @@ bool TaskMenuMenu(Folder folder) {
 
 		switch (input) {
 		case 'a':
-			//DisplayTasks(); //create
+			PrintTasks(*folder->list);
 			break;
 		case 'b':
 			//MarkTaskAsComplete(); //create
 			break;
 		case 'c':
-			append(folder.list, CreateTaskFromUser()); //CreateTask(); //create
+			append(folder->list, CreateTaskFromUser()); 
 			break;
 		case 'd':
-			SetOptional(searchTask(folder.list)); //EditTask(); //create
+			SetOptional(searchTask(folder->list)); 
 			break;
 		case 'e':
 			//DeleteTask(); //create
@@ -46,9 +47,7 @@ bool TaskMenuMenu(Folder folder) {
 		case 'w': //back
 			return true;
 			break;
-		case 'q': //quit
-			//SaveAndQuit();
-			inMenu = false;
+
 		}
 
 	}

@@ -10,7 +10,7 @@ void SetUsernameFromUser(User* user) {
 
 	char newUsername[USERNAME_LENGTH];
 	getStringFromUser(USERNAME_LENGTH, newUsername, "\nPlease enter a username:");
-	setUsername(user->username, newUsername);
+	setUsername(user, newUsername);
 }
 
 void SetPasswordFromUser(User* user)
@@ -31,11 +31,32 @@ List* GetTasksFromDate(User* user, Date date)
 		List* currentTasks = currentFolder->folder.list;
 
 		for (int i = 0; i < currentTasks->size; i++) {
-			if (equalDate(currentTasks->arr[i].date, getCurrentDate())) {
+			if (equalDate(currentTasks->arr[i].date, date)) {
 				append(foundTasks, currentTasks->arr[i]);
 			}
 		}
+		currentFolder = currentFolder->next;
 	}
 
 	return foundTasks;
+}
+
+bool DateHasTask(User* user, Date date)
+{
+	if (!emptyDate(date)) {
+		FolderNode* currentFolder = user->folders.head;
+
+		while (currentFolder != NULL) {
+			List* currentTasks = currentFolder->folder.list;
+
+			for (int i = 0; i < currentTasks->size; i++) {
+				if (equalDate(currentTasks->arr[i].date, date)) {
+					return true;
+				}
+			}
+			currentFolder = currentFolder->next;
+		}
+	}
+
+	return false;
 }

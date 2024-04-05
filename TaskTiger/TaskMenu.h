@@ -2,4 +2,4 @@
 
 #include "folder.h"
 
-bool TaskMenuMenu(Folder folder);
+bool TaskMenu(Folder* folder);

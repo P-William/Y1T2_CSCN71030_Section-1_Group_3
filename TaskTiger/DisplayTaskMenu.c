@@ -4,7 +4,7 @@
 void DisplayTaskMenu() {
 
 	printf("-----------------------------------------------\n");
-	printf("				Task Menu\n");
+	printf("		Task Menu\n");
 	printf("-----------------------------------------------\n");
 	printf("a) View Tasks\n");
 	printf("b) Mark Task as Complete\n"); //award tiger points!
@@ -13,5 +13,4 @@ void DisplayTaskMenu() {
 	printf("e) Delete Task\n");
 
 	printf("\nw) Back\n");
-	printf("q) Save and Quit\n");
 }

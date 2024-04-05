@@ -2,10 +2,12 @@
 #include <stdbool.h>
 #include "user.h"
 #include "DisplayMainMenu.h"
+#include "TigerMenu.h"
 #include "MainMenu.h"
 #include "FolderMenu.h"
 #include "SettingsMenu.h"
 #include "input_handler.h"
+#include "calendar.h"
 
 
 /*
@@ -17,12 +19,12 @@
 */
 //main menu takes FolderList and User as input?
 
-bool MainMenu(User user) {
-	DisplayMainMenu();
+bool MainMenu(User* user) {
+
 	bool inMenu = true;
 	char input = { 0 };
 	while (inMenu) {
-
+		DisplayMainMenu();
 		bool inputCheck = getCharFromUser(&input, "Please enter your choice: ");
 		if (!inputCheck) {
 			printf("error taking input.\n");
@@ -30,19 +32,19 @@ bool MainMenu(User user) {
 
 		switch (input) {
 		case 'a':
-			FolderMenu(user.folders);
+			FolderMenu(&user->folders);
 			break;
 		case 'b':
-			//TigerMenu();
+			TigerMenu(user);
 			break;
 		case 'c':
-			//Calendar();
+			print_calendar(*user, getCurrentDate());
 			break;
 		case 'd':
 			SettingsMenu();
 			break;
 		case 'q':
-			//SaveAndQuit();
+		
 			inMenu = false;
 			break;
 		}

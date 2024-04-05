@@ -6,6 +6,7 @@ Tiger CreateTiger() {
 	Tiger newTiger;
 	
 	strncpy(newTiger.name, "", MAX_TIGER_NAME);
+	newTiger.tigerMood = HAPPY;
 	newTiger.hunger = 100;
 	newTiger.lastChecked = getCurrentDate();
 	newTiger.lastFed = getCurrentDate();
