@@ -1,5 +1,6 @@
 #pragma once
 
+#include "user.h"
 #include "task.h"
 #include "list.h"
 
@@ -7,13 +8,13 @@
 #include "string_utils.h"
 
 Task CreateTaskFromUser();
-void RenameTask(Task* task);
-bool SetOptional(Task* task);
-void SetDescription(Task* task);
-void SetStatus(Task* task);
-void SetPriority(Task* task);
-void SetDateFromUser(Task* task);
-Task* searchTask(const List* list);
-void PrintTasks(List tasks);
-void deleteTask(List* list);
-void markTaskAsComplete(User* user, List* list);
+void RenameTask(Task* );
+bool SetOptional(Task* );
+void SetDescription(Task* );
+void SetStatus(Task* );
+void SetPriority(Task* );
+void SetDateFromUser(Task* );
+Task* searchTask(const List*);
+void PrintTasks(List);
+void deleteTask(List* );
+void markTaskAsComplete(User* , List* );

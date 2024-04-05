@@ -184,16 +184,16 @@ bool getIntFromUser(int* output, const char* prompt, ...);
 bool getIntFromUserWithRange(int min, int max, int* output, const char* prompt, ...);
 bool getCharFromUser(char* outputChar, const char* prompt, ...);
 bool getStringFromUser(int maxLength, char* output, const char* prompt, ...);
-
-namespace UITesting {
-	TEST_CLASS(UITesting) {
-	public:
-		
-		TEST_METHOD(TakeUserInfo) {
-			User user = createUser("Colin", "password");
-
-			User user2 = TakeUserInfo()
-
-		}
-	};
-}
+//
+//namespace UITesting {
+//	TEST_CLASS(UITesting) {
+//	public:
+//		
+//		TEST_METHOD(TakeUserInfo) {
+//			User user = createUser("Colin", "password");
+//
+//			User user2 = TakeUserInfo()
+//
+//		}
+//	};
+//}

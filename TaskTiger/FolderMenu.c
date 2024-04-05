@@ -34,7 +34,7 @@ bool FolderMenu(FolderList* fl, User* user) {
 			PrintFolders(fl);//create
 			break;
 		case 'b':
-			SelectFolder(fl, user); 
+			SelectFolder(user, fl);
 			break;
 		case 'c':
 			addFolder(fl, CreateFolderFromUser()); //CreateFolder(); //create

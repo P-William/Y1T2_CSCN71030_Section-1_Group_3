@@ -1,12 +1,13 @@
-Colin
 colin
+password
+0
 0
 0
 0
 -1
 -1
 -1
-
+DEFAULT_TIGER_NAME
 100
 2
 5

@@ -1,2 +1,3 @@
 #pragma once
-bool SettingsMenu();
+#include "user.h"
+bool SettingsMenu(User* user);

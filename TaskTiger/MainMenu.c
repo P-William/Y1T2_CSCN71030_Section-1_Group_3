@@ -41,7 +41,7 @@ bool MainMenu(User* user) {
 			print_calendar(*user, getCurrentDate());
 			break;
 		case 'd':
-			SettingsMenu();
+			SettingsMenu(user);
 			break;
 		case 'q':
 		

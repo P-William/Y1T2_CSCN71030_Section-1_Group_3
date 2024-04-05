@@ -3,15 +3,15 @@
 #include "string_utils.h"
 #include "user.h"
 
-bool firstPrint = true;
+//bool firstPrint = true;
 
 void DisplayMainMenu(User user) {
 	
-	if (firstPrint) {
+	//if (firstPrint) {
 		printColoredStringAdvanced(ORANGE, NO_BG, BOLD, "Welcome to Task Tiger!\nNever forget a task again!\n");
 		printf("User: %s \n", user.username);
-		firstPrint = false;
-	}
+		//firstPrint = false;
+	//}
 	//DISPLAY PERSONALIZED GREETINGS / 
 	//bool firstPrint = true;
 	//if(firstView) DisplayGreeting();

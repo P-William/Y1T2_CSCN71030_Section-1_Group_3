@@ -53,4 +53,5 @@ bool TaskMenu(Folder* folder, User* user) {
 		}
 
 	}
+	return true;
 }

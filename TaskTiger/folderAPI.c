@@ -74,7 +74,7 @@ Folder* searchFolder(FolderList* fl) {
 }
 
 
-void SelectFolder(FolderList* fl, User* user) {
+void SelectFolder(User* user, FolderList* fl) {
 	Folder* foundFolder = searchFolder(fl);
 
 	if (foundFolder == NULL) {
