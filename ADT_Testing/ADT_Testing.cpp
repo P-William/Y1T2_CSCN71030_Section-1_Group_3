@@ -768,12 +768,630 @@ namespace ADTTesting {
 			append(list, t2);
 			append(list, t3);
 
-			insert(list, 1, t4);
+			bool result = insert(list, 1, t4);
 
+			Assert::AreEqual(list->size, (size_t)4);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t4));
+			Assert::IsTrue(equalTask(list->arr[2], t2));
+			Assert::IsTrue(equalTask(list->arr[3], t3));
+		}
+		TEST_METHOD(Insert_NULL_Test) {
+			Task t1 = createTask("Test1");
+
+			bool result = insert(NULL, 1, t1);
+
+			Assert::IsFalse(result);
+		}
+		TEST_METHOD(Insert_InvalidIndex_Test) {
+			Task t1 = createTask("Test1");
+
+			List* list = createList();
+
+			bool result = insert(list, 5, t1);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(RemoveTask_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			Assert::AreEqual(list->size, (size_t)3);
+
+			bool result = removeTask(list, t2);
+
+			Assert::IsTrue(result);
+			Assert::AreEqual(list->size, (size_t)2);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t3));
+		}
+		TEST_METHOD(RemoveTask_NULL_Test) {
+			Task t1 = createTask("Test1");
+
+			bool result = removeTask(NULL, t1);
+
+			Assert::IsFalse(result);
+		}
+		TEST_METHOD(RemoveTask_NotInList_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+			Task t4 = createTask("Test4");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = removeTask(list, t4);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(Pop_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			Assert::AreEqual(list->size, (size_t)3);
+
+			bool result = pop(list, 1);
+
+			Assert::IsTrue(result);
+			Assert::AreEqual(list->size, (size_t)2);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t3));
+		}
+		TEST_METHOD(Pop_NULL_Test) {
+			bool result = pop(NULL, 0);
+
+			Assert::IsFalse(result);
+		}
+		TEST_METHOD(Pop_InvalidIndex_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = pop(NULL, 6);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(Clear_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = clear(list);
+
+			Assert::IsTrue(result);
+			Assert::IsNotNull(list);
+			Assert::AreEqual(list->size, (size_t)0);
+		}
+		TEST_METHOD(Clear_NULL_Test) {
+			bool result = clear(NULL);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(Set_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+			Task t4 = createTask("Test4");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = set(list, 1, t4);
+
+			Assert::IsTrue(result);
 			Assert::AreEqual(list->size, (size_t)3);
 			Assert::IsTrue(equalTask(list->arr[0], t1));
 			Assert::IsTrue(equalTask(list->arr[1], t4));
 			Assert::IsTrue(equalTask(list->arr[2], t3));
 		}
+		TEST_METHOD(Set_NULL_Test) {
+			Task t1 = createTask("Test1");
+			bool result = set(NULL, 0, t1);
+
+			Assert::IsFalse(result);
+		}
+		TEST_METHOD(Set_InvalidIndex_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+			Task t4 = createTask("Test4");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = set(list, 7, t4);
+
+			Assert::IsFalse(result);
+			Assert::AreEqual(list->size, (size_t)3);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t2));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+		}
+
+		TEST_METHOD(Size_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+			Task t4 = createTask("Test4");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			size_t size1 = size(list);
+
+			append(list, t4);
+
+			size_t size2 = size(list);
+			
+
+			Assert::AreEqual(size1, (size_t)3);
+			Assert::AreEqual(size2, (size_t)4);
+		}
+		TEST_METHOD(Size_NULL_Test) {
+			bool result = size(NULL);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(IsEmpty_Test) {
+			List* list = createList();
+
+			bool result = isEmpty(list);
+
+			Assert::IsTrue(result);
+		}
+		TEST_METHOD(IsEmpty__False_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+
+			bool result = isEmpty(list);
+
+			Assert::IsFalse(result);
+		}
+		TEST_METHOD(IsEmpty_NULL_Test) {
+			bool result = isEmpty(NULL);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(Contains_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = contains(list, t2);
+
+			Assert::IsTrue(result);
+		}
+		TEST_METHOD(Contains_False_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test3");
+			Task t4 = createTask("Test4");
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+
+			bool result = contains(list, t4);
+
+			Assert::IsFalse(result);
+		}
+		TEST_METHOD(Contains_NULL_Test) {
+			Task t1 = createTask("Test1");
+
+			bool result = contains(NULL, t1);
+
+			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(FilterTitle_Test) {
+			Task t1 = createTask("Test1");
+			Task t2 = createTask("Test2");
+			Task t3 = createTask("Test1");
+			Task t4 = createTask("Test2");
+			Task t5 = createTask("Test1");
+
+			List* targetList = createList();
+			append(targetList, t2);
+			append(targetList, t4);
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+			append(list, t4);
+			append(list, t5);
+
+			List* filteredList = filterByTitle(list, "Test2");
+
+			Assert::IsNotNull(filteredList);
+			Assert::IsTrue(equalList(targetList, filteredList));
+		}
+		TEST_METHOD(FilterTitle_NULL_Test) {
+			List* list = createList();
+
+			List* filteredList1 = filterByTitle(NULL, "Test2");
+			List* filteredList2 = filterByTitle(list, NULL);
+			List* filteredList3 = filterByTitle(NULL, NULL);
+
+			Assert::IsNull(filteredList1);
+			Assert::IsNull(filteredList2);
+			Assert::IsNull(filteredList3);
+		}
+
+		TEST_METHOD(FilterStatus_Test) {
+			Task t1 = createTask("Test1");
+			t1.status = COMPLETED;
+			Task t2 = createTask("Test2");
+			t2.status = IN_PROGRESS;
+			Task t3 = createTask("Test3");
+			t3.status = BLOCKED;
+			Task t4 = createTask("Test4");
+			t4.status = IN_PROGRESS;
+
+			List* targetList = createList();
+			append(targetList, t2);
+			append(targetList, t4);
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+			append(list, t4);
+
+			List* filteredList = filterByStatus(list, IN_PROGRESS);
+
+			Assert::IsNotNull(filteredList);
+			Assert::IsTrue(equalList(targetList, filteredList));
+		}
+		TEST_METHOD(FilterStatus_NULL_Test) {
+			List* filteredList = filterByStatus(NULL, COMPLETED);
+
+			Assert::IsNull(filteredList);
+
+		}
+
+		TEST_METHOD(FilterPriority_Test) {
+			Task t1 = createTask("Test1");
+			t1.priority = HIGH;
+			Task t2 = createTask("Test2");
+			t2.priority = MEDIUM;
+			Task t3 = createTask("Test3");
+			t3.priority = LOW;
+			Task t4 = createTask("Test4");
+			t4.priority = MEDIUM;
+
+			List* targetList = createList();
+			append(targetList, t2);
+			append(targetList, t4);
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+			append(list, t4);
+
+			List* filteredList = filterByPriority(list, MEDIUM);
+
+			Assert::IsNotNull(filteredList);
+			Assert::IsTrue(equalList(targetList, filteredList));
+		}
+		TEST_METHOD(FilterPriority_NULL_Test) {
+			List* filteredList = filterByPriority(NULL, MEDIUM);
+
+			Assert::IsNull(filteredList);
+
+		}
+
+		TEST_METHOD(FilterDate_Test) {
+			Task t1 = createTask("Test1");
+			t1.date = createDate(9, 3, 2021);
+			Task t2 = createTask("Test2");
+			t2.date = createDate(2, 7, 2000);
+			Task t3 = createTask("Test3");
+			t1.date = createDate(5, 5, 2025);
+			Task t4 = createTask("Test4");
+			t4.date = createDate(2, 7, 2000);
+
+
+			List* targetList = createList();
+			append(targetList, t2);
+			append(targetList, t4);
+
+			List* list = createList();
+			append(list, t1);
+			append(list, t2);
+			append(list, t3);
+			append(list, t4);
+
+			List* filteredList = filterByDate(list, createDate(2, 7, 2000));
+
+			Assert::IsNotNull(filteredList);
+			Assert::IsTrue(equalList(targetList, filteredList));
+		}
+		TEST_METHOD(FilterDate_NULL_Test) {
+			List* filteredList = filterByDate(NULL, createDate(5, 5, 2025));
+
+			Assert::IsNull(filteredList);
+
+		}
+
+		TEST_METHOD(FilterDateTimeRemaining_NULL_Test) {
+			List* filteredList = filterByDateTimeRemaining(NULL, 5);
+
+			Assert::IsNull(filteredList);
+
+		}
+
+		TEST_METHOD(SortList_Title_Test) {
+			Task t1 = createTask("A");
+			Task t2 = createTask("B");
+			Task t3 = createTask("C");
+			Task t4 = createTask("D");
+			Task t5 = createTask("E");
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, TITLE, ASCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t2));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t4));
+			Assert::IsTrue(equalTask(list->arr[4], t5));
+		}
+		TEST_METHOD(SortList_Title_Descending_Test) {
+			Task t1 = createTask("A");
+			Task t2 = createTask("B");
+			Task t3 = createTask("C");
+			Task t4 = createTask("D");
+			Task t5 = createTask("E");
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, TITLE, DESCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t5));
+			Assert::IsTrue(equalTask(list->arr[1], t4));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t2));
+			Assert::IsTrue(equalTask(list->arr[4], t1));
+		}
+		TEST_METHOD(SortList_NULL_Test) {
+			bool result = sortList(NULL, TITLE, ASCENDING);
+
+			Assert::IsFalse(result);
+		}
+
+
+		TEST_METHOD(SortList_Status_Test) {
+			Task t1 = createTask("A");
+			t1.status = UNSET_STATUS;
+			Task t2 = createTask("B");
+			t2.status = IN_PROGRESS;
+			Task t3 = createTask("C");
+			t3.status = ON_HOLD;
+			Task t4 = createTask("D");
+			t4.status = BLOCKED;
+			Task t5 = createTask("E");
+			t5.status = COMPLETED;
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, STATUS, ASCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t2));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t4));
+			Assert::IsTrue(equalTask(list->arr[4], t5));
+		}
+		TEST_METHOD(SortList_Status_Descending_Test) {
+			Task t1 = createTask("A");
+			t1.status = UNSET_STATUS;
+			Task t2 = createTask("B");
+			t2.status = IN_PROGRESS;
+			Task t3 = createTask("C");
+			t3.status = ON_HOLD;
+			Task t4 = createTask("D");
+			t4.status = BLOCKED;
+			Task t5 = createTask("E");
+			t5.status = COMPLETED;
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, TITLE, DESCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t5));
+			Assert::IsTrue(equalTask(list->arr[1], t4));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t2));
+			Assert::IsTrue(equalTask(list->arr[4], t1));
+		}
+
+		TEST_METHOD(SortList_Priority_Test) {
+			Task t1 = createTask("A");
+			t1.priority = UNSET_PRIORITY;
+			Task t2 = createTask("B");
+			t2.priority = LOW;
+			Task t3 = createTask("C");
+			t3.priority = MEDIUM;
+			Task t4 = createTask("D");
+			t4.priority = HIGH;
+			Task t5 = createTask("E");
+			t5.priority = URGENT;
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, PRIORITY, ASCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t2));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t4));
+			Assert::IsTrue(equalTask(list->arr[4], t5));
+		}
+		TEST_METHOD(SortList_Priority_Descending_Test) {
+			Task t1 = createTask("A");
+			t1.priority = UNSET_PRIORITY;
+			Task t2 = createTask("B");
+			t2.priority = LOW;
+			Task t3 = createTask("C");
+			t3.priority = MEDIUM;
+			Task t4 = createTask("D");
+			t4.priority = HIGH;
+			Task t5 = createTask("E");
+			t5.priority = URGENT;
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, PRIORITY, DESCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t5));
+			Assert::IsTrue(equalTask(list->arr[1], t4));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t2));
+			Assert::IsTrue(equalTask(list->arr[4], t1));
+		}
+
+		TEST_METHOD(SortList_Date_Test) {
+			Task t1 = createTask("A");
+			t1.date = createDate(1, 2, 2025);
+			Task t2 = createTask("B");
+			t2.date = createDate(2, 3, 2026);
+			Task t3 = createTask("C");
+			t3.date = createDate(3, 4, 2027);
+			Task t4 = createTask("D");
+			t4.date = createDate(4, 5, 2028);
+			Task t5 = createTask("E");
+			t5.date = createDate(5, 6, 2029);
+
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, DATE, ASCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t1));
+			Assert::IsTrue(equalTask(list->arr[1], t2));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t4));
+			Assert::IsTrue(equalTask(list->arr[4], t5));
+		}
+		TEST_METHOD(SortList_Date_Descending_Test) {
+			Task t1 = createTask("A");
+			t1.date = createDate(1, 2, 2025);
+			Task t2 = createTask("B");
+			t2.date = createDate(2, 3, 2026);
+			Task t3 = createTask("C");
+			t3.date = createDate(3, 4, 2027);
+			Task t4 = createTask("D");
+			t4.date = createDate(4, 5, 2028);
+			Task t5 = createTask("E");
+			t5.date = createDate(5, 6, 2029);
+
+			List* list = createList();
+			append(list, t3);
+			append(list, t5);
+			append(list, t1);
+			append(list, t4);
+			append(list, t2);
+
+			bool result = sortList(list, DATE, DESCENDING);
+
+			Assert::IsTrue(result);
+			Assert::IsTrue(equalTask(list->arr[0], t5));
+			Assert::IsTrue(equalTask(list->arr[1], t4));
+			Assert::IsTrue(equalTask(list->arr[2], t3));
+			Assert::IsTrue(equalTask(list->arr[3], t2));
+			Assert::IsTrue(equalTask(list->arr[4], t1));
+		}
+
 	};
 }
