@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "string_utils.h"
 
 void DisplayTaskMenu() {
 
@@ -11,6 +12,5 @@ void DisplayTaskMenu() {
 	printf("c) Create Task\n");
 	printf("d) Edit Task\n");
 	printf("e) Delete Task\n");
-
-	printf("\nw) Back\n");
+	printColoredStringAdvanced(WHITE, NO_BG, ITALIC, "w) Back\n\n");
 }

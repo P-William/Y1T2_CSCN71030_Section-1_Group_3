@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "string_utils.h"
 
 void DisplaySettingsMenu() {
 
@@ -9,6 +10,5 @@ void DisplaySettingsMenu() {
 	printf("a) Change Username\n");
 	printf("b) Change Password\n"); 
 	printf("c) Reset Save File\n");
-
-	printf("\nw) Back\n");
+	printColoredStringAdvanced(WHITE, NO_BG, ITALIC, "w) Back\n\n");
 }

@@ -12,5 +12,7 @@ bool saveAndQuit(User user) {
 		return false;
 	}
 
-	return saveUser(fp, user);;
+	bool success = saveUser(fp, user);
+	fclose(fp);
+	return success;
 }

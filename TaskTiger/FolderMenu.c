@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include "user.h"
 #include "FolderMenu.h"
 #include "TaskMenu.h"
 #include "DisplayFolderMenu.h"
@@ -17,7 +18,7 @@
 	
 	printf("\nw) Back\n");*/
 
-bool FolderMenu(FolderList* fl) {
+bool FolderMenu(FolderList* fl, User* user) {
 	
 	bool inMenu = true;
 	char input = { 0 };
@@ -33,7 +34,7 @@ bool FolderMenu(FolderList* fl) {
 			PrintFolders(fl);//create
 			break;
 		case 'b':
-			SelectFolder(fl); 
+			SelectFolder(user, fl);
 			break;
 		case 'c':
 			addFolder(fl, CreateFolderFromUser()); //CreateFolder(); //create
@@ -51,4 +52,5 @@ bool FolderMenu(FolderList* fl) {
 		}
 
 	}
+	return true;
 }

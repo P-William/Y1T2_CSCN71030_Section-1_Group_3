@@ -43,4 +43,5 @@ bool SettingsMenu(User* user) {
 		}
 
 	}
+	return true;
 }

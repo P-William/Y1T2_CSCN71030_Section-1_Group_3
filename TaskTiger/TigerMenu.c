@@ -54,4 +54,5 @@ bool TigerMenu(User* user) {
 		}
 
 	}
+	return true;
 }

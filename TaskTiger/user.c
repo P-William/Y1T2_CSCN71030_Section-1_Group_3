@@ -161,6 +161,7 @@ bool saveUser(FILE* fp, User user) {
 	writeIntToFile(fp, user.points);
 	writeIntToFile(fp, user.totalTasksCompleted);
 	writeIntToFile(fp, user.tasksCompletedOnTime);
+	saveFolderList(fp, user.folders);
 	saveDate(fp, user.lastTaskCompletedDate);
 	saveTiger(fp, user.tiger);
 
@@ -179,6 +180,7 @@ User loadUser(FILE* fp) {
 	getIntFromFile(fp, &newUser.points);
 	getIntFromFile(fp, &newUser.totalTasksCompleted);
 	getIntFromFile(fp, &newUser.tasksCompletedOnTime);
+	newUser.folders = loadFolderList(fp);
 	newUser.lastTaskCompletedDate = loadDate(fp);
 	newUser.tiger = loadTiger(fp);
 

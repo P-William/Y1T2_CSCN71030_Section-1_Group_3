@@ -13,8 +13,9 @@
 #include "saveAndQuit.h"
 
 int main(int argc, char* argv[]) {
-	/*
+	
 	if (argc == 1) { //no file name passed, create new file
+		printf("1 arg\n");
 		//take usernmane and password input, store and then name the filename as username
 		char username[USERNAME_LENGTH], password[MAX_PASSWORD_LENGTH];
 		User user = takeUserInfo(username, password);
@@ -23,18 +24,17 @@ int main(int argc, char* argv[]) {
 		char buff[USERNAME_LENGTH + 4];
 		snprintf(buff, sizeof(buff), "%s.txt", username);
 
-		//IF IT DOESNT WORK?
-
 		FILE* fp = fopen(buff, "w");
 
 		fclose(fp);
 
-		MainMenu(user);
+		MainMenu(&user);
 
-		saveAndQuit(user); //IF WE WNAT TO SAVE AND QUIT FROM EVERY MENU, HOW?? EXIT(0)?
+		saveAndQuit(user);
 
 	}
 	if (argc == 2) { //existing filename passed
+		printf("2 arg\n");
 		FILE* fp = fopen(argv[1], "r");
 		if (fp == NULL) {
 			printf("Error opening file. Please try again. \n");
@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
 		User user = loadUser(fp);
 		fclose(fp);
 
-		MainMenu(user);
+		MainMenu(&user);
 
 		if (saveAndQuit(user) == false) {
 			printf("Error SAVING file. gg. \n");
@@ -53,7 +53,7 @@ int main(int argc, char* argv[]) {
 		}
 
 	}
-	*/
+	/*
 	User user = createUser("william", "ethan");
 	Folder folder = createFolder("william");
 	Task task = createTask("ETHAN");
@@ -67,6 +67,6 @@ int main(int argc, char* argv[]) {
 	addFolder(&user.folders, folder);
 
 	MainMenu(user);
-
+	*/
 	return 0;
 }

@@ -2,4 +2,4 @@
 
 #include "user.h"
 
-bool MainMenu( User user);
+bool MainMenu(User* user);

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "user.h"
 #include "folder.h"
 #include "folder_list.h"
 
@@ -7,8 +8,8 @@
 #include "string_utils.h"
 
 Folder CreateFolderFromUser();
-void RenameFolder(Folder* folder);
-void EditFolder(Folder* folder);
-void SelectFolder(FolderList* fl);
-Folder* searchFolder(FolderList* fl);
-void PrintFolders(FolderList* fl);
+void RenameFolder(Folder* );
+void EditFolder(Folder* );
+void SelectFolder(User* , FolderList* );
+Folder* searchFolder(FolderList* );
+void PrintFolders(FolderList* );

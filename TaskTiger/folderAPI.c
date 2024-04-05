@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
+#include "user.h"
 #include "TaskMenu.h"
 
 Folder CreateFolderFromUser()
@@ -73,7 +74,7 @@ Folder* searchFolder(FolderList* fl) {
 }
 
 
-void SelectFolder(FolderList* fl) {
+void SelectFolder(User* user, FolderList* fl) {
 	Folder* foundFolder = searchFolder(fl);
 
 	if (foundFolder == NULL) {
@@ -81,7 +82,7 @@ void SelectFolder(FolderList* fl) {
 		return;
 	}
 
-	TaskMenu(foundFolder);
+	TaskMenu(foundFolder, user);
 }
 
 void PrintFolders(FolderList* fl)
