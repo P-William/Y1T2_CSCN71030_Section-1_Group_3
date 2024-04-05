@@ -2,3 +2,4 @@
 
 #include "user.h"
 
+bool TigerMenu(User* user);

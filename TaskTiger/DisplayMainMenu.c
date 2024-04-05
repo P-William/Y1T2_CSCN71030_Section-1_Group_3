@@ -23,5 +23,6 @@ void DisplayMainMenu() {
 	printf("b) Task Tiger\n");
 	printf("c) View Calendar\n");
 	printf("d) Settings\n");
-	printf("q) Save and Quit\n");
+
+	printf("\nq) Save and Quit\n");
 }

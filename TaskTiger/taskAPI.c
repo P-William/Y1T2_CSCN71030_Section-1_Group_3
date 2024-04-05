@@ -40,7 +40,7 @@ bool SetOptional(Task* task) {
 	printf("d) Set priority | ");
 	printPriorityT(*task, true);
 
-	printf("e) Set Date");
+	printf("e) Set Date\n");
 
 	printColoredStringAdvanced(B_GREY, NO_BG, ITALIC, "w) Back\n\n");
 
