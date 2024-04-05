@@ -171,6 +171,15 @@ extern "C" bool addFolder(FolderList*, Folder);
 extern "C" Folder * searchFolder(FolderList * fl);
 extern "C" List * GetTasksFromDate(User * user, Date date);
 
+extern "C" int GetPointsFromUser(User* user);
+extern "C" bool DateHasTask(User * user, Date date);
+
+extern "C" Tiger CreateTiger();
+extern "C" bool FeedTiger(User * user);
+extern "C" bool UpdateTigerHunger(Tiger * tiger);
+extern "C" bool equalTiger(Tiger tigerOne, Tiger tigerTwo);
+extern "C" Tiger copyTiger(Tiger src);
+
 bool getIntFromUser(int* output, const char* prompt, ...);
 bool getIntFromUserWithRange(int min, int max, int* output, const char* prompt, ...);
 bool getCharFromUser(char* outputChar, const char* prompt, ...);
@@ -183,7 +192,7 @@ namespace APITesting
 	{
 	public:
 		
-		// Folder API
+		// User API
 		TEST_METHOD(GetTasksFromDateOne) {
 			User u = createUser("firstName", "lastName");
 			FolderList fl = createFolderList();
@@ -191,21 +200,24 @@ namespace APITesting
 			Task t = createTask("TestTaskOne");
 			Date d = createDate(1, 1, 2024);
 			t.date = d;
+
 			Task t2 = createTask("TestTaskTwo");
 			Date d2 = createDate(1, 2, 2024);
 			t2.date = d2;
+
 			append(f.list, t);
 			append(f.list, t2);
+
 			addFolder(&fl, f);
 			u.folders = fl;
 
 			Date d3 = createDate(1, 2, 2024);
 
 			List* l = GetTasksFromDate(&u, d3);
-			FolderList fl2 = createFolderList();
-			append(fl2.head->folder.list, t2);
+			Folder f2 = createFolder("TestFolder");
+			append(f2.list, t2);
 			
-			Assert::IsTrue(equalList(fl2.head->folder.list, l));
+			Assert::IsTrue(equalList(f2.list, l));
 		}
 		TEST_METHOD(GetTasksFromDateTwo) {
 			User u = createUser("firstName", "lastName");
@@ -214,21 +226,135 @@ namespace APITesting
 			Task t = createTask("TestTaskOne");
 			Date d = createDate(1, 1, 2024);
 			t.date = d;
+
 			Task t2 = createTask("TestTaskTwo");
 			Date d2 = createDate(1, 2, 2024);
 			t2.date = d2;
+
 			append(f.list, t);
 			append(f.list, t2);
+
 			addFolder(&fl, f);
 			u.folders = fl;
 
 			Date d3 = createDate(1, 3, 2024);
 
 			List* l = GetTasksFromDate(&u, d3);
-			FolderList fl2 = createFolderList();
-			append(fl2.head->folder.list, t2);
+			Folder f2 = createFolder("TestFolder");
+			append(f2.list, t2);
 
-			Assert::IsFalse(equalList(fl2.head->folder.list, l));
+			Assert::IsFalse(equalList(f2.list, l));
+		}
+		TEST_METHOD(DateHasTaskOne) {
+			User u = createUser("firstName", "lastName");
+			FolderList fl = createFolderList();
+			Folder f = createFolder("TestFolder");
+			Task t = createTask("TestTaskOne");
+			Date d = createDate(1, 1, 2024);
+			t.date = d;
+
+			Task t2 = createTask("TestTaskTwo");
+			Date d2 = createDate(1, 2, 2024);
+			t2.date = d2;
+
+			append(f.list, t);
+			append(f.list, t2);
+
+			addFolder(&fl, f);
+			u.folders = fl;
+
+			Date d3 = createDate(1, 1, 2024);
+
+			Assert::IsTrue(DateHasTask(&u, d3));
+		}
+		TEST_METHOD(DateHasTaskTwo) {
+			User u = createUser("firstName", "lastName");
+			FolderList fl = createFolderList();
+			Folder f = createFolder("TestFolder");
+			Task t = createTask("TestTaskOne");
+			Date d = createDate(1, 1, 2024);
+			t.date = d;
+
+			Task t2 = createTask("TestTaskTwo");
+			Date d2 = createDate(1, 2, 2024);
+			t2.date = d2;
+
+			append(f.list, t);
+			append(f.list, t2);
+
+			addFolder(&fl, f);
+			u.folders = fl;
+
+			Date d3 = createDate(1, 3, 2024);
+
+			Assert::IsFalse(DateHasTask(&u, d3));
+		}
+		TEST_METHOD(GetPointsFromUserOne) {
+			User u = createUser("firstName", "lastName");
+			u.points = 50;
+
+			Assert::AreEqual(GetPointsFromUser(&u), 50);
+		}
+		TEST_METHOD(GetPointsFromUserTwo) {
+			User u = createUser("firstName", "lastName");
+			u.points = 100;
+
+			Assert::AreNotEqual(GetPointsFromUser(&u), 50);
+		}
+
+		// Tiger API
+		TEST_METHOD(FeedTigerOne) {
+			User u = createUser("firstName", "lastName");
+			u.points = 150;
+
+			Assert::IsTrue(FeedTiger(&u));
+		}
+		TEST_METHOD(FeedTigerTwo) {
+			User u = createUser("firstName", "lastName");
+			u.points = 100;
+
+			Assert::IsTrue(FeedTiger(&u));
+		}
+		TEST_METHOD(FeedTigerThree) {
+			User u = createUser("firstName", "lastName");
+			u.points = 50;
+
+			Assert::IsFalse(FeedTiger(&u));
+		}
+		TEST_METHOD(UpdateTigerHungerOne) {
+			Tiger tiger = CreateTiger();
+			tiger.lastChecked.day -= 1;
+
+			Assert::IsTrue(UpdateTigerHunger(&tiger));
+		}
+		TEST_METHOD(UpdateTigerHungerTwo) {
+			Tiger tiger = CreateTiger();
+
+			Assert::IsFalse(UpdateTigerHunger(&tiger));
+		}
+		TEST_METHOD(UpdateTigerHungerThree) {
+			Tiger tiger = CreateTiger();
+			tiger.lastChecked.day -= 1;
+			tiger.lastFed.day -= 1;
+			UpdateTigerHunger(&tiger);
+
+			Assert::AreEqual(tiger.hunger, 80);
+		}
+		TEST_METHOD(UpdateTigerHungerFour) {
+			Tiger tiger = CreateTiger();
+			tiger.lastChecked.day -= 5;
+			tiger.lastFed.day -= 5;
+			UpdateTigerHunger(&tiger);
+
+			Assert::AreEqual(tiger.hunger, 0);
+		}
+		TEST_METHOD(UpdateTigerHungerFive) {
+			Tiger tiger = CreateTiger();
+			tiger.lastChecked.day -= 2;
+			tiger.lastFed.day -= 2;
+			UpdateTigerHunger(&tiger);
+
+			Assert::AreNotEqual(tiger.hunger, 50);
 		}
 	};
 }
