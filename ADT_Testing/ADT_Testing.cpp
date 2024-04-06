@@ -169,6 +169,9 @@ extern "C" bool stringCompareI(const char*, const char*);
 extern "C" bool writeIntToFile(FILE* fp, int integer);
 extern "C" bool getIntFromFile(FILE* fp, int* output);
 
+extern "C" Folder createFolder(const char* name);
+extern "C" bool addFolder(FolderList*, Folder);
+
 bool getIntFromUser(int* output, const char* prompt, ...);
 bool getIntFromUserWithRange(int min, int max, int* output, const char* prompt, ...);
 bool getCharFromUser(char* outputChar, const char* prompt, ...);
@@ -607,6 +610,152 @@ namespace ADTTesting {
 
 			Assert::IsTrue(stringCompare(user.username, "Colin"));
 			Assert::IsTrue(stringCompare(user.passward, "1234"));
+		}
+
+		TEST_METHOD(equalUser_Test) {
+			User user = createUser("Colin", "1234");
+			User userTwo = createUser("Colin", "1234");
+
+			Assert::IsTrue(equalUser(user, userTwo));
+		}
+		TEST_METHOD(equalUser_Fail_Test) {
+			User user = createUser("Colin", "1234");
+			User userTwo = createUser("William", "1234");
+
+			Assert::IsFalse(equalUser(user, userTwo));
+		}
+		TEST_METHOD(equalUser_FailTwo_Test) {
+			User user = createUser("Colin", "1234");
+			User userTwo = createUser("Colin", "4321");
+
+			Assert::IsFalse(equalUser(user, userTwo));
+		}
+
+		TEST_METHOD(copyUser_Test) {
+			User user = createUser("Colin", "1234");
+			User userTwo = copyUser(user);
+
+			Assert::IsTrue(equalUser(user, userTwo));
+		}
+
+		TEST_METHOD(copyUserInPlace_Test) {
+			User user = createUser("Colin", "1234");
+			User userTwo;
+			copyUserInPlace(&userTwo, user);
+
+			Assert::IsTrue(equalUser(user, userTwo));
+		}
+
+		TEST_METHOD(setUsername_Test) {
+			User user = createUser("Colin", "1234");
+			User userTwo = createUser("William", "1234");
+			setUsername(&userTwo, "Colin");
+
+			Assert::IsTrue(equalUser(user, userTwo));
+		}
+
+		TEST_METHOD(setPassword_Test) {
+			User user = createUser("Colin", "1234");
+			User userTwo = createUser("Colin", "4321");
+			setPassword(&userTwo, "1234");
+
+			Assert::IsTrue(equalUser(user, userTwo));
+		}
+
+		TEST_METHOD(increasePoints_Test) {
+			User user = createUser("Colin", "1234");
+
+			Assert::IsTrue(increasePoints(&user, 20));
+		}
+		TEST_METHOD(increasePoints_NULL_Test) {
+			User* user = NULL;
+
+			Assert::IsFalse(increasePoints(user, 20));
+		}
+		TEST_METHOD(increasePoints_TestThree) {
+			User user = createUser("Colin", "1234");
+			increasePoints(&user, 20);
+
+			Assert::AreEqual(user.points, 20);
+		}
+		TEST_METHOD(increasePoints_TestFour) {
+			User user = createUser("Colin", "1234");
+			increasePoints(&user, 39);
+
+			Assert::AreNotEqual(user.points, 40);
+		}
+
+		TEST_METHOD(decreasePoints_Test) {
+			User user = createUser("Colin", "1234");
+
+			Assert::IsTrue(decreasePoints(&user, 20));
+		}
+		TEST_METHOD(decreasePoints_NULL_Test) {
+			User* user = NULL;
+
+			Assert::IsFalse(decreasePoints(user, 20));
+		}
+		TEST_METHOD(decreasePoints_TestThree) {
+			User user = createUser("Colin", "1234");
+			increasePoints(&user, 40);
+			decreasePoints(&user, 20);
+
+			Assert::AreEqual(user.points, 20);
+		}
+		TEST_METHOD(decreasePoints_TestFour) {
+			User user = createUser("Colin", "1234");
+			increasePoints(&user, 20);
+			decreasePoints(&user, 19);
+
+			Assert::AreNotEqual(user.points, 0);
+		}
+
+		TEST_METHOD(taskCompleted_Test) {
+			User user = createUser("Colin", "1234");
+			Folder folder = createFolder("NewFolder");
+			Task task = createTask("NewTask");
+			append(folder.list, task);
+			addFolder(&user.folders, folder);
+
+			Assert::IsTrue(taskCompleted(&user, task));
+		}
+		TEST_METHOD(taskCompleted_NULL_Test) {
+			User* user = NULL;
+			Task task = createTask("NewTask");
+
+			Assert::IsFalse(taskCompleted(user, task));
+		}
+
+		TEST_METHOD(wipeProfile_Test) {
+			User user = createUser("Colin", "1234");
+			Folder folder = createFolder("NewFolder");
+			Task task = createTask("NewTask");
+			append(folder.list, task);
+			addFolder(&user.folders, folder);
+
+			Assert::IsTrue(wipeProfile(&user, true));
+		}
+		TEST_METHOD(wipeProfile_TestTwo) {
+			User user = createUser("Colin", "1234");
+			Folder folder = createFolder("NewFolder");
+			Task task = createTask("NewTask");
+			append(folder.list, task);
+			addFolder(&user.folders, folder);
+
+			Assert::IsFalse(wipeProfile(&user, false));
+		}
+		TEST_METHOD(wipeProfile_TestThree) {
+			User user = createUser("Colin", "1234");
+			Folder folder = createFolder("NewFolder");
+			Task task = createTask("NewTask");
+			append(folder.list, task);
+			addFolder(&user.folders, folder);
+
+			User userTwo = createUser("Colin", "1234");
+
+			wipeProfile(&user, true);
+
+			Assert::IsTrue(equalUser(user, userTwo));
 		}
 	};
 
