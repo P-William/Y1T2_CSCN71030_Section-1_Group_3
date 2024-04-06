@@ -452,10 +452,10 @@ List* loadList(FILE* fp) {
 
 	List* list = createList();
 
-	size_t capLoad;
-	getIntFromFile(fp, (int*)&capLoad);
-	size_t sizeLoad;
-	getIntFromFile(fp, (int*)&sizeLoad);
+	int capLoad;
+	getIntFromFile(fp, &capLoad);
+	int sizeLoad;
+	getIntFromFile(fp, &sizeLoad);
 	
 	realloc_s(list->arr, capLoad);
 
