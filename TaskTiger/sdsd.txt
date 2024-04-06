@@ -1,5 +1,5 @@
-colin
-password
+sdsd
+sdsd
 0
 0
 0
@@ -7,7 +7,7 @@ password
 -1
 -1
 -1
-Tony
+DEFAULT_TIGER_NAME
 100
 2
 5

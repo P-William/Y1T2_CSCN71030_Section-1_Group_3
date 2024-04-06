@@ -2,16 +2,31 @@
 #include <stdlib.h>
 #include "string_utils.h"
 #include "user.h"
+#include "Calendar.h"
+#include "tigerAPI.h"
 
-//bool firstPrint = true;
+bool firstPrint = true;
 
-void DisplayMainMenu(User user) {
+void DisplayMainMenu(User* user) {
 	
-	//if (firstPrint) {
-		printColoredStringAdvanced(ORANGE, NO_BG, BOLD, "Welcome to Task Tiger!\nNever forget a task again!\n");
-		printf("User: %s \n", user.username);
-		//firstPrint = false;
-	//}
+	if (firstPrint) {
+		printColoredStringAdvanced(ORANGE, NO_BG, BOLD, "\nWelcome to Task Tiger!\nNever forget a task again!\n\n");
+		printf("User: %s \n", user->username);
+		firstPrint = false;
+	}
+
+	printf("Your calendar for this month:\n(Days with tasks due will appear green)\n");
+	print_calendar(*user, getCurrentDate());
+
+	DetermineTigerMood(user);
+	printf("Your tiger is ");
+	printTigerStatus(user->tiger.tigerMood, true);
+
+	printf("You have %d points.\n", user->points);
+
+
+
+
 	//DISPLAY PERSONALIZED GREETINGS / 
 	//bool firstPrint = true;
 	//if(firstView) DisplayGreeting();

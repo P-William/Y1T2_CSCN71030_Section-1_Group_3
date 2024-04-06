@@ -1,7 +1,11 @@
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "pch.h"
 #include "CppUnitTest.h"
 
-using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 #define TASK_TITLE_LENGTH 128
 #define TASK_DESCRIPTION_LENGTH 512
@@ -165,35 +169,22 @@ extern "C" bool stringCompareI(const char*, const char*);
 extern "C" bool writeIntToFile(FILE * fp, int integer);
 extern "C" bool getIntFromFile(FILE * fp, int* output);
 
-extern "C" FolderList createFolderList();
-extern "C" Folder createFolder(const char* name);
-extern "C" bool addFolder(FolderList*, Folder);
-extern "C" Folder * searchFolder(FolderList * fl);
-extern "C" List * GetTasksFromDate(User * user, Date date);
-
-extern "C" int GetPointsFromUser(User * user);
-extern "C" bool DateHasTask(User * user, Date date);
-
-extern "C" Tiger CreateTiger();
-extern "C" bool FeedTiger(User * user);
-extern "C" bool UpdateTigerHunger(Tiger * tiger);
-extern "C" bool equalTiger(Tiger tigerOne, Tiger tigerTwo);
-extern "C" Tiger copyTiger(Tiger src);
-
 bool getIntFromUser(int* output, const char* prompt, ...);
 bool getIntFromUserWithRange(int min, int max, int* output, const char* prompt, ...);
 bool getCharFromUser(char* outputChar, const char* prompt, ...);
 bool getStringFromUser(int maxLength, char* output, const char* prompt, ...);
-//
-//namespace UITesting {
-//	TEST_CLASS(UITesting) {
-//	public:
-//		
-//		TEST_METHOD(TakeUserInfo) {
-//			User user = createUser("Colin", "password");
-//
-//			User user2 = TakeUserInfo()
-//
-//		}
-//	};
-//}
+
+// :)
+using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+
+namespace IntegrationTesting
+{
+	TEST_CLASS(IntegrationTesting)
+	{
+	public:
+		
+		TEST_METHOD(TestMethod1)
+		{
+		}
+	};
+}

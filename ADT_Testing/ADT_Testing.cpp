@@ -86,7 +86,7 @@ typedef struct tiger {
 
 typedef struct User {
 	char username[USERNAME_LENGTH];
-	char passward[MAX_PASSWORD_LENGTH];
+	char password[MAX_PASSWORD_LENGTH];
 	FolderList folders;
 	int points;
 	int totalTasksCompleted;
@@ -609,7 +609,7 @@ namespace ADTTesting {
 			User user = createUser("Colin", "1234");
 
 			Assert::IsTrue(stringCompare(user.username, "Colin"));
-			Assert::IsTrue(stringCompare(user.passward, "1234"));
+			Assert::IsTrue(stringCompare(user.password, "1234"));
 		}
 
 		TEST_METHOD(equalUser_Test) {

@@ -130,8 +130,8 @@ FolderList loadFolderList(FILE* fp) {
 		exit(-1);
 	}
 
-	size_t listSize;
-	getIntFromFile(fp, (int*)&listSize);
+	int listSize;
+	getIntFromFile(fp, &listSize);
 
 	FolderList list = createFolderList();
 
