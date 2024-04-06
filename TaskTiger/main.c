@@ -11,6 +11,7 @@
 #include "takeUserInfo.h"
 #include "string.h"
 #include "saveAndQuit.h"
+#include "string_utils.h"
 
 int main(int argc, char* argv[]) {
 	
@@ -45,7 +46,19 @@ int main(int argc, char* argv[]) {
 		User user = loadUser(fp);
 		fclose(fp);
 
-		MainMenu(&user);
+		bool validPassword = false;
+		bool check = false;
+
+		while (!validPassword) {
+			char buffer[MAX_PASSWORD_LENGTH];
+			check = getStringFromUser(MAX_PASSWORD_LENGTH, buffer, "Please enter your password:");
+
+			if (stringCompare(buffer, user.password)) {
+				MainMenu(&user);
+			}
+
+		}
+
 
 		if (saveAndQuit(user) == false) {
 			printf("Error SAVING file. gg. \n");

@@ -10,7 +10,7 @@
 User createUser(const char* username, const char* password) {
 	User newUser;
 	strncpy(newUser.username, username, USERNAME_LENGTH);
-	strncpy(newUser.passward, password, MAX_PASSWORD_LENGTH);
+	strncpy(newUser.password, password, MAX_PASSWORD_LENGTH);
 	newUser.folders = createFolderList();
 	newUser.points = 0;
 	newUser.tiger = CreateTiger();
@@ -23,7 +23,7 @@ User createUser(const char* username, const char* password) {
 bool equalUser(User userOne, User userTwo) {
 	return (
 		stringCompare(userOne.username, userTwo.username) &&
-		stringCompare(userOne.passward, userTwo.passward) &&
+		stringCompare(userOne.password, userTwo.password) &&
 		equalFolderList(userOne.folders, userTwo.folders) &&
 		userOne.points == userTwo.points &&
 		userOne.totalTasksCompleted == userTwo.totalTasksCompleted &&
@@ -34,7 +34,7 @@ bool equalUser(User userOne, User userTwo) {
 }
 
 User copyUser(User src) {
-	User newUser = createUser(src.username, src.passward);
+	User newUser = createUser(src.username, src.password);
 	newUser.folders = copyFolderList(src.folders);
 	newUser.points = src.points;
 	newUser.totalTasksCompleted = src.totalTasksCompleted;
@@ -50,7 +50,7 @@ bool copyUserInPlace(User* dest, User src) {
 		return false;
 	}
 	strncpy(dest->username, src.username, USERNAME_LENGTH);
-	strncpy(dest->passward, src.passward, MAX_PASSWORD_LENGTH);
+	strncpy(dest->password, src.password, MAX_PASSWORD_LENGTH);
 	dest->points = src.points;
 	dest->folders = copyFolderList(src.folders);
 	dest->totalTasksCompleted = src.totalTasksCompleted;
@@ -73,7 +73,7 @@ bool setPassword(User* user, const char* newPassword) {
 		fprintf(stderr, "Setter failed, NULL user or name\n");
 		return false;
 	}
-	strncpy(user->passward, newPassword, MAX_PASSWORD_LENGTH);
+	strncpy(user->password, newPassword, MAX_PASSWORD_LENGTH);
 	return true;
 }
 
@@ -157,7 +157,7 @@ bool saveUser(FILE* fp, User user) {
 	}
 
 	writeStringToFile(fp, user.username);
-	writeStringToFile(fp, user.passward);
+	writeStringToFile(fp, user.password);
 	writeIntToFile(fp, user.points);
 	writeIntToFile(fp, user.totalTasksCompleted);
 	writeIntToFile(fp, user.tasksCompletedOnTime);
@@ -176,7 +176,7 @@ User loadUser(FILE* fp) {
 	User newUser;
 
 	getStringFromFile(fp, newUser.username, USERNAME_LENGTH);
-	getStringFromFile(fp, newUser.passward, MAX_PASSWORD_LENGTH);
+	getStringFromFile(fp, newUser.password, MAX_PASSWORD_LENGTH);
 	getIntFromFile(fp, &newUser.points);
 	getIntFromFile(fp, &newUser.totalTasksCompleted);
 	getIntFromFile(fp, &newUser.tasksCompletedOnTime);
@@ -191,7 +191,7 @@ User loadUser(FILE* fp) {
 void debugPrintUser(User user) {
 	printf("=== DEBUG PRINT USER ===\n");
 	printf("Username: %s\n", user.username);
-	printf("Password: %s\n", user.passward);
+	printf("Password: %s\n", user.password);
 	printf("Points: %d\n", user.points);
 	//printTigerStatus(user.tigerStatus, true);
 }

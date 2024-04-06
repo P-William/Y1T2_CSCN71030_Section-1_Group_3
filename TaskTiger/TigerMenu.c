@@ -20,11 +20,13 @@
 	printf("\nw) Back\n");*/
 
 bool TigerMenu(User* user) {
-
+	if (stringCompare(user->tiger.name, "DEFAULT_TIGER_NAME")) {
+		NameTiger(&user->tiger);
+	}
 	bool inMenu = true;
 	char input = { 0 };
 	while (inMenu) {
-		DisplayTigerMenu();
+		DisplayTigerMenu(user);
 		bool inputCheck = getCharFromUser(&input, "Please enter your choice: ");
 		if (!inputCheck) {
 			printf("error taking input.\n");

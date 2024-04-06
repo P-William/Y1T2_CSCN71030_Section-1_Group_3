@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "string_utils.h"
-void DisplayTigerMenu() {
+#include "user.h"
+void DisplayTigerMenu(User user) {
+	printf("\nYour tiger %s says hi!\n\n", user.tiger.name);
+
 	printf("-----------------------------------------------\n");
 	printf("		Tiger Menu\n");
 	printf("-----------------------------------------------\n");

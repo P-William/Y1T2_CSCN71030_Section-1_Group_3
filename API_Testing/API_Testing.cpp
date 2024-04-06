@@ -82,7 +82,7 @@ typedef struct tiger {
 
 typedef struct User {
 	char username[USERNAME_LENGTH];
-	char passward[MAX_PASSWORD_LENGTH];
+	char password[MAX_PASSWORD_LENGTH];
 	FolderList folders;
 	int points;
 	int totalTasksCompleted;

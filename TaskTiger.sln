@@ -25,8 +25,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UI_Testing", "UI_Testing\UI
 		{CBA77F66-31BC-4F06-9078-0E51374B7B51} = {CBA77F66-31BC-4F06-9078-0E51374B7B51}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Integration_Testing", "Integration_Testing\Integration_Testing.vcxproj", "{E7EB649E-23B4-4927-8411-75728812F99C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -75,14 +73,6 @@ Global
 		{B4881CA8-FA3B-4A30-98A2-9C74E111D103}.Release|x64.Build.0 = Release|x64
 		{B4881CA8-FA3B-4A30-98A2-9C74E111D103}.Release|x86.ActiveCfg = Release|Win32
 		{B4881CA8-FA3B-4A30-98A2-9C74E111D103}.Release|x86.Build.0 = Release|Win32
-		{E7EB649E-23B4-4927-8411-75728812F99C}.Debug|x64.ActiveCfg = Debug|x64
-		{E7EB649E-23B4-4927-8411-75728812F99C}.Debug|x64.Build.0 = Debug|x64
-		{E7EB649E-23B4-4927-8411-75728812F99C}.Debug|x86.ActiveCfg = Debug|Win32
-		{E7EB649E-23B4-4927-8411-75728812F99C}.Debug|x86.Build.0 = Debug|Win32
-		{E7EB649E-23B4-4927-8411-75728812F99C}.Release|x64.ActiveCfg = Release|x64
-		{E7EB649E-23B4-4927-8411-75728812F99C}.Release|x64.Build.0 = Release|x64
-		{E7EB649E-23B4-4927-8411-75728812F99C}.Release|x86.ActiveCfg = Release|Win32
-		{E7EB649E-23B4-4927-8411-75728812F99C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

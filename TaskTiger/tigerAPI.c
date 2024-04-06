@@ -12,6 +12,7 @@ bool FeedTiger(User* user)
 
 		return true;
 	}
+	printf("Not enough points!\n");
 	return false;
 }
 
