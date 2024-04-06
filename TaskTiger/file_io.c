@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "encryption.h"
 #include "file_io.h"
 #include "string_utils.h"
 

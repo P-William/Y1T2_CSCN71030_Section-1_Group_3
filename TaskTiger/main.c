@@ -52,8 +52,8 @@ int main(int argc, char* argv[]) {
 			check = getStringFromUser(MAX_PASSWORD_LENGTH, buffer, "Please enter your password:");
 
 			if (stringCompare(buffer, user.password)) {
-				MainMenu(&user);
 				validPassword = true;
+				MainMenu(&user);
 			}
 
 		}
