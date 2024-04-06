@@ -53,6 +53,7 @@ int main(int argc, char* argv[]) {
 
 			if (stringCompare(buffer, user.password)) {
 				MainMenu(&user);
+				validPassword = true;
 			}
 
 		}
