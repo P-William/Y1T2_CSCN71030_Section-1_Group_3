@@ -63,13 +63,13 @@ void petTiger() {
 	int temp = (rand() % 3) + 1;
 	switch(temp){
 	case 1:
-		printf("Your tiger ate you. You are dead.\n");
+		printf("Your tiger rolls over and shows you its belly. You rub the tiger's belly.\n");
 		break;
 	case 2:
 		printf("Your tiger is happy :).\n");
 		break;
 	case 3: 
-		printf("Your tiger stares into your soul, you feel a connection, you must never leave your tiger alone again.\n");
+		printf("Your tiger runs away.\n");
 		break;
 	}
 }

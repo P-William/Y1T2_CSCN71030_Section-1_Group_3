@@ -104,7 +104,7 @@ void DeleteExistingFolder(User* user, FolderList* fl) {
 		return;
 	}
 
-	destroyFolder(*(searchFolder(fl)));
+	removeFolder(fl, *foundFolder);
 }
 
 void PrintFolders(FolderList* fl)

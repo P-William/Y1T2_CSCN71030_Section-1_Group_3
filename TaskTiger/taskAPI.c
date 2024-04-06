@@ -217,37 +217,21 @@ void EditExistingTask(User* user, Folder* folder) {
 		return;
 	}
 
-	SetOptional(searchTask(folder->list));
+	SetOptional(foundTask);
 }
 
 void DeleteExistingTask(User* user, Folder* folder) {
 	Task* foundTask = searchTask(folder->list);
 
 	if (foundTask == NULL) {
-		printColoredString(RED, "Folder not found.\n");
+		printColoredString(RED, "Task not found.\n");
 		return;
 	}
 
-	deleteTask(folder->list);
+	removeTask(folder->list, *foundTask);
+	
 }
 
-//find and remove task of user's choice
-void deleteTask(List* list) {
-	char taskTitle[TASK_TITLE_LENGTH];
-	getStringFromUser(TASK_TITLE_LENGTH, taskTitle, "Enter the name of the task you wish to delete:");
-
-	if (list == NULL) {
-		fprintf(stderr, "Cannot check null list\n");
-		return;
-	}
-	for (size_t i = 0; i < list->size; i++) {
-		bool match = stringCompare(list->arr[i].title, taskTitle);
-		if (match) {
-			removeTask(list, list->arr[i]);
-		}
-	}
-
-}
 
 void markTaskAsComplete(User* user, List* list) {
 	char taskTitle[TASK_TITLE_LENGTH];
