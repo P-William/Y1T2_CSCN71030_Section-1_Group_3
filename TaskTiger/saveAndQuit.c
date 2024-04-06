@@ -1,3 +1,6 @@
+
+#define _CRT_SECURE_NO_WARNINGS
+
 //take user, open file, save user, return
 #include "saveAndQuit.h"
 

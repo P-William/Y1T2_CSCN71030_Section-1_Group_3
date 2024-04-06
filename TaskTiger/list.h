@@ -86,13 +86,6 @@ bool removeTask(List*, Task);
  * @return true if successful, false otherwise.
  */
 bool pop(List*, size_t index);
-/**
- * Clears the contents of the list.
- *
- * @param list Pointer to the list structure.
- * @return true if successful, false otherwise.
- */
-bool clear(List*);
 
 /**
  * Sets the element at the specified index in the list.

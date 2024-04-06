@@ -186,19 +186,6 @@ bool pop(List* list, size_t index) {
 
 	return true;
 }
-bool clear(List* list) {
-	if (list == NULL) {
-		fprintf(stderr, "Cannot set null list. Create a list using createList\n");
-		return false;
-	}
-	free(list->arr);
-	free(list);
-	list = createList();
-	if (list == NULL) {
-		return false;
-	}
-	return true;
-}
 
 bool set(List* list, size_t index, Task task) {
 	if (list == NULL) {

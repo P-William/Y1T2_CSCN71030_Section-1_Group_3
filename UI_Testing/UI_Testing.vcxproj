@@ -100,7 +100,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)\TaskTiger\x64\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Calendar.obj;date.obj;DisplayCalendar.obj;DisplayFolderMenu.obj;DisplayMainMenu.obj;DisplaySettingsMenu.obj;DisplayTaskMenu.obj;DisplayTigerMenu.obj;encryption.obj;file_io.obj;folder.obj;folderAPI.obj;FolderMenu.obj;folder_list.obj;input_handler.obj;list.obj;main.obj;MainMenu.obj;SettingsMenu.obj;string_utils.obj;takeUserInfo.obj;task.obj;taskAPI.obj;TaskMenu.obj;tiger.obj;tigerAPI.obj;TigerMenu.obj;user.obj;userAPI.obj;saveAndQuit.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Calendar.obj;date.obj;DisplayCalendar.obj;DisplayFolderMenu.obj;DisplayMainMenu.obj;DisplaySettingsMenu.obj;DisplayTaskMenu.obj;DisplayTigerMenu.obj;encryption.obj;file_io.obj;folder.obj;folderAPI.obj;FolderMenu.obj;folder_list.obj;input_handler.obj;list.obj;main.obj;MainMenu.obj;saveAndQuit.obj;SettingsMenu.obj;string_utils.obj;takeUserInfo.obj;task.obj;taskAPI.obj;TaskMenu.obj;tiger.obj;tigerAPI.obj;TigerMenu.obj;user.obj;userAPI.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

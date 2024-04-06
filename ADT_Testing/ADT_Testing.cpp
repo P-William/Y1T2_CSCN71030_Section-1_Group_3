@@ -1023,28 +1023,6 @@ namespace ADTTesting {
 			Assert::IsFalse(result);
 		}
 
-		TEST_METHOD(Clear_Test) {
-			Task t1 = createTask("Test1");
-			Task t2 = createTask("Test2");
-			Task t3 = createTask("Test3");
-
-			List* list = createList();
-			append(list, t1);
-			append(list, t2);
-			append(list, t3);
-
-			bool result = clear(list);
-
-			Assert::IsTrue(result);
-			Assert::IsNotNull(list);
-			Assert::AreEqual(list->size, (size_t)0);
-		}
-		TEST_METHOD(Clear_NULL_Test) {
-			bool result = clear(NULL);
-
-			Assert::IsFalse(result);
-		}
-
 		TEST_METHOD(Set_Test) {
 			Task t1 = createTask("Test1");
 			Task t2 = createTask("Test2");
