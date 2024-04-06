@@ -78,9 +78,6 @@
     <ClCompile Include="date.c">
       <Filter>Source Files\ADTs</Filter>
     </ClCompile>
-    <ClCompile Include="encryption.c">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
     <ClCompile Include="folder_list.c">
       <Filter>Source Files\ADTs</Filter>
     </ClCompile>
@@ -172,9 +169,6 @@
     </ClInclude>
     <ClInclude Include="folder_list.h">
       <Filter>Header Files\ADTs</Filter>
-    </ClInclude>
-    <ClInclude Include="encryption.h">
-      <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="taskAPI.h">
       <Filter>Header Files\API</Filter>
