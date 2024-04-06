@@ -457,7 +457,7 @@ List* loadList(FILE* fp) {
 	int sizeLoad;
 	getIntFromFile(fp, &sizeLoad);
 	
-	realloc_s(list->arr, capLoad);
+	//realloc_s(list->arr, capLoad);
 
 	for (int i = 0; i < sizeLoad; i++) {
 		append(list, loadTask(fp));
