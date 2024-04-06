@@ -40,7 +40,7 @@ bool TaskMenu(Folder* folder, User* user) {
 			append(folder->list, CreateTaskFromUser()); 
 			break;
 		case 'd':
-			SetOptional(searchTask(folder->list)); 
+			EditExistingTask(user, folder);
 			break;
 		case 'e':
 			deleteTask(folder->list);

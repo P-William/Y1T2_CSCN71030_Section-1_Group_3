@@ -16,7 +16,6 @@
 int main(int argc, char* argv[]) {
 	
 	if (argc == 1) { //no file name passed, create new file
-		printf("1 arg\n");
 		//take usernmane and password input, store and then name the filename as username
 		char username[USERNAME_LENGTH], password[MAX_PASSWORD_LENGTH];
 		User user = takeUserInfo(username, password);
@@ -35,7 +34,6 @@ int main(int argc, char* argv[]) {
 
 	}
 	if (argc == 2) { //existing filename passed
-		printf("2 arg\n");
 		FILE* fp = fopen(argv[1], "r");
 		if (fp == NULL) {
 			printf("Error opening file. Please try again. \n");
@@ -66,20 +64,6 @@ int main(int argc, char* argv[]) {
 		}
 
 	}
-	/*
-	User user = createUser("william", "ethan");
-	Folder folder = createFolder("william");
-	Task task = createTask("ETHAN");
-	task.date = createDate(5, 4, 2024);
-	append(folder.list, task);
-	addFolder(&user.folders, folder);
 
-	Task task2 = createTask("new");
-	task2.date = createDate(10, 4, 2024);
-	append(folder.list, task2);
-	addFolder(&user.folders, folder);
-
-	MainMenu(user);
-	*/
 	return 0;
 }

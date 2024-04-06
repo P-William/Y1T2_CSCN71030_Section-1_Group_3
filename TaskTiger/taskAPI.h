@@ -16,5 +16,6 @@ void SetPriority(Task* );
 void SetDateFromUser(Task* );
 Task* searchTask(const List*);
 void PrintTasks(List);
+void EditExistingTask(User* , Folder* );
 void deleteTask(List* );
 void markTaskAsComplete(User* , List* );

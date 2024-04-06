@@ -40,7 +40,7 @@ bool FolderMenu(FolderList* fl, User* user) {
 			addFolder(fl, CreateFolderFromUser()); //CreateFolder(); //create
 			break;
 		case 'd':
-			EditFolder(searchFolder(fl)); //EditFolder(); //create
+			EditExistingFolder(user, fl); //create
 			break;
 		case 'e':
 			destroyFolder(*(searchFolder(fl))); //DeleteFolder(); //create

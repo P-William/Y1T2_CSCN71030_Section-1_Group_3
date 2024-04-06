@@ -70,6 +70,7 @@ bool SetOptional(Task* task) {
 	default:
 		return true;
 	}
+	return true;
 }
 
 void RenameTask(Task* task) {
@@ -206,6 +207,17 @@ void PrintTasks(List tasks) {
 	for (int i = 0; i < tasks.size; i++) {
 		printf("Task: %s\n", tasks.arr[i].title);
 	}
+}
+
+void EditExistingTask(User* user, Folder* folder) {
+	Task* foundTask = searchTask(folder->list);
+
+	if (foundTask == NULL) {
+		printColoredString(RED, "Folder not found.\n");
+		return;
+	}
+
+	SetOptional(searchTask(folder->list));
 }
 
 //find and remove task of user's choice
