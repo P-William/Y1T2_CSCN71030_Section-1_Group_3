@@ -43,7 +43,7 @@ bool FolderMenu(FolderList* fl, User* user) {
 			EditExistingFolder(user, fl); //create
 			break;
 		case 'e':
-			destroyFolder(*(searchFolder(fl))); //DeleteFolder(); //create
+			DeleteExistingFolder(user, fl); //DeleteFolder(); //create
 			break;
 
 		case 'w': //back

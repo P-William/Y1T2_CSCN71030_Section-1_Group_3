@@ -14,3 +14,4 @@ void SelectFolder(User* , FolderList* );
 Folder* searchFolder(FolderList* );
 void PrintFolders(FolderList* );
 void EditExistingFolder(User* user, FolderList* fl);
+void DeleteExistingFolder(User* user, FolderList* fl);

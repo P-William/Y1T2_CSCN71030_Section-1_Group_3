@@ -96,6 +96,16 @@ void EditExistingFolder(User* user, FolderList* fl) {
 	EditFolder(foundFolder);
 }
 
+void DeleteExistingFolder(User* user, FolderList* fl) {
+	Folder* foundFolder = searchFolder(fl);
+
+	if (foundFolder == NULL) {
+		printColoredString(RED, "Folder not found.\n");
+		return;
+	}
+
+	destroyFolder(*(searchFolder(fl)));
+}
 
 void PrintFolders(FolderList* fl)
 {
