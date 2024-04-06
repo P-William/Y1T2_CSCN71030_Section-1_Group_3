@@ -220,6 +220,17 @@ void EditExistingTask(User* user, Folder* folder) {
 	SetOptional(searchTask(folder->list));
 }
 
+void DeleteExistingTask(User* user, Folder* folder) {
+	Task* foundTask = searchTask(folder->list);
+
+	if (foundTask == NULL) {
+		printColoredString(RED, "Folder not found.\n");
+		return;
+	}
+
+	deleteTask(folder->list);
+}
+
 //find and remove task of user's choice
 void deleteTask(List* list) {
 	char taskTitle[TASK_TITLE_LENGTH];

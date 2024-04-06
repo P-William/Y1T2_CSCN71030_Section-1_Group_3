@@ -19,3 +19,4 @@ void PrintTasks(List);
 void EditExistingTask(User* , Folder* );
 void deleteTask(List* );
 void markTaskAsComplete(User* , List* );
+void DeleteExistingTask(User* user, Folder* folder);

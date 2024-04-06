@@ -43,7 +43,7 @@ bool TaskMenu(Folder* folder, User* user) {
 			EditExistingTask(user, folder);
 			break;
 		case 'e':
-			deleteTask(folder->list);
+			DeleteExistingTask(user, folder);
 			break;
 
 		case 'w': //back
